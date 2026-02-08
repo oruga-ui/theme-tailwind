@@ -58,12 +58,10 @@ const tailwindConfig = {
             else if (size == "large") return "text-xl";
             return "text-sm";
         },
-        positionClass: (props: ComponentProps): string => {
-            if (props.position == "left")
-                return "[&_.breadcrumb]:justify-start";
-            if (props.position == "centered")
-                return "[&_.breadcrumb]:justify-center";
-            if (props.position == "right") return "[&_.breadcrumb]:justify-end";
+        positionClass: (position: string): string => {
+            if (position == "left") return "[&_.breadcrumb]:justify-start";
+            if (position == "centered") return "[&_.breadcrumb]:justify-center";
+            if (position == "right") return "[&_.breadcrumb]:justify-end";
             return "[&_.breadcrumb]:justify-start";
         },
         // positionClass: "",
@@ -206,7 +204,7 @@ const tailwindConfig = {
         tableEventVariantClass: "is-",
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
-        tableEventClass: "event bg-red-500", // bg-red-500 will be replaced 
+        tableEventClass: "event",
         monthBodyClass: "datepicker-body",
         monthCellClass: "datepicker-cell",
         monthCellFirstHoveredClass:
@@ -363,7 +361,7 @@ const tailwindConfig = {
         },
         fullPageClass: "is-full-page fixed",
         overlayClass:
-            "loading-overlay absolute top-0 right-0 bottom-0 left-0 bg-white/10 backdrop-blur-sm",
+            "loading-overlay absolute top-0 right-0 bottom-0 left-0 bg-white/10 backdrop-blur-sm ",
         iconClass: "icon",
         scrollClipClass: "is-clipped",
     },
@@ -388,10 +386,10 @@ const tailwindConfig = {
         overlayClass:
             "modal-background w-full h-full bg-black/80 backdrop-blur-sm",
         contentClass:
-            "modal-content bg-white w-auto absolute top-[10%] left-[50%] -translate-x-1/2 overflow-auto rounded-lg",
+            "modal-content bg-white w-auto absolute top-[10%] left-[50%] -translate-x-1/2 rounded-lg",
         closeClass: "modal-close absolute top-0 left-0",
         fullScreenClass: "is-full-screen",
-        scrollClipClass: "is-clipped",
+        scrollClipClass: "is-clipped overflow-auto",
     },
     notification: {
         override: true,
@@ -457,6 +455,7 @@ const tailwindConfig = {
                 "text-inherit",
                 "flex-shrink-0",
                 "border-2",
+                "border-gray-700",
                 "focus:ring-2",
                 "focus:ring-brand-soft",
                 "appearance-none",
@@ -543,20 +542,20 @@ const tailwindConfig = {
     skeleton: {
         override: true,
         rootClass: "skeleton flex",
-        itemClass: "rounded bg-gray-200 w-full h-2",
+        itemClass: "skeleton-item bg-gray-200 rounded w-full h-4",
         itemRoundedClass: "rounded-full",
         animatedClass: "animate-pulse",
         sizeClass: (position: string): string => {
-            if (position == "small") return "h-2";
-            else if (position == "medium") return "h-3";
-            else if (position == "large") return "h-6";
-            return "h-3";
+            if (position == "small") return "h-4";
+            else if (position == "medium") return "h-6";
+            else if (position == "large") return "h-8";
+            return "";
         },
         positionClass: (position: string): string => {
-            if (position == "left") return "items-start";
-            else if (position == "centered") return "items-center";
-            else if (position == "right") return "items-end";
-            return "items-start";
+            if (position == "left") return "justify-start";
+            else if (position == "centered") return "justify-center";
+            else if (position == "right") return "justify-end";
+            return "";
         },
     },
     slider: {
@@ -584,10 +583,10 @@ const tailwindConfig = {
         thumbClass:
             "slider-thumb bg-white cursor-grab w-5 h-5 border border-gray-200 rounded",
         tickLabelClass:
-            "slider-tick-label absolute top-1/2 left-1/2 transform -translate-x-1/2",
+            "slider-tick-label absolute top-1/2 left-1/2 pt-2 transform -translate-x-1/2",
         tickHiddenClass: "is-tick-hidden",
         tickClass:
-            "slider-tick absolute top-0  w-0.5 transform -translate-x-1/2 rounded-full",
+            "slider-tick absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
     },
     steps: {
         override: true,
@@ -624,7 +623,7 @@ const tailwindConfig = {
         },
         stepClickableClass: "is-clickable cursor-pointer",
         markerClass:
-            "step-marker m-2 flex justify-center items-center bg-gray-100 w-10 h-10 rounded-4xl",
+            "step-marker m-2 flex justify-center items-center w-10 h-10 rounded-4xl",
         contentClass: "step-content p-4",
         transitioningClass: "is-transitioning",
         stepPanelClass: "step-item",
@@ -640,9 +639,11 @@ const tailwindConfig = {
                 "items-center",
                 "flex-shrink-0",
                 "cursor-pointer",
-                "bg-gray-200",
                 "h-auto",
+                "bg-gray-200",
                 "text-inherit",
+                "rounded-md",
+                "[.check]:before:rounded-md",
                 "focus:ring-2",
                 "focus:ring-brand-soft",
                 "appearance-none",
@@ -651,8 +652,12 @@ const tailwindConfig = {
             ];
             return classes.join(" ");
         },
-        positionClass: (value: string): string => `has-${value}-label`,
-        roundedClass: "rounded",
+        positionClass: (position: string): string => {
+            if (position == "left") return "flex-row-reverse";
+            else if (position == "right") return "";
+            return "";
+        },
+        roundedClass: "[&_.check]:rounded-full [&_.check:before]:rounded-full",
         labelClass:
             "control-label select-none text-sm font-medium text-heading ml-2 mr-4",
         sizeClass: "is-",

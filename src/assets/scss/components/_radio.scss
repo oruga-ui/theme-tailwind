@@ -21,7 +21,6 @@
 
 .radio {
     .check {
-        border-color: list.nth(map.get(vars.$theme-colors, "secondary"), 1);
         width: 1.25rem;
         height: 1.25rem;
     }

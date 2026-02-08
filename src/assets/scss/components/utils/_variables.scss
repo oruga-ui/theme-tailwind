@@ -4,18 +4,18 @@
 @use "sass:map";
 
 $primary: var(--color-blue-700) !default;
-$primary-invert: var(--color-blue-50) !default;
+$primary-invert: var(--color-blue-100) !default;
 $secondary: var(--color-gray-700) !default;
-$secondary-invert: var(--color-gray-50) !default;
+$secondary-invert: var(--color-gray-100) !default;
 
 $success: var(--color-green-700) !default;
-$success-invert: var(--color-green-50) !default;
+$success-invert: var(--color-green-100) !default;
 $info: var(--color-sky-700) !default;
-$info-invert: var(--color-sky-50) !default;
+$info-invert: var(--color-sky-100) !default;
 $warning: var(--color-yellow-700) !default;
-$warning-invert: var(--color-yellow-50) !default;
+$warning-invert: var(--color-yellow-100) !default;
 $danger: var(--color-red-700) !default;
-$danger-invert: var(--color-red-50) !default;
+$danger-invert: var(--color-red-100) !default;
 
 $theme-colors: (
   "primary": (

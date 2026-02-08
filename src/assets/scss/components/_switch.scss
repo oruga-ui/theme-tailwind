@@ -29,14 +29,12 @@
     .check {
         width: 1.75rem;
         padding: 0.15rem;
-        border-radius: 9999px;
         transition: all vars.$speed-slow var(--ease-in); 
     }
     .check::before {
         content: "";
         display: block;
         font-size: inherit;
-        border-radius: 9999px;
         width: calc((1.75rem - 0.15rem * 2) / 2);
         height: calc((1.75rem - 0.15rem * 2) * .5);
         background: white;

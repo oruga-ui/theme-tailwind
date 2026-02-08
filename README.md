@@ -45,63 +45,63 @@ Please note, this package can be used without importing any other Oruga styling 
 
 
 ### Customization (SASS/SCSS)
-
-Tailwind is a highly customizable CSS framework. From colors to typography, spacing and sizes, forms and layouts, all parts of Tailwind can be customized by the user (see [Tailwind Customization](https://bulma.io/documentation/customize/concepts/)).
+<!-- 
+Tailwind is a highly customizable CSS framework. From colors to typography, spacing and sizes, forms and layouts, all parts of Tailwind can be customized by the user (see [Tailwind Customization](https://tailwindcss.com/docs/adding-custom-styles)).
 
 Using the following sample code you **don't need** `import '@oruga-ui/theme-tailwind/dist/tailwind.css'` but you have to add a custom sass/scss file to customize Tailwind and the theme variables. 
 To overwrite Tailwind Sass variables with your own values, you have to use `@use` and the `with` keyword, which takes a Sass map.
-You have two options for including the theme: include all the styling at once (including full tailwind), or include the Oruga theme and Tailwind separately.
+You have two options for including the theme: include all the styling at once (including full tailwind), or include the Oruga theme and Tailwind separately. -->
 
 ```scss
 // Option A: Include all styling (including tailwind)
 
 // set your color overrides
-$primary: #8c67ef;
-$link: $primary;
+// $primary: #8c67ef;
+// $link: $primary;
 
 // add new colors to the colors map
-$twitter: #4099FF;
-$custom-colors: ('twitter': $twitter);
+// $twitter: #4099FF;
+// $custom-colors: ('twitter': $twitter);
 
 // Include the Oruga Tailwind theme with Tailwind included (you can only manipulate any derived variables here)
-@use '@oruga-ui/theme-tailwind/dist/scss/tailwind-build' with (
-    $family-primary: '"Nunito", sans-serif',
-    $primary: $primary,
-    $link: $link,
-    $custom-colors: $custom-colors,
-);
+// @use '@oruga-ui/theme-tailwind/dist/scss/tailwind-build' with (
+//     $family-primary: '"Nunito", sans-serif',
+//     $primary: $primary,
+//     $link: $link,
+//     $custom-colors: $custom-colors,
+// );
 
 // Then add additional custom code here
 // ...
 ```
-**_NOTE:_** Note that only variables within Taiwlnd's [derived-variables.scss](https://github.com/jgthms/bulma/blob/main/sass/utilities/derived-variables.scss) file can be overridden here.
+**_NOTE:_** Note that only variables within Taiwlnd's [derived-variables.scss]() file can be overridden here.
 
 ```scss
 // Option B: Include the Oruga theme and Tailwind separately
 
 // set your color overrides
-$primary: #8c67ef;
-$link: $primary;
+// $primary: #8c67ef;
+// $link: $primary;
 
 // add new colors to the colors map
-$twitter: #4099FF;
-$custom-colors: ('twitter': $twitter);
+// $twitter: #4099FF;
+// $custom-colors: ('twitter': $twitter);
 
 // 1. Include the Oruga theme first (you can only manipulate any derived variables here)
-@use '@oruga-ui/theme-tailwind/dist/scss/tailwind' with (
-    $family-primary: '"Nunito", sans-serif',
-    $primary: $primary,
-    $link: $link,
-    $custom-colors: $custom-colors,
-);
+// @use '@oruga-ui/theme-tailwind/dist/scss/tailwind' with (
+//     $family-primary: '"Nunito", sans-serif',
+//     $primary: $primary,
+//     $link: $link,
+//     $custom-colors: $custom-colors,
+// );
 
 // 2. Include any other Tailwind module with specific configuration here
-@use "tailwind/sass/elements" with (
-    $button-weight: 800
-);
+// @use "tailwind/sass/elements" with (
+//     $button-weight: 800
+// );
 
 // 3. Include the remaining parts or full Tailwind
-@use "tailwind/sass";
+// @use "tailwind/sass";
 
 // Then add additional custom code here
 // ...
@@ -109,7 +109,7 @@ $custom-colors: ('twitter': $twitter);
 
 ### Override default config
 
-In case you want to replace the default style of a component you can override or add new classes changing ``tailwindConfig``; more details about components customization on https://oruga-ui.com/documentation/customisation.html
+<!-- In case you want to replace the default style of a component you can override or add new classes changing ``tailwindConfig``; more details about components customization on https://oruga-ui.com/documentation/customisation.html
 
 ```js
 import { createApp } from 'vue'
@@ -130,7 +130,7 @@ const customTailwindConfig = {
 createApp(App)
     .use(Oruga, customTailwindConfig)
     .mount('#app')
-```
+``` -->
 
 
 ## Contributors

@@ -5,19 +5,31 @@
 @use "./utils/variables" as vars;
 
 .steps-wrapper {
+    &.is-vertical {
+        .steps {
+            .step-marker:not(:first-child)::before {
+                content: unset;
+            }
+        }
+    }
     .steps {
-        // .step-marker:not(:first-child)::before {
-        //     content: " ";
-        //     display: block;
-        //     position: absolute;
-        //     width: 75%;
-        //     height: 1px;
-        //     top: 32%;
-        //     left: -37%;
-        //     bottom: 0;
-        //     background: var(--color-gray-200);
-        // }
+        .step-marker {
+            background-color: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
+        }
+        .step-marker:not(:first-child)::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 0.15rem;
+            top: 32%;
+            left: -50%;
+            bottom: 0;
+            z-index: -1;
+            background: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
+        }
         
+        .is-previous,
         .is-active {
             .step-marker {
                 background-color: list.nth(map.get(vars.$theme-colors, "primary"), 2);
@@ -31,11 +43,16 @@
         @each $name, $pair in vars.$theme-colors {
             $variant: list.nth($pair, 1);
             $variant-invert: list.nth($pair, 2);
+            .is-previous,
             .is-active {
                 &.is-#{$name} {
                     .step-marker {
                         background-color: $variant-invert;
                         color: $variant;
+                    }
+                    .step-marker:not(:first-child)::before {
+                        content: " ";
+                        background-color: $variant-invert;
                     }
                     .step-title {
                         color: $variant;
