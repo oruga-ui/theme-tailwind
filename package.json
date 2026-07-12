@@ -2,12 +2,35 @@
   "name": "theme-tailwind",
   "version": "1.0.0",
   "description": "Tailwind theme for Oruga UI",
-  "main": "index.js",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mouadTaoussi/theme-tailwind/issues"
+  "type": "module",
+  "main": "dist/theme.cjs",
+  "module": "dist/theme.js",
+  "unpkg": "dist/theme.cjs",
+  "types": "dist/types/theme.d.ts",
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/theme.js",
+      "types": "./dist/types/theme.d.ts"
+    },
+    "./style.css": "./dist/theme.css",
+    "./style.scss": "./dist/scss/theme.scss",
+    "./scss/*.scss": "./dist/scss/*.scss",
+    "./dist/scss/*.scss": "./dist/scss/*.scss"
   },
-  "homepage": "https://github.com/mouadTaoussi/theme-tailwind#readme",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "bugs": {
+    "url": "https://github.com/oruga-ui/theme-tailwind/issues"
+  },
+  "homepage": "https://github.com/oruga-ui/theme-tailwind#readme",
   "scripts": {
     "dev": "vite --force",
     "serve": "vite preview",
@@ -20,11 +43,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mouadTaoussi/theme-tailwind.git"
+    "url": "git+https://github.com/oruga-ui/theme-tailwind.git"
   },
   "devDependencies": {
-    "@oruga-ui/examples": "../oruga@0.12.3/oruga/packages/examples",
-    "@oruga-ui/oruga": "../oruga@0.12.3/oruga/packages/oruga",
+    "@oruga-ui/examples": "../oruga@0.14.0/oruga/packages/examples",
+    "@oruga-ui/oruga": "../oruga@0.14.0/oruga/packages/oruga",
     "@types/node": "^22.10.5",
     "@vitejs/plugin-vue": "5.2.1",
     "@vue/eslint-config-prettier": "^10.1.0",
@@ -54,13 +77,5 @@
     "vue": "3.5.13",
     "vue-router": "4.5.0",
     "vue-tsc": "2.2.0"
-  },
-  "keywords": [
-    "oruga",
-    "tailwind",
-    "theme-tailwind"
-  ],
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.1.7"
   }
 }

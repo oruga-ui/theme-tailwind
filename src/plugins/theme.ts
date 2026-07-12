@@ -229,6 +229,40 @@ const tailwindConfig = {
         timepickerWrapperClass:
             "timepicker-wrapper [&_.dropdown]:w-full [&_.dropdown-menu]:!shadow-sm [&_.dropdown-menu]:!w-full",
     },
+    dialog: {
+        override: true,
+        rootClass:
+            "dialog modal is-active absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-lg border-gray-200 shadow-sm",
+        activeClass: "is-active",
+        mobileClass: undefined,
+        teleportClass: "is-teleported",
+        fullscreenClass: "is-full-screen",
+        // backdropClass: "modal-background", @WIP in Oruga's 0.14.pre
+        wrapperClass: "modal-content h-full flex flex-col rounded-lg",
+        textPositionClass: (position: string) => {
+            if (position === "left") return "[&_.modal-card-body]:text-left";
+            else if (position === "center")
+                return "[&_.modal-card-body]:text-center";
+            else if (position === "right")
+                return "[&_.modal-card-body]:text-right";
+        },
+        headerClass: "modal-card-head p-4 border-b border-gray-200",
+        titleClass: "modal-card-title text-xl font-bold text-gray-700",
+        closeClass:
+            "modal-close is-large absolute top-4 right-4 cursor-pointer",
+        closeIconSize: "medium",
+        subtitleClass: "modal-card-subtitle text-sm text-gray-500",
+        bodyClass: "modal-card-body flex-1 overflow-y-auto p-4",
+        contentClass: "modal-content",
+        figureClass: "image",
+        footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
+        footerPositionClass: (position: string) => {
+            if (position === "left") return "[&_.modal-card-foot]:justify-content-flex-start";
+            if (position === "center") return "[&_.modal-card-foot]:justify-content-center";
+            if (position === "right") return "[&_.modal-card-foot]:justify-content-flex-end";
+        },
+        scrollClipClass: "is-clipped overflow-auto",
+    },
     dropdown: {
         override: true,
         rootClass: "dropdown relative btn-group inline-block align-middle",
@@ -340,6 +374,41 @@ const tailwindConfig = {
         hasIconRightClass: "has-icons-right",
         counterClass: "help counter",
     },
+    listbox: {
+        override: true,
+        rootClass: (): string => {
+            const classes = [
+                "listbox",
+                "panel",
+                "z-10",
+                "bg-white",
+                "rounded-lg",
+                "shadow-sm",
+                "min-w-48",
+                "p-2",
+                "text-gray-600",
+                "border border-gray-100",
+                "overflow-auto",
+            ];
+            return classes.join(" ");
+        },
+        selectableClass: "selectable",
+        multipleClass: "multiple",
+        disabledClass: "is-disabled", // @Duplicate element
+        listClass: "panel-list divide-y divide-gray-100 overflow-auto",
+        itemClass:
+            "list-item panel-block rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
+        itemDisabledClass:
+            "is-disabled pointer-events-none cursor-not-allowed opacity-50",
+        itemFocusedClass: "is-focused ",
+        itemSelectedClass: "is-active",
+        filterClass: "list-item panel-block px-4 py-2 border-b border-gray-200",
+        emptyClass: "list-item panel-block is-disabled",
+        headerClass:
+            "list-item panel-block px-4 py-2 text-gray-500 border-b border-gray-200",
+        footerClass:
+            "list-item panel-block px-4 py-2 text-gray-500 border-t border-gray-200 ",
+    },
     loading: {
         override: true,
         rootClass: (): string => {
@@ -386,7 +455,7 @@ const tailwindConfig = {
         overlayClass:
             "modal-background w-full h-full bg-black/80 backdrop-blur-sm",
         contentClass:
-            "modal-content bg-white w-auto absolute top-[10%] left-[50%] -translate-x-1/2 rounded-lg",
+            "modal-content bg-white w-auto absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 border border-gray-200 rounded-lg shadow-sm",
         closeClass: "modal-close absolute top-0 left-0",
         fullScreenClass: "is-full-screen",
         scrollClipClass: "is-clipped overflow-auto",
@@ -442,6 +511,13 @@ const tailwindConfig = {
         buttonPrevClass: "pagination-previous",
         infoClass: "info",
     },
+    // popover: { TODO: Add popover component classes
+    //     rootClass: "popover",
+    //     triggerClass: "popover-trigger",
+    //     contentClass: "popover-content",
+    //     backdropClass: "popover-backdrop",
+    //     scrollClipClass: "is-clipped",
+    // },
     radio: {
         override: true,
         rootClass: "radio flex justify-start items-center relative inline-flex",
@@ -753,6 +829,14 @@ const tailwindConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
         transitioningClass: "is-transitioning",
     },
+    // tag: { TODO: Add tag component classes
+    //     rootClass: "tag",
+    //     variantClass: "is-",
+    //     sizeClass: "is-",
+    //     roundedClass: "is-rounded",
+    //     badgeClass: "badge",
+    //     closeClass: "delete is-small",
+    // },
     taginput: {
         override: true,
         rootClass: "taginput relative control shadow-xs ",
@@ -823,6 +907,19 @@ const tailwindConfig = {
         positionClass: "is-",
         teleportClass: "is-teleported",
     },
+    // tree: { TODO: Add tree component classes
+    //     rootClass: "tree menu",
+    //     listClass: "menu-list",
+    //     disabledClass: "is-disabled",
+    //     emptyClass: "is-empty",
+    //     itemClass: "tree-item",
+    //     itemLabelClass: "menu-item",
+    //     itemIconClass: "tree-icon",
+    //     itemToggleIconClass: "tree-toggle-icon",
+    //     itemSelectedClass: "is-active",
+    //     itemDisabledClass: "is-disabled",
+    //     subtreeClass: "submenu",
+    // },
     upload: {
         override: true,
         rootClass: (): string => {

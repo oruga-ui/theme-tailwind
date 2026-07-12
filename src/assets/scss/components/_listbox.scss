@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "sass:list";
+@use "./utils/all" as utils;
+@use "./utils/variables" as vars;
+
+.listbox {
+    .panel-list {
+        .list-item {
+            &.is-active {
+                background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
+                color: white;
+            }
+        }
+    }
+}
