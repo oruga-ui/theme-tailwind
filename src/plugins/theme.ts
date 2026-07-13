@@ -511,13 +511,13 @@ const tailwindConfig = {
         buttonPrevClass: "pagination-previous",
         infoClass: "info",
     },
-    // popover: { TODO: Add popover component classes
-    //     rootClass: "popover",
-    //     triggerClass: "popover-trigger",
-    //     contentClass: "popover-content",
-    //     backdropClass: "popover-backdrop",
-    //     scrollClipClass: "is-clipped",
-    // },
+    popover: { // TODO: Add popover component classes
+        rootClass: "popover",
+        triggerClass: "popover-trigger",
+        contentClass: "popover-content",
+        backdropClass: "popover-backdrop",
+        scrollClipClass: "is-clipped",
+    },
     radio: {
         override: true,
         rootClass: "radio flex justify-start items-center relative inline-flex",
@@ -829,14 +829,22 @@ const tailwindConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
         transitioningClass: "is-transitioning",
     },
-    // tag: { TODO: Add tag component classes
-    //     rootClass: "tag",
-    //     variantClass: "is-",
-    //     sizeClass: "is-",
-    //     roundedClass: "is-rounded",
-    //     badgeClass: "badge",
-    //     closeClass: "delete is-small",
-    // },
+    tag: {
+        override: true,
+        rootClass:
+            "tag inline-flex items-center justify-center px-2 py-1 rounded-full",
+        variantClass: "is-",
+        sizeClass: (size: string): string => {
+            if (size == "small") return "text-xs";
+            else if (size == "medium") return "text-md";
+            else if (size == "large") return "text-lg";
+            return "text-xs";
+        },
+        roundedClass: "rounded-full",
+        badgeClass:
+            "badge absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2",
+        closeClass: "delete is-small ml-2 cursor-pointer",
+    },
     taginput: {
         override: true,
         rootClass: "taginput relative control shadow-xs ",

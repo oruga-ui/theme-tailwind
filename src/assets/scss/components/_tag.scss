@@ -1,0 +1,27 @@
+
+@use "sass:map";
+@use "sass:list";
+@use "./utils/all" as utils;
+@use "./utils/variables" as vars;
+
+.tag {
+    background-color: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
+    color: black;
+
+    @each $name, $pair in vars.$theme-colors {
+        $variant: list.nth($pair, 1);
+        $variant-invert: list.nth($pair, 2);
+
+        &.is-#{$name} {
+            background-color: $variant;
+            border-color: $variant;
+            color: white;
+        }
+    }
+
+    &:empty {
+        width: 1em;
+        height: 1em;
+        padding: .75em;
+    }
+}
