@@ -915,19 +915,23 @@ const tailwindConfig = {
         positionClass: "is-",
         teleportClass: "is-teleported",
     },
-    // tree: { TODO: Add tree component classes
-    //     rootClass: "tree menu",
-    //     listClass: "menu-list",
-    //     disabledClass: "is-disabled",
-    //     emptyClass: "is-empty",
-    //     itemClass: "tree-item",
-    //     itemLabelClass: "menu-item",
-    //     itemIconClass: "tree-icon",
-    //     itemToggleIconClass: "tree-toggle-icon",
-    //     itemSelectedClass: "is-active",
-    //     itemDisabledClass: "is-disabled",
-    //     subtreeClass: "submenu",
-    // },
+    tree: { // TODO: Add tree component classes
+        rootClass: "tree menu ",
+        listClass: "menu-list divide-y divide-gray-100 overflow-auto",
+        disabledClass:
+            "is-disabled pointer-events-none cursor-not-allowed opacity-50",
+        emptyClass: "is-empty text-gray-500 text-center py-8 ",
+        itemClass:
+            "tree-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
+        itemLabelClass:
+            "menu-item text-left w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1 ",
+        itemIconClass: "tree-icon mr-2 text-gray-500",
+        itemToggleIconClass: "tree-toggle-icon mr-2 text-gray-500",
+        itemSelectedClass: "is-active bg-blue-500 text-white ",
+        itemDisabledClass:
+            "is-disabled pointer-events-none cursor-not-allowed opacity-50",
+        subtreeClass: "submenu ml-5 pl-1 border-l border-gray-200 ",
+    },
     upload: {
         override: true,
         rootClass: (): string => {
