@@ -916,6 +916,7 @@ const tailwindConfig = {
         teleportClass: "is-teleported",
     },
     tree: { // TODO: Add tree component classes
+        override: true,
         rootClass: "tree menu ",
         listClass: "menu-list divide-y divide-gray-100 overflow-auto",
         disabledClass:
