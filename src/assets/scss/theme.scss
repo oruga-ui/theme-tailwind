@@ -1,4 +1,4 @@
-@forward "components/utils/all";
+@forward "utils/all";
 @forward "tailwindcss";
 
 @forward "./components/autocomplete"; //
@@ -7,7 +7,7 @@
 @forward "./components/carousel"; //
 @forward "./components/checkbox";
 @forward "./components/collapse";
-@forward "./components/datepicker"; // 
+@forward "./components/datepicker"; //
 @forward "./components/dialog";
 @forward "./components/dropdown"; //
 @forward "./components/field";
@@ -17,13 +17,13 @@
 @forward "./components/loading";
 @forward "./components/modal";
 @forward "./components/menu";
-@forward "./components/notification"; 
+@forward "./components/notification";
 @forward "./components/pagination";
 // @forward "./components/popover";
 @forward "./components/radio";
 @forward "./components/select";
 @forward "./components/sidebar";
-@forward "./components/skeleton"; 
+@forward "./components/skeleton";
 @forward "./components/slider";
 @forward "./components/steps";
 @forward "./components/switch";
@@ -42,5 +42,3 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind tokens;
-
-

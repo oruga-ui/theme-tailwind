@@ -1,7 +1,7 @@
-import type { ComponentProps } from "@oruga-ui/oruga";
-import { isTrueish } from "@oruga-ui/oruga";
+import type { OrugaConfig } from "@oruga-ui/oruga-next";
+import { isTrueish } from "@oruga-ui/oruga-next";
 
-const tailwindConfig = {
+const tailwindConfig: OrugaConfig = {
     button: {
         override: true,
         rootClass: (): string => {
@@ -101,7 +101,7 @@ const tailwindConfig = {
             "carousel-indicator p-2 w-full flex items-center justify-center bg-gray-300",
         indicatorClass: "indicator-item [&_img]:cursor-default",
         indicatorsInsideClass: "is-inside absolute bg-transparent",
-        indicatorsPositionClass: (_: string, props: ComponentProps): string => {
+        indicatorsPositionClass: (_: string, props): string => {
             if (props.indicatorPosition == "top") return "top-0";
             return "bottom-0";
         },
@@ -143,7 +143,7 @@ const tailwindConfig = {
         labelClass:
             "control-label select-none font-medium text-heading ml-2 mr-4",
         variantClass: "is-",
-        sizeClass: (_: string, props: ComponentProps): string => {
+        sizeClass: (_: string, props): string => {
             if (props.size == "small")
                 return "is-small [&_.check]:!w-3 [&_.check]:!h-3 [&_.control-label]:text-xs";
             if (props.size == "medium")
@@ -172,7 +172,7 @@ const tailwindConfig = {
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
-        tableBodyClass: (_: string, props: ComponentProps) => {
+        tableBodyClass: (_: string, props) => {
             const classes = ["datepicker-body"];
             if (props.events) classes.push(`has-events`);
             return classes.join(" ");
@@ -257,9 +257,12 @@ const tailwindConfig = {
         figureClass: "image",
         footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
         footerPositionClass: (position: string) => {
-            if (position === "left") return "[&_.modal-card-foot]:justify-content-flex-start";
-            if (position === "center") return "[&_.modal-card-foot]:justify-content-center";
-            if (position === "right") return "[&_.modal-card-foot]:justify-content-flex-end";
+            if (position === "left")
+                return "[&_.modal-card-foot]:justify-content-flex-start";
+            if (position === "center")
+                return "[&_.modal-card-foot]:justify-content-center";
+            if (position === "right")
+                return "[&_.modal-card-foot]:justify-content-flex-end";
         },
         scrollClipClass: "is-clipped overflow-auto",
     },
@@ -333,7 +336,7 @@ const tailwindConfig = {
     },
     input: {
         override: true,
-        rootClass: (_: string, props: ComponentProps): string => {
+        rootClass: (_: string, props): string => {
             const classes = [
                 "input-component",
                 "inline-block",
@@ -343,7 +346,7 @@ const tailwindConfig = {
             if (isTrueish(props.icon)) classes.push("has-icons-left");
             return classes.join(" ");
         },
-        inputClass: (_: string, props: ComponentProps): string => {
+        inputClass: (_: string, props): string => {
             const classes = [
                 "input",
                 "rounded-lg",
@@ -358,7 +361,7 @@ const tailwindConfig = {
             if (props.iconRight) classes.push("icon-right");
             return classes.join(" ");
         },
-        sizeClass: (_: string, props: ComponentProps): string => {
+        sizeClass: (_: string, props): string => {
             if (props.size == "small") return "input-small";
             else if (props.size == "medium") return "input-medium";
             else if (props.size == "large") return "input-large";
@@ -477,7 +480,7 @@ const tailwindConfig = {
     },
     pagination: {
         override: true,
-        rootClass: (_: string, props: ComponentProps): string => {
+        rootClass: (_: string, props): string => {
             const classes = [
                 "pagination",
                 "text-gray-400",
@@ -493,7 +496,7 @@ const tailwindConfig = {
         sizeClass: "is-",
         simpleClass: "is-simple",
         orderClass: "is-",
-        positionClass: (_: string, props: ComponentProps): string => {
+        positionClass: (_: string, props): string => {
             if (props.position == "right")
                 return "[&_.pagination-list]:justify-end";
             if (props.position == "centered")
@@ -511,7 +514,8 @@ const tailwindConfig = {
         buttonPrevClass: "pagination-previous",
         infoClass: "info",
     },
-    popover: { // TODO: Add popover component classes
+    popover: {
+        // TODO: Add popover component classes
         rootClass: "popover",
         triggerClass: "popover-trigger",
         contentClass: "popover-content",
@@ -543,7 +547,7 @@ const tailwindConfig = {
         labelClass:
             "control-label select-none font-medium text-heading ml-2 mr-4",
         variantClass: "is-",
-        sizeClass: (_: string, props: ComponentProps): string => {
+        sizeClass: (_: string, props): string => {
             if (props.size == "small")
                 return "is-small [&_.control-label]:text-xs";
             if (props.size == "medium")
@@ -553,7 +557,7 @@ const tailwindConfig = {
     },
     select: {
         override: true,
-        rootClass: (_: string, props: ComponentProps): string => {
+        rootClass: (_: string, props): string => {
             const classes = [
                 "select-component",
                 "control",
@@ -564,7 +568,7 @@ const tailwindConfig = {
             if (isTrueish(props.iconRight)) classes.push("has-icons-right");
             return classes.join(" ");
         },
-        selectClass: (_: string, props: ComponentProps): string => {
+        selectClass: (_: string, props): string => {
             const classes = [
                 "select",
                 "rounded-lg",
@@ -599,7 +603,7 @@ const tailwindConfig = {
             "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
         contentClass: "sidebar-content shadow-sm bg-white !w-auto !h-auto z-41",
         activeClass: "is-active",
-        positionClass: (_: string, props: ComponentProps): string => {
+        positionClass: (_: string, props): string => {
             if (props.position == "top") return "w-full top-0 right-0 left-0";
             if (props.position == "right")
                 return "h-full top-0 right-0 bottom-0";

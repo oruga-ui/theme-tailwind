@@ -1,12 +1,12 @@
 {
-  "name": "theme-tailwind",
-  "version": "1.0.0",
+  "name": "@oruga-ui/theme-tailwind",
+  "version": ".0.1",
   "description": "Tailwind theme for Oruga UI",
   "license": "MIT",
   "type": "module",
-  "main": "dist/theme.cjs",
+  "main": "dist/theme.umd.cjs",
   "module": "dist/theme.js",
-  "unpkg": "dist/theme.cjs",
+  "unpkg": "dist/theme.umd.cjs",
   "types": "dist/types/theme.d.ts",
   "sideEffects": [
     "*.css",
@@ -19,63 +19,77 @@
     },
     "./style.css": "./dist/theme.css",
     "./style.scss": "./dist/scss/theme.scss",
-    "./scss/*.scss": "./dist/scss/*.scss",
-    "./dist/scss/*.scss": "./dist/scss/*.scss"
+    "./scss/*": "./dist/scss/*.scss",
+    "./dist/scss/*": "./dist/scss/*.scss"
   },
   "files": [
     "dist",
     "LICENSE",
     "README.md"
   ],
-  "bugs": {
-    "url": "https://github.com/oruga-ui/theme-tailwind/issues"
-  },
-  "homepage": "https://github.com/oruga-ui/theme-tailwind#readme",
-  "scripts": {
-    "dev": "vite --force",
-    "serve": "vite preview",
-    "build": "vue-tsc --noEmit && vite build",
-    "lint": "eslint . --fix --quiet",
-    "lint:style": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
-    "update": "ncu -u",
-    "dev1": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build1": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oruga-ui/theme-tailwind.git"
   },
+  "bugs": {
+    "url": "https://github.com/oruga-ui/theme-tailwind/issues"
+  },
+  "scripts": {
+    "dev": "vite --force",
+    "serve": "vite preview",
+    "build": "vite build",
+    "lint": "run-s lint:eslint lint:prettier lint:stylelint",
+    "lint:eslint": "eslint . --fix",
+    "lint:prettier": "prettier --write .",
+    "lint:stylelint": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
+    "test:ts": "vue-tsc --build --noEmit",
+    "test:lint": "run-s test:eslint test:prettier test:stylelint",
+    "test:eslint": "eslint .",
+    "test:prettier": "prettier --check .",
+    "test:stylelint": "stylelint **/*.{css,scss} --ignore-path .gitignore",
+    "update": "ncu -u"
+  },
+  "peerDependencies": {
+    "@oruga-ui/oruga-next": "^0.13.0"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.7"
+  },
   "devDependencies": {
-    "@oruga-ui/examples": "../oruga@0.14.0/oruga/packages/examples",
-    "@oruga-ui/oruga": "../oruga@0.14.0/oruga/packages/oruga",
-    "@types/node": "^22.10.5",
-    "@vitejs/plugin-vue": "5.2.1",
-    "@vue/eslint-config-prettier": "^10.1.0",
-    "@vue/eslint-config-typescript": "^14.2.0",
-    "@vue/tsconfig": "^0.7.0",
-    "autoprefixer": "^10.4.21",
-    "core-js": "3.39.0",
-    "eslint": "^9.17.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.32.0",
-    "npm-check-updates": "^17.1.13",
-    "postcss": "^8.5.3",
-    "prettier": "^3.4.2",
-    "sass": "1.83.1",
-    "stylelint": "^16.12.0",
-    "stylelint-config-recommended": "^14.0.1",
-    "stylelint-config-recommended-scss": "^14.1.0",
-    "stylelint-prettier": "^5.0.2",
-    "stylelint-scss": "^6.10.0",
+    "@eslint/js": "^10.0.1",
+    "@oruga-ui/examples": "^0.13.6",
+    "@oruga-ui/oruga-next": "^0.13.6",
+    "@tsconfig/node24": "^24.0.4",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "@vue/tsconfig": "^0.9.1",
+    "core-js": "^3.49.0",
+    "eslint": "^10.6.0",
+    "eslint-plugin-compat": "^7.0.2",
+    "eslint-plugin-jsdoc": "^63.0.12",
+    "eslint-plugin-vue": "^10.9.2",
+    "jiti": "^2.7.0",
+    "npm-check-updates": "^22.2.9",
+    "npm-run-all2": "^9.0.2",
+    "prettier": "^3.9.4",
+    "sass": "^1.101.0",
+    "stylelint": "^17.14.0",
+    "stylelint-config-recommended-scss": "^17.0.1",
+    "stylelint-config-recommended-vue": "^1.6.1",
     "tailwindcss": "^4.1.7",
-    "terser": "^5.37.0",
-    "typescript": "5.7.2",
-    "vite": "^6.0.7",
-    "vite-plugin-banner": "^0.8.0",
-    "vite-plugin-dts": "^4.4.0",
-    "vite-plugin-static-copy": "^2.2.0",
-    "vue": "3.5.13",
-    "vue-router": "4.5.0",
-    "vue-tsc": "2.2.0"
-  }
+    "typescript": "^6.0.3",
+    "vite": "^8.1.3",
+    "vite-plugin-banner": "^0.8.1",
+    "vite-plugin-dts": "^5.0.3",
+    "vite-plugin-static-copy": "^4.1.1",
+    "vue": "^3.5.36",
+    "vue-router": "^5.1.0",
+    "vue-tsc": "^3.3.7"
+  },
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ]
 }

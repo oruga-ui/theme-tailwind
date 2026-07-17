@@ -3,21 +3,20 @@ import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import banner from "vite-plugin-banner";
 import { viteStaticCopy as copy } from "vite-plugin-static-copy";
-// import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from "@tailwindcss/vite";
 
 import { fileURLToPath } from "url";
 import { resolve } from "path";
 
 import pkg from "./package.json" with { type: "json" };
 
+/**
+ * Generate a licence file banner with the given package version.
+ * @param version package version
+ * @returns file banner string
+ */
 function generate(version: string): string {
-    const preview_build = process.env.ORUGA_PREVIEW_BUILD;
-
-    if (preview_build) {
-        version = `${version} (build ${preview_build})`;
-    }
-
-    return `/*! Oruga Tailwind Theme v${version} | MIT License | github.com/oruga-ui/theme-tailwind */`;
+    return `/*! Oruga Tailwind Theme v${version} | MIT License | github.com/oruga-ui/theme-bootstrap */`;
 }
 
 // https://vitejs.dev/config/
@@ -25,8 +24,7 @@ export default defineConfig(({ mode }) => {
     if (mode === "development") {
         return {
             root: __dirname,
-            // plugins: [vue(), tailwindcss()],
-            plugins: [vue()],
+            plugins: [vue(), tailwindcss()],
             resolve: {
                 alias: {
                     "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -35,38 +33,12 @@ export default defineConfig(({ mode }) => {
         };
     } else {
         return {
-            build: {
-                emptyOutDir: true,
-                copyPublicDir: false,
-                minify: "terser",
-                lib: {
-                    entry: resolve(__dirname, "src/plugins/theme.ts"),
-                    name: "OrugaThemeTailwind",
-                    fileName: "tailwind",
-                    formats: ["es", "cjs", "umd"],
-                },
-                rollupOptions: {
-                    // make sure to externalize deps that shouldn't be bundled
-                    // into your library
-                    external: ["vue", /oruga\/.*/],
-                    output: {
-                        assetFileNames: "tailwind.[ext]",
-                        // Provide global variables to use in the UMD build
-                        // for externalized deps
-                        globals: {
-                            vue: "Vue",
-                        },
-                    },
-                },
-            },
-            css: {
-                // rename default `style.css` to `tailwind.css`
-                postcss: { to: "tailwind.css" },
-            },
             plugins: [
                 // build types in dist/types
                 dts({
-                    outDir: "./dist/types",
+                    tsconfigPath: "./tsconfig.lib.json",
+                    outDirs: "./dist/types",
+                    entryRoot: "src/plugins",
                     include: ["src/plugins/theme.ts"],
                 }),
                 // copy assets into dist
@@ -76,6 +48,44 @@ export default defineConfig(({ mode }) => {
                 // adds a banner to every generated dist file
                 banner(generate(pkg.version)),
             ],
+            resolve: {
+                tsconfigPaths: true,
+            },
+            build: {
+                emptyOutDir: true,
+                copyPublicDir: false,
+                lib: {
+                    entry: resolve(__dirname, "src/build.ts"),
+                    name: "OrugaThemeTailwind",
+                    fileName: "theme",
+                    cssFileName: "theme",
+                },
+                rollupOptions: {
+                    // make sure to externalize deps that shouldn't be bundled
+                    // into your library
+                    external: ["vue", /oruga\/.*/],
+                    output: {
+                        // Provide global variables to use in the UMD build
+                        // for externalized deps
+                        globals: {
+                            vue: "Vue",
+                        },
+                    },
+                },
+            },
+            css: {
+                preprocessorOptions: {
+                    includePaths: ["node_modules"],
+                    scss: {
+                        // this can be removed with bootstrap 5.4 (https://github.com/twbs/bootstrap/issues/40962)
+                        silenceDeprecations: [
+                            "color-functions",
+                            "global-builtin",
+                            "import",
+                        ],
+                    },
+                },
+            },
         };
     }
 });
