@@ -54,7 +54,7 @@ const tailwindConfig = {
         variantClass: "is-",
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
-            else if (size == "medium") return "text-md";
+            else if (size == "medium") return "text-base";
             else if (size == "large") return "text-xl";
             return "text-sm";
         },
@@ -324,7 +324,7 @@ const tailwindConfig = {
         variantClass: "text-",
         sizeClass: (position: string): string => {
             if (position == "small") return "text-sm";
-            else if (position == "medium") return "text-md";
+            else if (position == "medium") return "text-base";
             else if (position == "large") return "text-lg";
             return "";
         },
@@ -512,11 +512,14 @@ const tailwindConfig = {
         infoClass: "info",
     },
     popover: { // TODO: Add popover component classes
-        rootClass: "popover",
-        triggerClass: "popover-trigger",
-        contentClass: "popover-content",
-        backdropClass: "popover-backdrop",
-        scrollClipClass: "is-clipped",
+        rootClass: "popover ",
+        triggerClass:
+            "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
+        contentClass:
+            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm p-4 w-auto h-auto",
+        backdropClass:
+            "popover-backdrop fixed top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
+        scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
         override: true,
@@ -680,7 +683,7 @@ const tailwindConfig = {
             if (size == "small")
                 return "[&_.step-marker]:w-8 [&_.step-marker]:h-8 [&_.step-title]:text-sm";
             else if (size == "medium")
-                return "[&_.step-marker]:w-12 [&_.step-marker]:h-12 [&_.step-title]:text-md";
+                return "[&_.step-marker]:w-12 [&_.step-marker]:h-12 [&_.step-title]:text-base";
             else if (size == "large")
                 return "[&_.step-marker]:w-17 [&_.step-marker]:h-17 [&_.step-title]:text-lg";
             return "";
@@ -816,7 +819,7 @@ const tailwindConfig = {
         },
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
-            else if (size == "medium") return "text-md";
+            else if (size == "medium") return "text-base";
             else if (size == "large") return "text-lg";
             return "text-sm";
         },
@@ -832,13 +835,12 @@ const tailwindConfig = {
     tag: {
         override: true,
         rootClass:
-            "tag inline-flex items-center justify-center px-2 py-1 rounded-full",
+            "tag inline-flex items-center justify-center px-2 py-1 rounded-full text-xs font-bold",
         variantClass: "is-",
         sizeClass: (size: string): string => {
-            if (size == "small") return "text-xs";
-            else if (size == "medium") return "text-md";
-            else if (size == "large") return "text-lg";
-            return "text-xs";
+            if (size == "small") return "!text-xs";
+            else if (size == "medium") return "!text-base";
+            else if (size == "large") return "!text-lg";
         },
         roundedClass: "rounded-full",
         badgeClass:
