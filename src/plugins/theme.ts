@@ -271,8 +271,7 @@ const tailwindConfig = {
         expandedClass: "w-full [&_.dropdown-menu]:w-full",
         inlineClass:
             "is-inline [&_.dropdown-menu]:static [&_.dropdown-menu]:inline-block [&_.dropdown-menu]:overflow-auto [&_.dropdown-menu]:z-0",
-        overlayClass:
-            "dropdown-backdrop fixed top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
+        overlayClass: "dropdown-backdrop",
         menuClass: (): string => {
             const classes = [
                 "dropdown-menu",
@@ -456,7 +455,8 @@ const tailwindConfig = {
             "modal-background w-full h-full bg-black/80 backdrop-blur-sm",
         contentClass:
             "modal-content bg-white w-auto absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 border border-gray-200 rounded-lg shadow-sm",
-        closeClass: "modal-close absolute top-0 left-0",
+        closeClass:
+            "modal-close is-large absolute top-4 right-4 cursor-pointer z-50 ",
         fullScreenClass: "is-full-screen",
         scrollClipClass: "is-clipped overflow-auto",
     },
@@ -512,13 +512,13 @@ const tailwindConfig = {
         infoClass: "info",
     },
     popover: { // TODO: Add popover component classes
-        rootClass: "popover ",
+        override: true,
+        rootClass: "popover",
         triggerClass:
             "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
         contentClass:
             "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm p-4 w-auto h-auto",
-        backdropClass:
-            "popover-backdrop fixed top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
+        backdropClass: "popover-backdrop",
         scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
@@ -824,7 +824,7 @@ const tailwindConfig = {
             return "text-sm";
         },
         tabPanelClass: "tab-item",
-        tabClass: "tab-link p-4 flex items-center",
+        tabClass: "tab-link p-4 flex items-center cursor-pointer",
         tabIconClass: "tab-icon me-2",
         tabLabelClass: "tab-title",
         tabActiveClass: "is-active",

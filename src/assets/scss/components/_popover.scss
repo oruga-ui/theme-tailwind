@@ -1,0 +1,7 @@
+.popover {
+    .popover-content{
+        &::backdrop {
+            // @apply bg-black/30 backdrop-blur-sm;
+        }
+    }
+}
