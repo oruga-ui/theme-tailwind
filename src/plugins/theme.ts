@@ -1,5 +1,5 @@
-import type { ComponentProps } from "@oruga-ui/oruga";
-import { isTrueish } from "@oruga-ui/oruga";
+import type { ComponentProps } from "@oruga-ui/oruga-next";
+import { isTrueish } from "@oruga-ui/oruga-next";
 
 const tailwindConfig = {
     button: {
@@ -511,14 +511,20 @@ const tailwindConfig = {
         buttonPrevClass: "pagination-previous",
         infoClass: "info",
     },
-    popover: { // TODO: Add popover component classes
+    popover: {
         override: true,
         rootClass: "popover",
         triggerClass:
             "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
         contentClass:
-            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm p-4 w-auto h-auto",
-        backdropClass: "popover-backdrop",
+            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto h-auto",
+        contentModalClass:
+            "popover-modal top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 fixed",
+        contentBackdropClass: "popover-backdrop",
+        headerClass: "popover-header font-bold text-gray-700 mb-2 text-lg",
+        bodyClass: "popover-body",
+        closeClass:
+            "btn-close absolute top-2 right-2 cursor-pointer text-gray-500 hover:text-gray-700 transition-colors duration-200 ease-in-out ",
         scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
