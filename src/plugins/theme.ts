@@ -271,7 +271,7 @@ const tailwindConfig = {
         expandedClass: "w-full [&_.dropdown-menu]:w-full",
         inlineClass:
             "is-inline [&_.dropdown-menu]:static [&_.dropdown-menu]:inline-block [&_.dropdown-menu]:overflow-auto [&_.dropdown-menu]:z-0",
-        overlayClass: "dropdown-backdrop",
+        contentBackdropClass: "dropdown-backdrop",
         menuClass: (): string => {
             const classes = [
                 "dropdown-menu",
@@ -297,7 +297,7 @@ const tailwindConfig = {
         itemSelectedClass: "is-active text-white",
         itemFocusedClass: "is-focused bg-gray-100",
         itemDisabledClass: "is-disabled opacity-50 cursor-not-allowed",
-        modalClass: "is-mobile-modal",
+        contentModalClass: "is-mobile-modal",
         teleportClass: "teleported",
     },
     field: {
@@ -517,7 +517,7 @@ const tailwindConfig = {
         triggerClass:
             "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
         contentClass:
-            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto h-auto",
+            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto",
         contentModalClass:
             "popover-modal top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 fixed",
         contentBackdropClass: "popover-backdrop",
