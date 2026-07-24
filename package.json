@@ -46,8 +46,8 @@
     "url": "git+https://github.com/oruga-ui/theme-tailwind.git"
   },
   "devDependencies": {
-    "@oruga-ui/examples": "^0.14.0-pre.4",
-    "@oruga-ui/oruga-next": "^0.14.0-pre.4",
+    "@oruga-ui/examples": "^0.14.0-pre.5",
+    "@oruga-ui/oruga-next": "^0.14.0-pre.5",
     "@types/node": "^22.10.5",
     "@vitejs/plugin-vue": "5.2.1",
     "@vue/eslint-config-prettier": "^10.1.0",

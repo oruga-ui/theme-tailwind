@@ -289,7 +289,7 @@ const tailwindConfig = {
             ];
             return classes.join(" ");
         },
-        menuPositionClass: "position-",
+        // menuPositionClass: "position-",
         menuActiveClass: "show",
         itemTag: "a",
         itemClass:
@@ -815,13 +815,13 @@ const tailwindConfig = {
         listClass: "tabs flex font-medium flex-wrap",
         typeClass: (type: string): string => {
             if (type == "toggle")
-                return "toggle text-gray-500 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200";
+                return "toggle text-gray-800 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200";
             else if (type == "boxed")
-                return "boxed [&_.tab-link]:rounded-t-lg text-gray-500 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
+                return "boxed [&_.tab-link]:rounded-t-lg text-gray-800 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
             else if (type == "pills")
-                return "pills [&_.tab-link]:rounded-lg text-gray-500";
+                return "pills [&_.tab-link]:rounded-lg text-gray-800";
             else
-                return "default text-gray-500 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
+                return "default text-gray-800 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
         },
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
@@ -830,7 +830,7 @@ const tailwindConfig = {
             return "text-sm";
         },
         tabPanelClass: "tab-item",
-        tabClass: "tab-link p-4 flex items-center cursor-pointer",
+        tabClass: "tab-link py-3 px-4 flex items-center cursor-pointer",
         tabIconClass: "tab-icon me-2",
         tabLabelClass: "tab-title",
         tabActiveClass: "is-active",
