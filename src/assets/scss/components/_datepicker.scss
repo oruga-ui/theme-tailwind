@@ -8,54 +8,99 @@
 /* @docs */
 
 .datepicker {
-    .datepicker-header {
-        .pagination-previous {
-            order: 1;
-            padding: 0;
+    .datepicker-overlay {
+        .datepicker-header {
+            .pagination-previous {
+                order: 1;
+                padding: 0;
+            }
+            .pagination-list {
+                order: 2;
+            }
+            .pagination-next {
+                order: 3; 
+                margin: 0;
+                padding: 0;
+            }
         }
-        .pagination-list {
-            order: 2;
-        }
-        .pagination-next {
-            order: 3; 
-            margin: 0;
-            padding: 0;
-        }
-    }
-    .datepicker-table {
-        // padding: 0 10px;
-        .datepicker-header{
-            display: table-header-group;
-            font-weight: bold;
-            table-layout: fixed; 
-            width: 100%;
-        }
-        .datepicker-body .datepicker-row {
-            display: table-row;
-            table-layout: fixed; 
-            width: 100%;
-        }
-    }
+        .datepicker-table {
+            padding: 0 10px;
 
-    .datepicker-cell {
-        text-align: center;
-        display: table-cell;
-        width: 3.1rem;
-        padding: .5rem .75rem;
-        cursor: pointer;
+            .datepicker-header{
+                // display: table-header-group;
+                // table-layout: fixed; 
+                font-weight: bold;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
 
-        .events {
-            .event {
-                background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
-                
-                @each $name, $pair in vars.$theme-colors {
-                $variant: list.nth($pair, 1);
-                $variant-invert: list.nth($pair, 2);
-
-                &.is-#{$name} {
-                    background-color: $variant;
+                .datepicker-cell {
+                    text-align: center;
+                    display: table-cell;
+                    width: 3.1rem;
+                    padding: .5rem .75rem;
+                    cursor: pointer;
                 }
             }
+            .datepicker-body .datepicker-row {
+                display: table-row;
+                table-layout: fixed; 
+                width: 100%;
+
+                .datepicker-cell {
+                    text-align: center;
+                    display: table-cell;
+                    width: 3.1rem;
+                    padding: .5rem .75rem;
+                    cursor: pointer;
+
+                    .events {
+                        .event {
+                            background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
+                            
+                            @each $name, $pair in vars.$theme-colors {
+                            $variant: list.nth($pair, 1);
+                            $variant-invert: list.nth($pair, 2);
+
+                            &.is-#{$name} {
+                                background-color: $variant;
+                            }
+                        }
+                        }
+                    }
+                }
+            }
+            .datepicker-months {
+                display: inline-flex;
+                flex-flow: wrap;
+                width: 100%;
+                .datepicker-cell {
+                    text-align: center;
+                    flex: 0 0 33.333%; // Four elements per row
+                    padding: .5rem 0;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.has-backdrop {
+            &:not(.is-inline) {
+                position: fixed;
+                top: 25%;
+                left: 50%;
+                bottom: auto;
+                right: auto;
+                transform: translateX(-50%);
+                width: calc(100vw - 54px);
+                max-width: 400px;
+                max-height: calc(100vh - 120px);
+                white-space: normal;
+                overflow-y: auto;
+                z-index: 1055;
+            
+                &::backdrop {
+                    @apply bg-black/80 backdrop-blur-sm
+                }
             }
         }
     }

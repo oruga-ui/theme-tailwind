@@ -161,14 +161,20 @@ const tailwindConfig = {
     datepicker: {
         override: true,
         rootClass: "datepicker",
+
+        triggerClass: "datepicker-trigger",
+        contentClass:
+            "datepicker-overlay w-[400px] p-4 rounded-lg shadow-xs border border-gray-200",
+        contentBackdropClass: "has-backdrop ",
+
         headerClass:
             "datepicker-header flex justify-center pb-4 border-b border-gray-200",
         footerClass: "datepicker-footer pt-4 border-t border-gray-200",
-        boxClass: "dropdown-item m-4",
+        // boxClass: "dropdown-item m-4",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded",
+            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
@@ -178,12 +184,13 @@ const tailwindConfig = {
             return classes.join(" ");
         },
         tableRowClass: "datepicker-row",
-        tableCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
+        tableCellClass:
+            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         tableCellTodayClass: "is-today bg-blue-100 text-blue-500",
-        tableCellSelectedClass: "is-selected bg-blue-500 text-white",
+        tableCellSelectedClass: "is-selected bg-blue-700 text-white",
         //
         tableCellWithinHoveredClass:
             "is-within-hovered bg-gray-100 rounded-none",
@@ -206,15 +213,15 @@ const tailwindConfig = {
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
         monthBodyClass: "datepicker-body",
-        monthCellClass: "datepicker-cell",
+        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
         monthCellFirstHoveredClass:
             "is-first-hovered bg-gray-100 rounded-r-none",
         monthCellFirstSelectedClass: "is-first-selected rounded-r-none",
         monthCellLastHoveredClass: "is-last-hovered bg-gray-100 rounded-l-none",
         monthCellLastSelectedClass: "is-last-selected rounded-l-none",
         monthCellSelectableClass: "is-selectable",
-        monthCellSelectedClass: "is-selected text-white",
-        monthCellTodayClass: "is-today text-blue-500",
+        monthCellSelectedClass: "is-selected bg-blue-700 text-white ",
+        monthCellTodayClass: "is-today bg-blue-100 text-blue-500",
         monthCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         monthCellWithinHoveredClass:
@@ -239,7 +246,7 @@ const tailwindConfig = {
         fullscreenClass: "is-full-screen",
         // backdropClass: "modal-background", @WIP in Oruga's 0.14.pre
         wrapperClass: "modal-content h-full flex flex-col rounded-lg",
-        textPositionClass: (position: string) => {
+        contentPositionClass: (position: string) => {
             if (position === "left") return "[&_.modal-card-body]:text-left";
             else if (position === "center")
                 return "[&_.modal-card-body]:text-center";
@@ -257,9 +264,9 @@ const tailwindConfig = {
         figureClass: "image",
         footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
         footerPositionClass: (position: string) => {
-            if (position === "left") return "[&_.modal-card-foot]:justify-content-flex-start";
-            if (position === "center") return "[&_.modal-card-foot]:justify-content-center";
-            if (position === "right") return "[&_.modal-card-foot]:justify-content-flex-end";
+            if (position === "left") return "justify-start";
+            if (position === "center") return "justify-center";
+            if (position === "right") return "justify-end ";
         },
         scrollClipClass: "is-clipped overflow-auto",
     },
