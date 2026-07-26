@@ -889,13 +889,18 @@ const tailwindConfig = {
     timepicker: {
         override: true,
         rootClass: "timepicker w-auto",
-        boxClass:
-            "dropdown-item px-4 py-2 cursor-pointer flex justify-center items-center [&_select]:appearance-none font-medium",
+        contentClass:
+            "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
+        contentBackdropClass: "has-backdrop",
+        bodyClass: "timepicker-body flex justify-center items-center",
+        // boxClass:
+        // "dropdown-item px-4 py-2 cursor-pointer flex justify-center items-center [&_select]:appearance-none font-medium",
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer flex",
         sizeClass: "is-",
-        selectClasses: {
-            rootClass: "select control",
+        selectAttrs: {
+            rootClass:
+                "select control mx-2 font-bold [&_select]:appearance-none [&_select]:text-center",
         },
     },
     tooltip: {

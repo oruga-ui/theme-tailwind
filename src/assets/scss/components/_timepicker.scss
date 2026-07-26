@@ -5,11 +5,29 @@
 @use "./utils/variables" as vars;
 
 .timepicker {
-    .dropdown {
-        .dropdown-menu {
-            width: auto;
+    .timepicker-overlay {
+        &.has-backdrop {
+            &:not(.is-inline) {
+                position: fixed;
+                top: 25%;
+                left: 50%;
+                bottom: auto;
+                right: auto;
+                transform: translateX(-50%);
+                width: calc(100vw - 54px);
+                max-width: 400px;
+                max-height: calc(100vh - 120px);
+                white-space: normal;
+                overflow-y: auto;
+                z-index: 1055;
+            
+                &::backdrop {
+                    @apply bg-black/80 backdrop-blur-sm
+                }
+            }
         }
     }
+
     .timepicker-footer {
         padding: 0 0.5rem 0 0.5rem;
     }
