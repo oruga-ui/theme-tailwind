@@ -662,7 +662,7 @@ const tailwindConfig = {
         thumbWrapperDraggingClass:
             "is-dragging [&_.slider-thumb]:cursor-grabbing",
         thumbRoundedClass: "rounded-full",
-        variantClass: "is-",
+        fillVariantClass: "is-",
         sizeClass: (position: string): string => {
             if (position == "small")
                 return "[&_.slider-track]:h-1.5 [&_.slider-thumb]:w-4 [&_.slider-thumb]:h-4";
@@ -970,13 +970,13 @@ const tailwindConfig = {
             ];
             return classes.join(" ");
         },
-        draggableClass:
+        dragzoneClass:
             "upload-draggable w-full bg-transparent cursor-pointer p-12 border border-gray-500 border-dashed rounded-lg",
         variantClass: "is-",
         expandedClass: "w-full",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        draggableHoveredClass: "is-hovered",
+        dragzoneHoveredClass: "is-hovered",
     },
 };
 
