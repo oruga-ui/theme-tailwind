@@ -934,4 +934,4 @@ const tailwindConfig: OrugaConfig = {
     },
 };
 
-export { tailwindConfig as config };
+export { tailwindConfig, tailwindConfig as config };
