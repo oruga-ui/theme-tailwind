@@ -1,42 +1,42 @@
-import copy from 'rollup-plugin-copy';
-import sass from 'rollup-plugin-sass';
-import typescript from '@rollup/plugin-typescript';
+import copy from "rollup-plugin-copy";
+import sass from "rollup-plugin-sass";
+import typescript from "@rollup/plugin-typescript";
 
-import autoprefixer from 'autoprefixer';
-import fs from 'fs';
-import path from 'path';
-import postcss from 'postcss';
+import autoprefixer from "autoprefixer";
+import fs from "fs";
+import path from "path";
+import postcss from "postcss";
 
-import pkg from './package.json' assert { type: 'json' };
+import pkg from "./package.json" assert { type: "json" };
 
 const entries = {
-  index: 'src/plugins/tailwind.ts',
-  scss: 'src/assets/scss'
+  index: "src/plugins/tailwind.ts",
+  scss: "src/assets/scss",
 };
 
 const exits = {
-  directory: 'dist',
-  css: 'dist/tailwinda.css',
+  directory: "dist",
+  css: "dist/tailwinda.css",
   esm: `${pkg.module}`,
-  umd: `${pkg.main}`
+  umd: `${pkg.main}`,
 };
 
 const commonSassPluginOptions = {
   processor: async (css) => {
     const { css: processedCss } = await postcss([autoprefixer]).process(css, {
-      from: undefined
+      from: undefined,
     });
     return processedCss;
   },
   options: {
-    includePaths: ['node_modules']
-  }
+    includePaths: ["node_modules"],
+  },
 };
 
 const typescriptPluginOptions = {
   sourceMap: false,
   // skip type checking of declaration files
-  skipLibCheck:true,
+  skipLibCheck: true,
   // enabling declaration (.d.ts) emit
   declaration: true,
   //  decouple declaration files from actual transpiled JavaScript files
@@ -55,13 +55,13 @@ function createDirectoryIfDoesNotExist(filePath) {
 }
 
 function createMinifiedFileName(fileName) {
-  const fileNameParts = fileName.split('.');
+  const fileNameParts = fileName.split(".");
   const fileExtIndex = fileNameParts.length - 1;
   const minifiedFileName = [
     ...fileNameParts.slice(0, fileExtIndex),
-    'min',
-    fileNameParts[fileExtIndex]
-  ].join('.');
+    "min",
+    fileNameParts[fileExtIndex],
+  ].join(".");
   return minifiedFileName;
 }
 
@@ -74,27 +74,27 @@ export default function () {
   const config = [
     {
       input: entries.index,
-      external: ['vue', /oruga\/.*/],
+      external: ["vue", /oruga\/.*/],
       output: [
         {
-          format: 'esm',
-          file: `${exits.esm}`
+          format: "esm",
+          file: `${exits.esm}`,
         },
         {
-          format: 'umd',
-          name: 'OrugaThemeTailwind',
-          file: `${exits.umd}`
-        }
+          format: "umd",
+          name: "OrugaThemeTailwind",
+          file: `${exits.umd}`,
+        },
       ],
       plugins: [
         copy({
-          targets: [{ src: `${entries.scss}`, dest: `${exits.directory}` }]
+          targets: [{ src: `${entries.scss}`, dest: `${exits.directory}` }],
         }),
         sass({
           ...commonSassPluginOptions,
           output(styles) {
             writeCssFile(`${exits.css}`, styles);
-          }
+          },
         }),
         sass({
           ...commonSassPluginOptions,
@@ -103,14 +103,14 @@ export default function () {
           },
           ...{
             options: {
-              outputStyle: 'compressed',
-              ...commonSassPluginOptions.options
-            }
-          }
+              outputStyle: "compressed",
+              ...commonSassPluginOptions.options,
+            },
+          },
         }),
-        typescript(typescriptPluginOptions)
-      ]
-    }
+        typescript(typescriptPluginOptions),
+      ],
+    },
   ];
   return config;
 }

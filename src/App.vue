@@ -30,6 +30,14 @@ import components from "@/components";
 </template>
 
 <style lang="scss">
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap";
+
+* {
+    font-family:
+        "Inter", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
 #app {
     display: flex;
     width: 100%;
