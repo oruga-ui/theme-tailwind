@@ -7,6 +7,8 @@ const tailwindConfig: OrugaConfig = {
         rootClass: (): string => {
             const classes = [
                 "button",
+                "inline-flex",
+                "items-center",
                 "relative",
                 "cursor-pointer",
                 "text-gray-500",
@@ -21,7 +23,6 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        wrapperClass: "button-wrapper inline-flex items-center",
         sizeClass: "is-",
         variantClass: "is-",
         roundedClass: "!rounded-3xl",
@@ -41,9 +42,8 @@ const tailwindConfig: OrugaConfig = {
     },
     autocomplete: {
         rootClass: `autocomplete`,
-        itemHoverClass: `bg-gray-50`,
         itemEmptyClass: `text-gray-400 italic text-sm`,
-        itemGroupTitleClass: `text-xs font-bold text-gray-300 uppercase tracking-wider bg-gray-50`,
+        itemGroupClass: `text-xs font-bold text-gray-300 uppercase tracking-wider bg-gray-50`,
     },
 
     breadcrumb: {
@@ -204,7 +204,6 @@ const tailwindConfig: OrugaConfig = {
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
-        monthBodyClass: "datepicker-body",
         monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
         monthCellFirstHoveredClass:
             "is-first-hovered bg-gray-100 rounded-r-none",
@@ -235,7 +234,7 @@ const tailwindConfig: OrugaConfig = {
         teleportClass: "is-teleported",
         fullscreenClass: "is-full-screen",
         // backdropClass: "modal-background", @WIP in Oruga's 0.14.pre
-        wrapperClass: "modal-content h-full flex flex-col rounded-lg",
+        contentClass: "modal-content h-full flex flex-col rounded-lg",
         contentPositionClass: (position: string) => {
             if (position === "left") return "[&_.modal-card-body]:text-left";
             else if (position === "center")
@@ -250,7 +249,6 @@ const tailwindConfig: OrugaConfig = {
         closeIconSize: "medium",
         subtitleClass: "modal-card-subtitle text-sm text-gray-500",
         bodyClass: "modal-card-body flex-1 overflow-y-auto p-4",
-        contentClass: "modal-content",
         figureClass: "image",
         footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
         footerPositionClass: (position: string) => {
@@ -262,11 +260,10 @@ const tailwindConfig: OrugaConfig = {
     },
     dropdown: {
         rootClass: "dropdown relative btn-group inline-block align-middle",
+        activeClass: "show",
         triggerClass: "dropdown-trigger",
         disabledClass: "is-disabled opacity-50 cursor-not-allowed",
         expandedClass: "w-full [&_.dropdown-menu]:w-full",
-        inlineClass:
-            "is-inline [&_.dropdown-menu]:static [&_.dropdown-menu]:inline-block [&_.dropdown-menu]:overflow-auto [&_.dropdown-menu]:z-0",
         contentBackdropClass: "dropdown-backdrop",
         menuClass: (): string => {
             const classes = [
@@ -286,7 +283,6 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         // menuPositionClass: "position-",
-        menuActiveClass: "show",
         itemTag: "a",
         itemClass:
             "dropdown-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
@@ -305,8 +301,8 @@ const tailwindConfig: OrugaConfig = {
         bodyClass: "field-body",
         addonsClass: "has-addons flex justify-start",
         groupedClass:
-            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0",
-        groupMultilineClass: "is-grouped-multiline flex-wrap",
+            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0 flex-wrap",
+        nowrapClass: "flex-nowrap",
         horizontalClass: "is-horizontal flex",
         horizontalLabelClass:
             "field-label flex-grow-1 flex-shrink-0 basis-0 mr-6 text-right",
@@ -428,7 +424,6 @@ const tailwindConfig: OrugaConfig = {
         rootClass:
             "menu text-sm font-medium text-heading [&_button]:text-left [&_button]:w-full [&_button]:rounded [&_button]:p-4",
         listClass: "menu-list",
-        listLabelClass: "menu-label my-2 text-gray-500",
         itemButtonClass:
             "menu-item text-left w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1",
         itemButtonActiveClass: "active",
@@ -453,9 +448,9 @@ const tailwindConfig: OrugaConfig = {
         rootClass:
             "notification alert relative flex items-center px-4 py-3 my-3 rounded-lg space-x-2 duration-100 ease-in",
         variantClass: "is-",
-        wrapperClass:
+        contentClass:
             "notifictation-wrapper flex items-center max-w-[95%] text-left [&_.icon]:h-full [&_.icon]:mr-2",
-        contentClass: "notifictation-content",
+        bodyClass: "notifictation-content",
         positionClass: "position-",
         iconClass: "media mr-3 ",
         closeClass: "close",
@@ -479,7 +474,6 @@ const tailwindConfig: OrugaConfig = {
         },
         sizeClass: "is-",
         simpleClass: "is-simple",
-        orderClass: "is-",
         positionClass: (_: string, props): string => {
             if (props.position == "right")
                 return "[&_.pagination-list]:justify-end";
@@ -576,14 +570,14 @@ const tailwindConfig: OrugaConfig = {
                 );
             return classes.join(" ");
         },
-        rootVariantClass: "border-",
+        variantClass: "border-",
         expandedClass: "w-full",
         iconLeftClass: "icon-left",
         iconRightClass: "icon-right",
         placeholderClass: "is-empty",
         iconRightSpaceClass: "has-icons-right appearance-none",
         iconLeftSpaceClass: "has-icons-left",
-        arrowClass: "has-arrow",
+        arrowedClass: "has-arrow",
     },
     sidebar: {
         rootClass: "sidebar absolute",
@@ -599,10 +593,8 @@ const tailwindConfig: OrugaConfig = {
                 return "w-full right-0 left-0 bottom-0";
             return "h-full top-0 left-0 bottom-0";
         },
-        expandOnHoverClass: "!w-full",
         fullheightClass: "!h-full",
         fullwidthClass: "!w-full",
-        reduceClass: "is-mini",
         inlineClass: "is-inline",
         mobileClass: "is-",
         scrollClipClass: "is-clipped",
@@ -610,7 +602,7 @@ const tailwindConfig: OrugaConfig = {
     skeleton: {
         rootClass: "skeleton flex",
         itemClass: "skeleton-item bg-gray-200 rounded w-full h-4",
-        itemRoundedClass: "rounded-full",
+        roundedClass: "rounded-full",
         animatedClass: "animate-pulse",
         sizeClass: (position: string): string => {
             if (position == "small") return "h-4";
@@ -754,7 +746,6 @@ const tailwindConfig: OrugaConfig = {
         narrowedClass: "is-narrowed",
         hoverableClass: "[&>tbody>tr:hover]:bg-gray-100",
         emptyClass: "text-center py-8 text-gray-500",
-        detailedClass: "bg-gray-50",
         footerClass: "footer bg-gray-50 py-3 border-t",
         paginationWrapperClass: "py-3 border-t",
         scrollableClass: "overflow-scroll",
@@ -762,14 +753,13 @@ const tailwindConfig: OrugaConfig = {
             "[&_thead]:sticky-header [&_thead]:sticky [&_thead]:top-0 [&_thead]:bg-white [&_thead]:z-99",
         trSelectedClass: "bg-blue-50",
         thSortableClass: "cursor-pointer hover:bg-gray-100",
-        thCurrentSortClass: "bg-gray-100 font-semibold",
+        thSortedClass: "bg-gray-100 font-semibold",
         thSortIconClass: "ml-1",
-        thUnselectableClass: "select-none",
         thStickyClass: "sticky-th sticky left-0",
         tdStickyClass: "sticky-td sticky left-0",
+        tdDetailClass: "bg-gray-50",
         thCheckboxClass: "w-12",
         thDetailedClass: "w-16",
-        tdDetailedChevronClass: "",
         thPositionClass: "left-0",
         tdPositionClass: "left-0",
         mobileClass: "table-mobile block overflow-x-auto",
@@ -823,6 +813,7 @@ const tailwindConfig: OrugaConfig = {
             if (size == "small") return "!text-xs";
             else if (size == "medium") return "!text-base";
             else if (size == "large") return "!text-lg";
+            return "";
         },
         roundedClass: "rounded-full",
         badgeClass:
@@ -849,7 +840,6 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        closeClass: "delete is-small",
         itemClass: "tag m-1 px-1 rounded bg-gray-100 inline-flex",
         variantClass: "is-",
         expandedClass: "w-full",
