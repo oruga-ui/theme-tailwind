@@ -28,31 +28,25 @@ yarn add @oruga-ui/theme-tailwind
 ### Configure
 
 ```js
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
 
-import Oruga from '@oruga-ui/oruga-next'
-import { tailwindConfig } from '@oruga-ui/theme-tailwind'
+import Oruga from "@oruga-ui/oruga-next";
+import { tailwindConfig } from "@oruga-ui/theme-tailwind";
 
-import '@oruga-ui/theme-tailwind/dist/tailwind.css'
+import "@oruga-ui/theme-tailwind/dist/tailwind.css";
 
-createApp(App)
-    .use(Oruga, tailwindConfig)
-    .mount('#app')
+createApp(App).use(Oruga, tailwindConfig).mount("#app");
 ```
 
 Please note, this package can be used without importing any other Oruga styling or theme.
 
-
 ### Customization (SASS/SCSS)
-
-
 
 <!-- Customization code goes here -->
 
-
-
 ## Contributors
+
 Thank you to everyone involved for improving this project, day by day 💚
 
 <!-- <a href="https://github.com/oruga-ui/theme-tailwind">

@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -8,8 +7,8 @@
 /* @docs */
 
 .field {
-    margin-bottom: .75rem;
-    
+    margin-bottom: 0.75rem;
+
     .help {
         // Variants
         @each $name, $pair in vars.$theme-colors {
@@ -21,10 +20,12 @@
             }
         }
     }
-    
+
     .field-body {
         .has-addons {
-            .button, .input-component, select-component {
+            .button,
+            .input-component,
+            select-component {
                 margin: 0;
             }
 

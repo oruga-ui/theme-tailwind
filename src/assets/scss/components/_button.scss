@@ -1,9 +1,7 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
 @use "./utils/variables" as vars;
-
 
 /* @docs */
 // $btn-spacer: 0.5rem !default;
@@ -12,9 +10,8 @@
 // $btn-padding: 0.70rem 0.70rem !default;
 /* @docs */
 
-
 .button {
-    padding:0.70rem 0.70rem;
+    padding: 0.7rem 0.7rem;
     font-size: var(--text-base);
     font-weight: 500;
     line-height: normal;
@@ -27,9 +24,11 @@
             background-color: $variant;
             border-color: $variant;
             color: white;
+
             &:hover {
-                opacity: .7;
+                opacity: 0.7;
             }
+
             &.is-outlined {
                 background-color: transparent;
                 color: $variant;
@@ -46,6 +45,7 @@
                     border-top-color: transparent;
                 }
             }
+
             &.is-inverted {
                 color: $variant;
                 background-color: transparent;
@@ -64,16 +64,17 @@
                     border-top-color: transparent;
                 }
             }
-            
         }
     }
 
     &.is-small {
         font-size: var(--text-xs);
     }
+
     &.is-medium {
         font-size: var(--text-base);
     }
+
     &.is-large {
         font-size: var(--text-2xl);
     }
@@ -86,8 +87,8 @@
     &.is-loading:after {
         content: "";
         position: absolute;
-        left: calc(50% - .5em);
-        top: calc(50% - .5em);
+        left: calc(50% - 0.5em);
+        top: calc(50% - 0.5em);
         border: 2px solid white;
         border-radius: 9999px;
         border-right-color: transparent;
@@ -95,7 +96,7 @@
         display: block;
         height: 1em;
         width: 1em;
-        animation: spinAround .5s infinite linear;
+        animation: spinAround 0.5s infinite linear;
     }
 }
 

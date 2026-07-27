@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -23,7 +22,7 @@
     }
 
     &.is-mobile {
-        .pagination-link  {
+        .pagination-link {
             flex-grow: 1;
             flex-shrink: 1;
         }
@@ -50,4 +49,3 @@
         }
     }
 }
-

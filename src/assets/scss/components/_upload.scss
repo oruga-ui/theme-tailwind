@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -11,10 +10,10 @@
     @each $name, $pair in vars.$theme-colors {
         $variant-invert: list.nth($pair, 2);
         $variant: list.nth($pair, 1);
-        
+
         &.is-#{$name} {
             .is-hovered {
-                background-color:$variant-invert;
+                background-color: $variant-invert;
                 border-color: $variant;
                 color: $variant;
             }

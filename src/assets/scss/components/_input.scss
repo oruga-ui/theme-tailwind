@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -8,15 +7,16 @@
 /* @docs */
 
 .input-component {
-    .icon { 
+    .icon {
         position: absolute;
         top: 0;
         margin: 0;
         height: 100%;
-        
+
         &.icon-right {
-            right: 0.75rem;     
+            right: 0.75rem;
         }
+
         &.icon-left {
             left: 0.75rem;
         }
@@ -27,6 +27,7 @@
             padding-left: 2.2rem;
         }
     }
+
     &.has-icons-right {
         .input {
             padding-right: 2.2rem;
@@ -34,7 +35,7 @@
     }
 
     .input {
-        padding: 0.70rem 1rem;
+        padding: 0.7rem 1rem;
         font-size: var(--text-base);
         line-height: normal;
 
@@ -42,7 +43,7 @@
         @each $name, $pair in vars.$theme-colors {
             $variant: list.nth($pair, 1);
             $variant-invert: list.nth($pair, 2);
-            
+
             &.border-#{$name} {
                 border-color: $variant;
             }
@@ -52,19 +53,22 @@
     &.input-small {
         .input {
             font-size: var(--text-xs);
-        } 
+        }
     }
+
     &.input-medium {
         .input {
             font-size: var(--text-base);
         }
     }
+
     &.input-large {
         .input {
             font-size: var(--text-2xl);
+
             &.icon-left {
                 padding-left: 3.5rem;
             }
-        } 
+        }
     }
 }

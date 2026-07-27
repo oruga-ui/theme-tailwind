@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -12,10 +11,15 @@
             }
         }
     }
+
     .steps {
         .step-marker {
-            background-color: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
+            background-color: list.nth(
+                map.get(vars.$theme-colors, "secondary"),
+                2
+            );
         }
+
         .step-marker:not(:first-child)::before {
             content: " ";
             display: block;
@@ -28,21 +32,26 @@
             z-index: -1;
             background: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
         }
-        
+
         .is-previous,
         .is-active {
             .step-marker {
-                background-color: list.nth(map.get(vars.$theme-colors, "primary"), 2);
-                color: list.nth(map.get(vars.$theme-colors, "primary"), 1)
+                background-color: list.nth(
+                    map.get(vars.$theme-colors, "primary"),
+                    2
+                );
+                color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
             }
+
             .step-title {
                 color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
             }
-        } 
+        }
 
         @each $name, $pair in vars.$theme-colors {
             $variant: list.nth($pair, 1);
             $variant-invert: list.nth($pair, 2);
+
             .is-previous,
             .is-active {
                 &.is-#{$name} {
@@ -50,10 +59,12 @@
                         background-color: $variant-invert;
                         color: $variant;
                     }
+
                     .step-marker:not(:first-child)::before {
                         content: " ";
                         background-color: $variant-invert;
                     }
+
                     .step-title {
                         color: $variant;
                     }

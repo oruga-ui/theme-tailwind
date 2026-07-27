@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -8,36 +7,48 @@
 /* @docs */
 
 .tabs-wrapper {
-     &.boxed {
+    &.boxed {
         .tab-link {
             &.is-active {
-                background-color: list.nth(map.get(vars.$theme-colors, "primary"), 2);
+                background-color: list.nth(
+                    map.get(vars.$theme-colors, "primary"),
+                    2
+                );
                 color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
             }
         }
     }
+
     &.toggle {
         .tab-link {
             &.is-active {
-                background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
+                background-color: list.nth(
+                    map.get(vars.$theme-colors, "primary"),
+                    1
+                );
                 color: white;
             }
         }
     }
+
     &.pills {
         .tab-link {
             &.is-active {
-                background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
+                background-color: list.nth(
+                    map.get(vars.$theme-colors, "primary"),
+                    1
+                );
                 color: white;
-            } 
+            }
         }
     }
+
     &.default {
         .tab-link {
             &.is-active {
                 border-bottom: 1px solid;
                 color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
-            } 
+            }
         }
     }
 }

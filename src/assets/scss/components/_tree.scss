@@ -6,8 +6,12 @@
 .tree {
     .tree-item {
         &.is-active {
-            background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
+            background-color: list.nth(
+                map.get(vars.$theme-colors, "primary"),
+                1
+            );
             color: white;
+
             .icon {
                 color: white;
             }
