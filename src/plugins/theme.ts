@@ -1,12 +1,14 @@
-import type { ComponentProps } from "@oruga-ui/oruga-next";
+import type { OrugaConfig } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
-const tailwindConfig = {
+const tailwindConfig: OrugaConfig = {
+    override: true,
     button: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "button",
+                "inline-flex",
+                "items-center",
                 "relative",
                 "cursor-pointer",
                 "text-gray-500",
@@ -21,7 +23,6 @@ const tailwindConfig = {
             ];
             return classes.join(" ");
         },
-        wrapperClass: "button-wrapper inline-flex items-center",
         sizeClass: "is-",
         variantClass: "is-",
         roundedClass: "!rounded-3xl",
@@ -40,15 +41,12 @@ const tailwindConfig = {
         },
     },
     autocomplete: {
-        override: true,
         rootClass: `autocomplete`,
-        itemHoverClass: `bg-gray-50`,
         itemEmptyClass: `text-gray-400 italic text-sm`,
-        itemGroupTitleClass: `text-xs font-bold text-gray-300 uppercase tracking-wider bg-gray-50`,
+        itemGroupClass: `text-xs font-bold text-gray-300 uppercase tracking-wider bg-gray-50`,
     },
 
     breadcrumb: {
-        override: true,
         rootClass: "breadcrumb-wrapper font-medium text-gray-700",
         listClass: "breadcrumb flex",
         variantClass: "is-",
@@ -71,7 +69,6 @@ const tailwindConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
     },
     carousel: {
-        override: true,
         rootClass: "carousel relative overflow-hidden w-full",
         overlayClass:
             "is-overlay flex flex-col items-center justify-center fixed",
@@ -101,7 +98,7 @@ const tailwindConfig = {
             "carousel-indicator p-2 w-full flex items-center justify-center bg-gray-300",
         indicatorClass: "indicator-item [&_img]:cursor-default",
         indicatorsInsideClass: "is-inside absolute bg-transparent",
-        indicatorsPositionClass: (_: string, props: ComponentProps): string => {
+        indicatorsPositionClass: (_: string, props): string => {
             if (props.indicatorPosition == "top") return "top-0";
             return "bottom-0";
         },
@@ -114,7 +111,6 @@ const tailwindConfig = {
         itemActiveClass: "is-active",
     },
     checkbox: {
-        override: true,
         rootClass:
             "checkbox flex items-center align-top inline-flex [&_.check]:w-5 [&_.check]:h-5",
         disabledClass:
@@ -143,7 +139,7 @@ const tailwindConfig = {
         labelClass:
             "control-label select-none font-medium text-heading ml-2 mr-4",
         variantClass: "is-",
-        sizeClass: (_: string, props: ComponentProps): string => {
+        sizeClass: (_: string, props): string => {
             if (props.size == "small")
                 return "is-small [&_.check]:!w-3 [&_.check]:!h-3 [&_.control-label]:text-xs";
             if (props.size == "medium")
@@ -152,16 +148,13 @@ const tailwindConfig = {
         },
     },
     collapse: {
-        override: true,
         rootClass: "collapse-component rounded-lg my-4",
         triggerClass:
             "collapse-component-trigger cursor-pointer inline-block w-full",
         contentClass: "collapse-component-content [display:inherit]",
     },
     datepicker: {
-        override: true,
         rootClass: "datepicker",
-
         triggerClass: "datepicker-trigger",
         contentClass:
             "datepicker-overlay w-[400px] p-4 rounded-lg shadow-xs border border-gray-200",
@@ -178,7 +171,7 @@ const tailwindConfig = {
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
-        tableBodyClass: (_: string, props: ComponentProps) => {
+        tableBodyClass: (_: string, props) => {
             const classes = ["datepicker-body"];
             if (props.events) classes.push(`has-events`);
             return classes.join(" ");
@@ -207,12 +200,10 @@ const tailwindConfig = {
             if (type == "dots") return "is-dots rounded-lg w-1.5 h-1.5 mx-0.5";
             return "is-bars w-2 h-1";
         },
-
         tableEventVariantClass: "is-",
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
-        monthBodyClass: "datepicker-body",
         monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
         monthCellFirstHoveredClass:
             "is-first-hovered bg-gray-100 rounded-r-none",
@@ -231,13 +222,11 @@ const tailwindConfig = {
         monthTableClass: "datepicker-months",
     },
     datetimepicker: {
-        override: true,
         datepickerWrapperClass: "datepicker-wrapper",
         timepickerWrapperClass:
             "timepicker-wrapper [&_.dropdown]:w-full [&_.dropdown-menu]:!shadow-sm [&_.dropdown-menu]:!w-full",
     },
     dialog: {
-        override: true,
         rootClass:
             "dialog modal is-active absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-lg border-gray-200 shadow-sm",
         activeClass: "is-active",
@@ -245,7 +234,7 @@ const tailwindConfig = {
         teleportClass: "is-teleported",
         fullscreenClass: "is-full-screen",
         // backdropClass: "modal-background", @WIP in Oruga's 0.14.pre
-        wrapperClass: "modal-content h-full flex flex-col rounded-lg",
+        contentClass: "modal-content h-full flex flex-col rounded-lg",
         contentPositionClass: (position: string) => {
             if (position === "left") return "[&_.modal-card-body]:text-left";
             else if (position === "center")
@@ -260,7 +249,6 @@ const tailwindConfig = {
         closeIconSize: "medium",
         subtitleClass: "modal-card-subtitle text-sm text-gray-500",
         bodyClass: "modal-card-body flex-1 overflow-y-auto p-4",
-        contentClass: "modal-content",
         figureClass: "image",
         footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
         footerPositionClass: (position: string) => {
@@ -271,13 +259,11 @@ const tailwindConfig = {
         scrollClipClass: "is-clipped overflow-auto",
     },
     dropdown: {
-        override: true,
         rootClass: "dropdown relative btn-group inline-block align-middle",
+        activeClass: "show",
         triggerClass: "dropdown-trigger",
         disabledClass: "is-disabled opacity-50 cursor-not-allowed",
         expandedClass: "w-full [&_.dropdown-menu]:w-full",
-        inlineClass:
-            "is-inline [&_.dropdown-menu]:static [&_.dropdown-menu]:inline-block [&_.dropdown-menu]:overflow-auto [&_.dropdown-menu]:z-0",
         contentBackdropClass: "dropdown-backdrop",
         menuClass: (): string => {
             const classes = [
@@ -297,7 +283,6 @@ const tailwindConfig = {
             return classes.join(" ");
         },
         // menuPositionClass: "position-",
-        menuActiveClass: "show",
         itemTag: "a",
         itemClass:
             "dropdown-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
@@ -308,7 +293,6 @@ const tailwindConfig = {
         teleportClass: "teleported",
     },
     field: {
-        override: true,
         rootClass: "field",
         labelClass: "field-label block text-gray-500 mb-2",
         labelSizeClass: "is-",
@@ -317,15 +301,14 @@ const tailwindConfig = {
         bodyClass: "field-body",
         addonsClass: "has-addons flex justify-start",
         groupedClass:
-            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0",
-        groupMultilineClass: "is-grouped-multiline flex-wrap",
+            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0 flex-wrap",
+        nowrapClass: "flex-nowrap",
         horizontalClass: "is-horizontal flex",
         horizontalLabelClass:
             "field-label flex-grow-1 flex-shrink-0 basis-0 mr-6 text-right",
         horizontalBodyClass: "field-body basis-0 flex-grow-5",
     },
     icon: {
-        override: true,
         rootClass: "icon inline-flex justify-center items-center",
         variantClass: "text-",
         sizeClass: (position: string): string => {
@@ -338,8 +321,7 @@ const tailwindConfig = {
         spinClass: "animate-spin",
     },
     input: {
-        override: true,
-        rootClass: (_: string, props: ComponentProps): string => {
+        rootClass: (_: string, props): string => {
             const classes = [
                 "input-component",
                 "inline-block",
@@ -349,7 +331,7 @@ const tailwindConfig = {
             if (isTrueish(props.icon)) classes.push("has-icons-left");
             return classes.join(" ");
         },
-        inputClass: (_: string, props: ComponentProps): string => {
+        inputClass: (_: string, props): string => {
             const classes = [
                 "input",
                 "rounded-lg",
@@ -364,7 +346,7 @@ const tailwindConfig = {
             if (props.iconRight) classes.push("icon-right");
             return classes.join(" ");
         },
-        sizeClass: (_: string, props: ComponentProps): string => {
+        sizeClass: (_: string, props): string => {
             if (props.size == "small") return "input-small";
             else if (props.size == "medium") return "input-medium";
             else if (props.size == "large") return "input-large";
@@ -381,7 +363,6 @@ const tailwindConfig = {
         counterClass: "help counter",
     },
     listbox: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "listbox",
@@ -416,7 +397,6 @@ const tailwindConfig = {
             "list-item panel-block px-4 py-2 text-gray-500 border-t border-gray-200 ",
     },
     loading: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "loading",
@@ -441,11 +421,9 @@ const tailwindConfig = {
         scrollClipClass: "is-clipped",
     },
     menu: {
-        override: true,
         rootClass:
             "menu text-sm font-medium text-heading [&_button]:text-left [&_button]:w-full [&_button]:rounded [&_button]:p-4",
         listClass: "menu-list",
-        listLabelClass: "menu-label my-2 text-gray-500",
         itemButtonClass:
             "menu-item text-left w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1",
         itemButtonActiveClass: "active",
@@ -454,7 +432,6 @@ const tailwindConfig = {
         itemSubmenuClass: "submenu ml-5 pl-1 border-l border-gray-200",
     },
     modal: {
-        override: true,
         rootClass:
             "modal flex flex-col justify-center items-center w-full h-full relative top-0 left-0",
         activeClass: "is-active",
@@ -468,13 +445,12 @@ const tailwindConfig = {
         scrollClipClass: "is-clipped overflow-auto",
     },
     notification: {
-        override: true,
         rootClass:
             "notification alert relative flex items-center px-4 py-3 my-3 rounded-lg space-x-2 duration-100 ease-in",
         variantClass: "is-",
-        wrapperClass:
+        contentClass:
             "notifictation-wrapper flex items-center max-w-[95%] text-left [&_.icon]:h-full [&_.icon]:mr-2",
-        contentClass: "notifictation-content",
+        bodyClass: "notifictation-content",
         positionClass: "position-",
         iconClass: "media mr-3 ",
         closeClass: "close",
@@ -483,8 +459,7 @@ const tailwindConfig = {
         noticePositionClass: "position-",
     },
     pagination: {
-        override: true,
-        rootClass: (_: string, props: ComponentProps): string => {
+        rootClass: (_: string, props): string => {
             const classes = [
                 "pagination",
                 "text-gray-400",
@@ -499,8 +474,7 @@ const tailwindConfig = {
         },
         sizeClass: "is-",
         simpleClass: "is-simple",
-        orderClass: "is-",
-        positionClass: (_: string, props: ComponentProps): string => {
+        positionClass: (_: string, props): string => {
             if (props.position == "right")
                 return "[&_.pagination-list]:justify-end";
             if (props.position == "centered")
@@ -519,7 +493,6 @@ const tailwindConfig = {
         infoClass: "info",
     },
     popover: {
-        override: true,
         rootClass: "popover",
         triggerClass:
             "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
@@ -535,7 +508,6 @@ const tailwindConfig = {
         scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
-        override: true,
         rootClass: "radio flex justify-start items-center relative inline-flex",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
@@ -559,7 +531,7 @@ const tailwindConfig = {
         labelClass:
             "control-label select-none font-medium text-heading ml-2 mr-4",
         variantClass: "is-",
-        sizeClass: (_: string, props: ComponentProps): string => {
+        sizeClass: (_: string, props): string => {
             if (props.size == "small")
                 return "is-small [&_.control-label]:text-xs";
             if (props.size == "medium")
@@ -568,8 +540,7 @@ const tailwindConfig = {
         },
     },
     select: {
-        override: true,
-        rootClass: (_: string, props: ComponentProps): string => {
+        rootClass: (_: string, props): string => {
             const classes = [
                 "select-component",
                 "control",
@@ -580,7 +551,7 @@ const tailwindConfig = {
             if (isTrueish(props.iconRight)) classes.push("has-icons-right");
             return classes.join(" ");
         },
-        selectClass: (_: string, props: ComponentProps): string => {
+        selectClass: (_: string, props): string => {
             const classes = [
                 "select",
                 "rounded-lg",
@@ -599,23 +570,22 @@ const tailwindConfig = {
                 );
             return classes.join(" ");
         },
-        rootVariantClass: "border-",
+        variantClass: "border-",
         expandedClass: "w-full",
         iconLeftClass: "icon-left",
         iconRightClass: "icon-right",
         placeholderClass: "is-empty",
         iconRightSpaceClass: "has-icons-right appearance-none",
         iconLeftSpaceClass: "has-icons-left",
-        arrowClass: "has-arrow",
+        arrowedClass: "has-arrow",
     },
     sidebar: {
-        override: true,
         rootClass: "sidebar absolute",
         overlayClass:
             "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
         contentClass: "sidebar-content shadow-sm bg-white !w-auto !h-auto z-41",
         activeClass: "is-active",
-        positionClass: (_: string, props: ComponentProps): string => {
+        positionClass: (_: string, props): string => {
             if (props.position == "top") return "w-full top-0 right-0 left-0";
             if (props.position == "right")
                 return "h-full top-0 right-0 bottom-0";
@@ -623,19 +593,16 @@ const tailwindConfig = {
                 return "w-full right-0 left-0 bottom-0";
             return "h-full top-0 left-0 bottom-0";
         },
-        expandOnHoverClass: "!w-full",
         fullheightClass: "!h-full",
         fullwidthClass: "!w-full",
-        reduceClass: "is-mini",
         inlineClass: "is-inline",
         mobileClass: "is-",
         scrollClipClass: "is-clipped",
     },
     skeleton: {
-        override: true,
         rootClass: "skeleton flex",
         itemClass: "skeleton-item bg-gray-200 rounded w-full h-4",
-        itemRoundedClass: "rounded-full",
+        roundedClass: "rounded-full",
         animatedClass: "animate-pulse",
         sizeClass: (position: string): string => {
             if (position == "small") return "h-4";
@@ -651,7 +618,6 @@ const tailwindConfig = {
         },
     },
     slider: {
-        override: true,
         rootClass: "slider",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
@@ -681,7 +647,6 @@ const tailwindConfig = {
             "slider-tick absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
     },
     steps: {
-        override: true,
         rootClass: "steps-wrapper",
         listClass: "steps flex flex-wrap font-medium",
         verticalClass:
@@ -722,7 +687,6 @@ const tailwindConfig = {
         navigationClass: "step-navigation",
     },
     switch: {
-        override: true,
         rootClass: "switch flex items-center align-top inline-flex",
         inputClass: (): string => {
             const classes = [
@@ -759,7 +723,6 @@ const tailwindConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
     },
     table: {
-        override: true,
         rootClass: "table-wrapper",
         wrapperClass: "table-inner v relative",
         tableClass: (): string => {
@@ -783,7 +746,6 @@ const tailwindConfig = {
         narrowedClass: "is-narrowed",
         hoverableClass: "[&>tbody>tr:hover]:bg-gray-100",
         emptyClass: "text-center py-8 text-gray-500",
-        detailedClass: "bg-gray-50",
         footerClass: "footer bg-gray-50 py-3 border-t",
         paginationWrapperClass: "py-3 border-t",
         scrollableClass: "overflow-scroll",
@@ -791,21 +753,19 @@ const tailwindConfig = {
             "[&_thead]:sticky-header [&_thead]:sticky [&_thead]:top-0 [&_thead]:bg-white [&_thead]:z-99",
         trSelectedClass: "bg-blue-50",
         thSortableClass: "cursor-pointer hover:bg-gray-100",
-        thCurrentSortClass: "bg-gray-100 font-semibold",
+        thSortedClass: "bg-gray-100 font-semibold",
         thSortIconClass: "ml-1",
-        thUnselectableClass: "select-none",
         thStickyClass: "sticky-th sticky left-0",
         tdStickyClass: "sticky-td sticky left-0",
+        tdDetailClass: "bg-gray-50",
         thCheckboxClass: "w-12",
         thDetailedClass: "w-16",
-        tdDetailedChevronClass: "",
         thPositionClass: "left-0",
         tdPositionClass: "left-0",
         mobileClass: "table-mobile block overflow-x-auto",
         mobileSortClass: "",
     },
     tabs: {
-        override: true,
         rootClass: "tabs-wrapper",
         contentClass: "tabs-content p-4 flex-1",
         multilineClass: "is-multiline",
@@ -846,7 +806,6 @@ const tailwindConfig = {
         transitioningClass: "is-transitioning",
     },
     tag: {
-        override: true,
         rootClass:
             "tag inline-flex items-center justify-center px-2 py-1 rounded-full text-xs font-bold",
         variantClass: "is-",
@@ -854,6 +813,7 @@ const tailwindConfig = {
             if (size == "small") return "!text-xs";
             else if (size == "medium") return "!text-base";
             else if (size == "large") return "!text-lg";
+            return "";
         },
         roundedClass: "rounded-full",
         badgeClass:
@@ -861,7 +821,6 @@ const tailwindConfig = {
         closeClass: "delete is-small ml-2 cursor-pointer",
     },
     taginput: {
-        override: true,
         rootClass: "taginput relative control shadow-xs ",
         containerClass: (): string => {
             const classes = [
@@ -881,13 +840,11 @@ const tailwindConfig = {
             ];
             return classes.join(" ");
         },
-        closeClass: "delete is-small",
         itemClass: "tag m-1 px-1 rounded bg-gray-100 inline-flex",
         variantClass: "is-",
         expandedClass: "w-full",
     },
     timepicker: {
-        override: true,
         rootClass: "timepicker w-auto",
         contentClass:
             "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
@@ -904,7 +861,6 @@ const tailwindConfig = {
         },
     },
     tooltip: {
-        override: true,
         rootClass: "tooltip relative inline-flex",
         contentClass: (): string => {
             const classes = [
@@ -936,7 +892,6 @@ const tailwindConfig = {
         teleportClass: "is-teleported",
     },
     tree: {
-        override: true,
         rootClass: "tree menu",
         listClass: "menu-list divide-y divide-gray-100 overflow-auto",
         disabledClass:
@@ -954,7 +909,6 @@ const tailwindConfig = {
         subtreeClass: "submenu ml-5 pl-1 border-l border-gray-200",
     },
     upload: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "upload",
@@ -980,4 +934,4 @@ const tailwindConfig = {
     },
 };
 
-export { tailwindConfig as config };
+export { tailwindConfig, tailwindConfig as config };

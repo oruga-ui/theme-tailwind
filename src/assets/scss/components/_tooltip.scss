@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -38,6 +37,7 @@
                 border-left: $arrow-border-passive;
             }
         }
+
         &.is-bottom {
             top: $arrow-size;
             right: auto;
@@ -56,6 +56,7 @@
                 border-left: $arrow-border-passive;
             }
         }
+
         &.is-right {
             top: 50%;
             right: auto;
@@ -74,6 +75,7 @@
                 border-bottom: $arrow-border-passive;
             }
         }
+
         &.is-left {
             top: 50%;
             right: $arrow-size;
@@ -92,33 +94,36 @@
                 border-left: $arrow-border;
             }
         }
-        
-         @each $name, $pair in vars.$theme-colors {
+
+        @each $name, $pair in vars.$theme-colors {
             $variant-invert: list.nth($pair, 2);
             $variant: list.nth($pair, 1);
 
             &.is-#{$name} {
                 background-color: $variant;
                 border-color: $variant;
-                
+
                 &.is-top {
                     &::before {
-                        border-top:5px solid $variant;
+                        border-top: 5px solid $variant;
                     }
                 }
+
                 &.is-bottom {
                     &::before {
-                        border-bottom:5px solid $variant;
+                        border-bottom: 5px solid $variant;
                     }
                 }
+
                 &.is-right {
                     &::before {
-                        border-right:5px solid $variant;
+                        border-right: 5px solid $variant;
                     }
                 }
+
                 &.is-left {
                     &::before {
-                        border-left:5px solid $variant;   
+                        border-left: 5px solid $variant;
                     }
                 }
                 // If light and dark colors are provided
@@ -145,6 +150,7 @@
             }
         }
     }
+
     &.is-dashed {
         .tooltip-trigger {
             border-bottom: 1px dashed gray;

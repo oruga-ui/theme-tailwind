@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "./utils/all" as utils;
 @use "./utils/variables" as vars;
@@ -10,11 +9,11 @@
 .table-inner {
     .table {
         &.is-narrowed {
-            tr, th, td {
+            tr,
+            th,
+            td {
                 padding: 0;
-            } 
+            }
         }
-        
     }
-    
 }

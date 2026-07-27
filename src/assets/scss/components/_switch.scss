@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -7,20 +6,23 @@
 /* @docs */
 /* @docs */
 
-@mixin switch-size ($control,$check){
+@mixin switch-size($control, $check) {
     .control-label {
         font-size: $control;
     }
-    .check { 
-        width: $check
+
+    .check {
+        width: $check;
     }
+
     .check::before {
         content: "";
         width: calc(($check - 0.15rem * 2) / 2);
-        height: calc(($check - 0.15rem * 2) * .5);
+        height: calc(($check - 0.15rem * 2) * 0.5);
     }
+
     .check:checked::before {
-        content: '';
+        content: "";
         transform: translateX(calc(($check - 0.15rem * 2) / 2));
     }
 }
@@ -29,24 +31,27 @@
     .check {
         width: 1.75rem;
         padding: 0.15rem;
-        transition: all vars.$speed-slow var(--ease-in); 
+        transition: all vars.$speed-slow var(--ease-in);
     }
+
     .check::before {
         content: "";
         display: block;
         font-size: inherit;
         width: calc((1.75rem - 0.15rem * 2) / 2);
-        height: calc((1.75rem - 0.15rem * 2) * .5);
+        height: calc((1.75rem - 0.15rem * 2) * 0.5);
         background: white;
-        transition: all vars.$speed-slow var(--ease-in); 
+        transition: all vars.$speed-slow var(--ease-in);
         will-change: transform;
         transform-origin: left;
     }
+
     .check:checked {
         background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
     }
+
     .check:checked::before {
-        content: '';
+        content: "";
         transform: translateX(calc((1.75rem - 0.15rem * 2) / 2));
     }
 
@@ -54,11 +59,11 @@
     @each $name, $pair in vars.$theme-colors {
         $variant-invert: list.nth($pair, 2);
         $variant: list.nth($pair, 1);
-        
+
         &.is-#{$name} {
-           .check:checked {
+            .check:checked {
                 background-color: $variant;
-           }
+            }
         }
     }
 
@@ -66,9 +71,11 @@
     &.is-small {
         @include switch-size(8px, 1.25rem);
     }
+
     &.is-medium {
-        @include switch-size(12px, 1.50rem);
+        @include switch-size(12px, 1.5rem);
     }
+
     &.is-large {
         @include switch-size(20px, 2rem);
     }

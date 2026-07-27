@@ -18,30 +18,30 @@ $danger: var(--color-red-700) !default;
 $danger-invert: var(--color-red-50) !default;
 
 $theme-colors: (
-  "primary": (
-    $primary,
-    $primary-invert,
-  ),
-  "secondary": (
-    $secondary,
-    $secondary-invert,
-  ),
-  "success": (
-    $success,
-    $success-invert,
-  ),
-  "info": (
-    $info,
-    $info-invert,
-  ),
-  "warning": (
-    $warning,
-    $warning-invert,
-  ),
-  "danger": (
-    $danger,
-    $danger-invert,
-  ),
+    "primary": (
+        $primary,
+        $primary-invert,
+    ),
+    "secondary": (
+        $secondary,
+        $secondary-invert,
+    ),
+    "success": (
+        $success,
+        $success-invert,
+    ),
+    "info": (
+        $info,
+        $info-invert,
+    ),
+    "warning": (
+        $warning,
+        $warning-invert,
+    ),
+    "danger": (
+        $danger,
+        $danger-invert,
+    ),
 ) !default;
 
 $speed-slow: 150ms !default;

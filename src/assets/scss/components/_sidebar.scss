@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "./utils/all" as utils;
 @use "./utils/variables" as vars;
@@ -9,15 +8,18 @@
 .sidebar {
     &.is-inline {
         position: static;
-       .sidebar-content, .sidebar-background {
-            position: static; 
+
+        .sidebar-content,
+        .sidebar-background {
+            position: static;
             display: inline;
-       }
+        }
     }
-    
+
     .sidebar-content {
         position: fixed;
     }
+
     .sidebar-background {
         position: fixed;
     }
