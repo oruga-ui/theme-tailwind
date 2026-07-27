@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -8,90 +7,94 @@
 /* @docs */
 
 .dropdown {
-	.dropdown-menu {
-		.dropdown-item {
-			&.is-active {
-				background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
-			}
-		}
+    .dropdown-menu {
+        .dropdown-item {
+            &.is-active {
+                background-color: list.nth(
+                    map.get(vars.$theme-colors, "primary"),
+                    1
+                );
+            }
+        }
 
-		// Position
-		&.position-top {
-			top: auto;
-			right: auto;
-			bottom: calc(100%);
-			left: 50%;
-			transform: translateX(-50%);
-		}
-		&.position-left {
-			top: 50%;
-			right: calc(100%);
-			bottom: auto;
-			left: auto;
-			transform: translateY(-50%);
-		}
+        // Position
+        &.position-top {
+            top: auto;
+            right: auto;
+            bottom: calc(100%);
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-		&.position-bottom {
-			top: calc(100%);
-			left: 50%;
-			bottom: auto;
-			right: auto;
-			transform: translateX(-50%);
-		}
+        &.position-left {
+            top: 50%;
+            right: calc(100%);
+            bottom: auto;
+            left: auto;
+            transform: translateY(-50%);
+        }
 
-		&.position-right {
-			top: 50%;
-			right: auto;
-			bottom: auto;
-			left: calc(100%);
-			transform: translateY(-50%);
-		}
+        &.position-bottom {
+            top: calc(100%);
+            left: 50%;
+            bottom: auto;
+            right: auto;
+            transform: translateX(-50%);
+        }
 
-		&.position-top-right {
-			top: auto;
-			right: 0;
-			bottom: calc(100%);
-			left: auto;
-		}
+        &.position-right {
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            left: calc(100%);
+            transform: translateY(-50%);
+        }
 
-		&.position-top-left {
-			top: auto;
-			right: auto;
-			bottom: calc(100%);
-			left: 0;
-		}
+        &.position-top-right {
+            top: auto;
+            right: 0;
+            bottom: calc(100%);
+            left: auto;
+        }
 
-		&.position-bottom-right {
-			top: calc(100%);
-			right: 0;
-			bottom: auto;
-			left: auto;
-		}
+        &.position-top-left {
+            top: auto;
+            right: auto;
+            bottom: calc(100%);
+            left: 0;
+        }
 
-		&.position-bottom-left {
-			top: calc(100%);
-			right: auto;
-			bottom: auto;
-			left: 0;
-		}
+        &.position-bottom-right {
+            top: calc(100%);
+            right: 0;
+            bottom: auto;
+            left: auto;
+        }
 
-		&.is-mobile-modal:not(.is-inline) {
-			position: fixed;
-			top: 25%;
-			left: 50%;
-			bottom: auto;
-			right: auto;
-			transform: translateX(-50%);
-			width: calc(100vw - 54px);
-			max-width: 400px;
-			max-height: calc(100vh - 120px);
-			white-space: normal;
-			overflow-y: auto;
-			z-index: 1055;
-		
-			&::backdrop {
-				@apply bg-black/80 backdrop-blur-sm
-			}
-		}
+        &.position-bottom-left {
+            top: calc(100%);
+            right: auto;
+            bottom: auto;
+            left: 0;
+        }
+
+        &.is-mobile-modal:not(.is-inline) {
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            bottom: auto;
+            right: auto;
+            transform: translateX(-50%);
+            width: calc(100vw - 54px);
+            max-width: 400px;
+            max-height: calc(100vh - 120px);
+            white-space: normal;
+            overflow-y: auto;
+            z-index: 1055;
+
+            &::backdrop {
+                @apply bg-black/80 backdrop-blur-sm;
+            }
+        }
     }
 }

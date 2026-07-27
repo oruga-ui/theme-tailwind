@@ -1,4 +1,3 @@
-
 @use "sass:map";
 @use "sass:list";
 @use "./utils/all" as utils;
@@ -14,21 +13,24 @@
                 order: 1;
                 padding: 0;
             }
+
             .pagination-list {
                 order: 2;
             }
+
             .pagination-next {
-                order: 3; 
+                order: 3;
                 margin: 0;
                 padding: 0;
             }
         }
+
         .datepicker-table {
             padding: 0 10px;
 
-            .datepicker-header{
+            .datepicker-header {
                 // display: table-header-group;
-                // table-layout: fixed; 
+                // table-layout: fixed;
                 font-weight: bold;
                 width: 100%;
                 display: flex;
@@ -38,46 +40,52 @@
                     text-align: center;
                     display: table-cell;
                     width: 3.1rem;
-                    padding: .5rem .75rem;
+                    padding: 0.5rem 0.75rem;
                     cursor: pointer;
                 }
             }
+
             .datepicker-body .datepicker-row {
                 display: table-row;
-                table-layout: fixed; 
+                table-layout: fixed;
                 width: 100%;
 
                 .datepicker-cell {
                     text-align: center;
                     display: table-cell;
                     width: 3.1rem;
-                    padding: .5rem .75rem;
+                    padding: 0.5rem 0.75rem;
                     cursor: pointer;
 
                     .events {
                         .event {
-                            background-color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
-                            
-                            @each $name, $pair in vars.$theme-colors {
-                            $variant: list.nth($pair, 1);
-                            $variant-invert: list.nth($pair, 2);
+                            background-color: list.nth(
+                                map.get(vars.$theme-colors, "primary"),
+                                1
+                            );
 
-                            &.is-#{$name} {
-                                background-color: $variant;
+                            @each $name, $pair in vars.$theme-colors {
+                                $variant: list.nth($pair, 1);
+                                $variant-invert: list.nth($pair, 2);
+
+                                &.is-#{$name} {
+                                    background-color: $variant;
+                                }
                             }
-                        }
                         }
                     }
                 }
             }
+
             .datepicker-months {
                 display: inline-flex;
                 flex-flow: wrap;
                 width: 100%;
+
                 .datepicker-cell {
                     text-align: center;
                     flex: 0 0 33.333%; // Four elements per row
-                    padding: .5rem 0;
+                    padding: 0.5rem 0;
                     cursor: pointer;
                 }
             }
@@ -97,9 +105,9 @@
                 white-space: normal;
                 overflow-y: auto;
                 z-index: 1055;
-            
+
                 &::backdrop {
-                    @apply bg-black/80 backdrop-blur-sm
+                    @apply bg-black/80 backdrop-blur-sm;
                 }
             }
         }
