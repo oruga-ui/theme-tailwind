@@ -74,11 +74,8 @@
 			bottom: auto;
 			left: 0;
 		}
-    }
 
-	// Mobile dropdown
-	&.is-mobile-modal:not(.is-inline) {
-		> .dropdown-menu {
+		&.is-mobile-modal:not(.is-inline) {
 			position: fixed;
 			top: 25%;
 			left: 50%;
@@ -91,9 +88,10 @@
 			white-space: normal;
 			overflow-y: auto;
 			z-index: 1055;
+		
+			&::backdrop {
+				@apply bg-black/80 backdrop-blur-sm
+			}
 		}
-		> .dropdown-item {
-			padding: 1rem 1.5rem;
-		}
-	}
+    }
 }

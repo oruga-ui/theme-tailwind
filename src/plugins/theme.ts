@@ -2,8 +2,8 @@ import type { OrugaConfig } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
 const tailwindConfig: OrugaConfig = {
+    override: true,
     button: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "button",
@@ -40,7 +40,6 @@ const tailwindConfig: OrugaConfig = {
         },
     },
     autocomplete: {
-        override: true,
         rootClass: `autocomplete`,
         itemHoverClass: `bg-gray-50`,
         itemEmptyClass: `text-gray-400 italic text-sm`,
@@ -48,13 +47,12 @@ const tailwindConfig: OrugaConfig = {
     },
 
     breadcrumb: {
-        override: true,
         rootClass: "breadcrumb-wrapper font-medium text-gray-700",
         listClass: "breadcrumb flex",
         variantClass: "is-",
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
-            else if (size == "medium") return "text-md";
+            else if (size == "medium") return "text-base";
             else if (size == "large") return "text-xl";
             return "text-sm";
         },
@@ -71,7 +69,6 @@ const tailwindConfig: OrugaConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
     },
     carousel: {
-        override: true,
         rootClass: "carousel relative overflow-hidden w-full",
         overlayClass:
             "is-overlay flex flex-col items-center justify-center fixed",
@@ -114,7 +111,6 @@ const tailwindConfig: OrugaConfig = {
         itemActiveClass: "is-active",
     },
     checkbox: {
-        override: true,
         rootClass:
             "checkbox flex items-center align-top inline-flex [&_.check]:w-5 [&_.check]:h-5",
         disabledClass:
@@ -152,23 +148,26 @@ const tailwindConfig: OrugaConfig = {
         },
     },
     collapse: {
-        override: true,
         rootClass: "collapse-component rounded-lg my-4",
         triggerClass:
             "collapse-component-trigger cursor-pointer inline-block w-full",
         contentClass: "collapse-component-content [display:inherit]",
     },
     datepicker: {
-        override: true,
         rootClass: "datepicker",
+        triggerClass: "datepicker-trigger",
+        contentClass:
+            "datepicker-overlay w-[400px] p-4 rounded-lg shadow-xs border border-gray-200",
+        contentBackdropClass: "has-backdrop ",
+
         headerClass:
             "datepicker-header flex justify-center pb-4 border-b border-gray-200",
         footerClass: "datepicker-footer pt-4 border-t border-gray-200",
-        boxClass: "dropdown-item m-4",
+        // boxClass: "dropdown-item m-4",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded",
+            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
@@ -178,12 +177,13 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         tableRowClass: "datepicker-row",
-        tableCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
+        tableCellClass:
+            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         tableCellTodayClass: "is-today bg-blue-100 text-blue-500",
-        tableCellSelectedClass: "is-selected bg-blue-500 text-white",
+        tableCellSelectedClass: "is-selected bg-blue-700 text-white",
         //
         tableCellWithinHoveredClass:
             "is-within-hovered bg-gray-100 rounded-none",
@@ -200,21 +200,20 @@ const tailwindConfig: OrugaConfig = {
             if (type == "dots") return "is-dots rounded-lg w-1.5 h-1.5 mx-0.5";
             return "is-bars w-2 h-1";
         },
-
         tableEventVariantClass: "is-",
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
         monthBodyClass: "datepicker-body",
-        monthCellClass: "datepicker-cell",
+        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
         monthCellFirstHoveredClass:
             "is-first-hovered bg-gray-100 rounded-r-none",
         monthCellFirstSelectedClass: "is-first-selected rounded-r-none",
         monthCellLastHoveredClass: "is-last-hovered bg-gray-100 rounded-l-none",
         monthCellLastSelectedClass: "is-last-selected rounded-l-none",
         monthCellSelectableClass: "is-selectable",
-        monthCellSelectedClass: "is-selected text-white",
-        monthCellTodayClass: "is-today text-blue-500",
+        monthCellSelectedClass: "is-selected bg-blue-700 text-white ",
+        monthCellTodayClass: "is-today bg-blue-100 text-blue-500",
         monthCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         monthCellWithinHoveredClass:
@@ -224,13 +223,11 @@ const tailwindConfig: OrugaConfig = {
         monthTableClass: "datepicker-months",
     },
     datetimepicker: {
-        override: true,
         datepickerWrapperClass: "datepicker-wrapper",
         timepickerWrapperClass:
             "timepicker-wrapper [&_.dropdown]:w-full [&_.dropdown-menu]:!shadow-sm [&_.dropdown-menu]:!w-full",
     },
     dialog: {
-        override: true,
         rootClass:
             "dialog modal is-active absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-lg border-gray-200 shadow-sm",
         activeClass: "is-active",
@@ -239,7 +236,7 @@ const tailwindConfig: OrugaConfig = {
         fullscreenClass: "is-full-screen",
         // backdropClass: "modal-background", @WIP in Oruga's 0.14.pre
         wrapperClass: "modal-content h-full flex flex-col rounded-lg",
-        textPositionClass: (position: string) => {
+        contentPositionClass: (position: string) => {
             if (position === "left") return "[&_.modal-card-body]:text-left";
             else if (position === "center")
                 return "[&_.modal-card-body]:text-center";
@@ -257,25 +254,20 @@ const tailwindConfig: OrugaConfig = {
         figureClass: "image",
         footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
         footerPositionClass: (position: string) => {
-            if (position === "left")
-                return "[&_.modal-card-foot]:justify-content-flex-start";
-            if (position === "center")
-                return "[&_.modal-card-foot]:justify-content-center";
-            if (position === "right")
-                return "[&_.modal-card-foot]:justify-content-flex-end";
+            if (position === "left") return "justify-start";
+            if (position === "center") return "justify-center";
+            if (position === "right") return "justify-end ";
         },
         scrollClipClass: "is-clipped overflow-auto",
     },
     dropdown: {
-        override: true,
         rootClass: "dropdown relative btn-group inline-block align-middle",
         triggerClass: "dropdown-trigger",
         disabledClass: "is-disabled opacity-50 cursor-not-allowed",
         expandedClass: "w-full [&_.dropdown-menu]:w-full",
         inlineClass:
             "is-inline [&_.dropdown-menu]:static [&_.dropdown-menu]:inline-block [&_.dropdown-menu]:overflow-auto [&_.dropdown-menu]:z-0",
-        overlayClass:
-            "dropdown-backdrop fixed top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
+        contentBackdropClass: "dropdown-backdrop",
         menuClass: (): string => {
             const classes = [
                 "dropdown-menu",
@@ -293,7 +285,7 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        menuPositionClass: "position-",
+        // menuPositionClass: "position-",
         menuActiveClass: "show",
         itemTag: "a",
         itemClass:
@@ -301,11 +293,10 @@ const tailwindConfig: OrugaConfig = {
         itemSelectedClass: "is-active text-white",
         itemFocusedClass: "is-focused bg-gray-100",
         itemDisabledClass: "is-disabled opacity-50 cursor-not-allowed",
-        modalClass: "is-mobile-modal",
+        contentModalClass: "is-mobile-modal",
         teleportClass: "teleported",
     },
     field: {
-        override: true,
         rootClass: "field",
         labelClass: "field-label block text-gray-500 mb-2",
         labelSizeClass: "is-",
@@ -322,12 +313,11 @@ const tailwindConfig: OrugaConfig = {
         horizontalBodyClass: "field-body basis-0 flex-grow-5",
     },
     icon: {
-        override: true,
         rootClass: "icon inline-flex justify-center items-center",
         variantClass: "text-",
         sizeClass: (position: string): string => {
             if (position == "small") return "text-sm";
-            else if (position == "medium") return "text-md";
+            else if (position == "medium") return "text-base";
             else if (position == "large") return "text-lg";
             return "";
         },
@@ -335,7 +325,6 @@ const tailwindConfig: OrugaConfig = {
         spinClass: "animate-spin",
     },
     input: {
-        override: true,
         rootClass: (_: string, props): string => {
             const classes = [
                 "input-component",
@@ -378,7 +367,6 @@ const tailwindConfig: OrugaConfig = {
         counterClass: "help counter",
     },
     listbox: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "listbox",
@@ -413,7 +401,6 @@ const tailwindConfig: OrugaConfig = {
             "list-item panel-block px-4 py-2 text-gray-500 border-t border-gray-200 ",
     },
     loading: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "loading",
@@ -438,7 +425,6 @@ const tailwindConfig: OrugaConfig = {
         scrollClipClass: "is-clipped",
     },
     menu: {
-        override: true,
         rootClass:
             "menu text-sm font-medium text-heading [&_button]:text-left [&_button]:w-full [&_button]:rounded [&_button]:p-4",
         listClass: "menu-list",
@@ -451,7 +437,6 @@ const tailwindConfig: OrugaConfig = {
         itemSubmenuClass: "submenu ml-5 pl-1 border-l border-gray-200",
     },
     modal: {
-        override: true,
         rootClass:
             "modal flex flex-col justify-center items-center w-full h-full relative top-0 left-0",
         activeClass: "is-active",
@@ -459,12 +444,12 @@ const tailwindConfig: OrugaConfig = {
             "modal-background w-full h-full bg-black/80 backdrop-blur-sm",
         contentClass:
             "modal-content bg-white w-auto absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 border border-gray-200 rounded-lg shadow-sm",
-        closeClass: "modal-close absolute top-0 left-0",
+        closeClass:
+            "modal-close is-large absolute top-4 right-4 cursor-pointer z-50 ",
         fullScreenClass: "is-full-screen",
         scrollClipClass: "is-clipped overflow-auto",
     },
     notification: {
-        override: true,
         rootClass:
             "notification alert relative flex items-center px-4 py-3 my-3 rounded-lg space-x-2 duration-100 ease-in",
         variantClass: "is-",
@@ -479,7 +464,6 @@ const tailwindConfig: OrugaConfig = {
         noticePositionClass: "position-",
     },
     pagination: {
-        override: true,
         rootClass: (_: string, props): string => {
             const classes = [
                 "pagination",
@@ -515,15 +499,21 @@ const tailwindConfig: OrugaConfig = {
         infoClass: "info",
     },
     popover: {
-        // TODO: Add popover component classes
         rootClass: "popover",
-        triggerClass: "popover-trigger",
-        contentClass: "popover-content",
-        backdropClass: "popover-backdrop",
-        scrollClipClass: "is-clipped",
+        triggerClass:
+            "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
+        contentClass:
+            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto",
+        contentModalClass:
+            "popover-modal top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 fixed",
+        contentBackdropClass: "popover-backdrop",
+        headerClass: "popover-header font-bold text-gray-700 mb-2 text-lg",
+        bodyClass: "popover-body",
+        closeClass:
+            "btn-close absolute top-2 right-2 cursor-pointer text-gray-500 hover:text-gray-700 transition-colors duration-200 ease-in-out ",
+        scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
-        override: true,
         rootClass: "radio flex justify-start items-center relative inline-flex",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
@@ -556,7 +546,6 @@ const tailwindConfig: OrugaConfig = {
         },
     },
     select: {
-        override: true,
         rootClass: (_: string, props): string => {
             const classes = [
                 "select-component",
@@ -597,7 +586,6 @@ const tailwindConfig: OrugaConfig = {
         arrowClass: "has-arrow",
     },
     sidebar: {
-        override: true,
         rootClass: "sidebar absolute",
         overlayClass:
             "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
@@ -620,7 +608,6 @@ const tailwindConfig: OrugaConfig = {
         scrollClipClass: "is-clipped",
     },
     skeleton: {
-        override: true,
         rootClass: "skeleton flex",
         itemClass: "skeleton-item bg-gray-200 rounded w-full h-4",
         itemRoundedClass: "rounded-full",
@@ -639,7 +626,6 @@ const tailwindConfig: OrugaConfig = {
         },
     },
     slider: {
-        override: true,
         rootClass: "slider",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
@@ -650,7 +636,7 @@ const tailwindConfig: OrugaConfig = {
         thumbWrapperDraggingClass:
             "is-dragging [&_.slider-thumb]:cursor-grabbing",
         thumbRoundedClass: "rounded-full",
-        variantClass: "is-",
+        fillVariantClass: "is-",
         sizeClass: (position: string): string => {
             if (position == "small")
                 return "[&_.slider-track]:h-1.5 [&_.slider-thumb]:w-4 [&_.slider-thumb]:h-4";
@@ -669,7 +655,6 @@ const tailwindConfig: OrugaConfig = {
             "slider-tick absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
     },
     steps: {
-        override: true,
         rootClass: "steps-wrapper",
         listClass: "steps flex flex-wrap font-medium",
         verticalClass:
@@ -684,7 +669,7 @@ const tailwindConfig: OrugaConfig = {
             if (size == "small")
                 return "[&_.step-marker]:w-8 [&_.step-marker]:h-8 [&_.step-title]:text-sm";
             else if (size == "medium")
-                return "[&_.step-marker]:w-12 [&_.step-marker]:h-12 [&_.step-title]:text-md";
+                return "[&_.step-marker]:w-12 [&_.step-marker]:h-12 [&_.step-title]:text-base";
             else if (size == "large")
                 return "[&_.step-marker]:w-17 [&_.step-marker]:h-17 [&_.step-title]:text-lg";
             return "";
@@ -710,7 +695,6 @@ const tailwindConfig: OrugaConfig = {
         navigationClass: "step-navigation",
     },
     switch: {
-        override: true,
         rootClass: "switch flex items-center align-top inline-flex",
         inputClass: (): string => {
             const classes = [
@@ -747,7 +731,6 @@ const tailwindConfig: OrugaConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
     },
     table: {
-        override: true,
         rootClass: "table-wrapper",
         wrapperClass: "table-inner v relative",
         tableClass: (): string => {
@@ -793,7 +776,6 @@ const tailwindConfig: OrugaConfig = {
         mobileSortClass: "",
     },
     tabs: {
-        override: true,
         rootClass: "tabs-wrapper",
         contentClass: "tabs-content p-4 flex-1",
         multilineClass: "is-multiline",
@@ -810,22 +792,22 @@ const tailwindConfig: OrugaConfig = {
         listClass: "tabs flex font-medium flex-wrap",
         typeClass: (type: string): string => {
             if (type == "toggle")
-                return "toggle text-gray-500 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200";
+                return "toggle text-gray-800 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200";
             else if (type == "boxed")
-                return "boxed [&_.tab-link]:rounded-t-lg text-gray-500 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
+                return "boxed [&_.tab-link]:rounded-t-lg text-gray-800 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
             else if (type == "pills")
-                return "pills [&_.tab-link]:rounded-lg text-gray-500";
+                return "pills [&_.tab-link]:rounded-lg text-gray-800";
             else
-                return "default text-gray-500 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
+                return "default text-gray-800 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
         },
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
-            else if (size == "medium") return "text-md";
+            else if (size == "medium") return "text-base";
             else if (size == "large") return "text-lg";
             return "text-sm";
         },
         tabPanelClass: "tab-item",
-        tabClass: "tab-link p-4 flex items-center",
+        tabClass: "tab-link py-3 px-4 flex items-center cursor-pointer",
         tabIconClass: "tab-icon me-2",
         tabLabelClass: "tab-title",
         tabActiveClass: "is-active",
@@ -834,15 +816,13 @@ const tailwindConfig: OrugaConfig = {
         transitioningClass: "is-transitioning",
     },
     tag: {
-        override: true,
         rootClass:
-            "tag inline-flex items-center justify-center px-2 py-1 rounded-full",
+            "tag inline-flex items-center justify-center px-2 py-1 rounded-full text-xs font-bold",
         variantClass: "is-",
         sizeClass: (size: string): string => {
-            if (size == "small") return "text-xs";
-            else if (size == "medium") return "text-md";
-            else if (size == "large") return "text-lg";
-            return "text-xs";
+            if (size == "small") return "!text-xs";
+            else if (size == "medium") return "!text-base";
+            else if (size == "large") return "!text-lg";
         },
         roundedClass: "rounded-full",
         badgeClass:
@@ -850,7 +830,6 @@ const tailwindConfig: OrugaConfig = {
         closeClass: "delete is-small ml-2 cursor-pointer",
     },
     taginput: {
-        override: true,
         rootClass: "taginput relative control shadow-xs ",
         containerClass: (): string => {
             const classes = [
@@ -876,19 +855,22 @@ const tailwindConfig: OrugaConfig = {
         expandedClass: "w-full",
     },
     timepicker: {
-        override: true,
         rootClass: "timepicker w-auto",
-        boxClass:
-            "dropdown-item px-4 py-2 cursor-pointer flex justify-center items-center [&_select]:appearance-none font-medium",
+        contentClass:
+            "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
+        contentBackdropClass: "has-backdrop",
+        bodyClass: "timepicker-body flex justify-center items-center",
+        // boxClass:
+        // "dropdown-item px-4 py-2 cursor-pointer flex justify-center items-center [&_select]:appearance-none font-medium",
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer flex",
         sizeClass: "is-",
-        selectClasses: {
-            rootClass: "select control",
+        selectAttrs: {
+            rootClass:
+                "select control mx-2 font-bold [&_select]:appearance-none [&_select]:text-center",
         },
     },
     tooltip: {
-        override: true,
         rootClass: "tooltip relative inline-flex",
         contentClass: (): string => {
             const classes = [
@@ -920,7 +902,6 @@ const tailwindConfig: OrugaConfig = {
         teleportClass: "is-teleported",
     },
     tree: {
-        override: true,
         rootClass: "tree menu",
         listClass: "menu-list divide-y divide-gray-100 overflow-auto",
         disabledClass:
@@ -938,7 +919,6 @@ const tailwindConfig: OrugaConfig = {
         subtreeClass: "submenu ml-5 pl-1 border-l border-gray-200",
     },
     upload: {
-        override: true,
         rootClass: (): string => {
             const classes = [
                 "upload",
@@ -954,13 +934,13 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        draggableClass:
+        dragzoneClass:
             "upload-draggable w-full bg-transparent cursor-pointer p-12 border border-gray-500 border-dashed rounded-lg",
         variantClass: "is-",
         expandedClass: "w-full",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        draggableHoveredClass: "is-hovered",
+        dragzoneHoveredClass: "is-hovered",
     },
 };
 
