@@ -53,7 +53,9 @@
     "@oruga-ui/oruga-next": "^0.13.0"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/vite": "^4.3.3",
+    "autoprefixer": "^10.5.4",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {

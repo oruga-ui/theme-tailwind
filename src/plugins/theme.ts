@@ -560,6 +560,9 @@ const tailwindConfig: OrugaConfig = {
                 "w-full",
                 "!bg-gray-50",
                 "border border-gray-200",
+                "appearance-none",
+                "[-webkit-appearance:none]",
+                "[-moz-appearance:none]",
             ];
             if (isTrueish(props.size)) classes.push(`input-${props.size}`);
             if (isTrueish(props.rounded)) classes.push("!rounded-3xl");

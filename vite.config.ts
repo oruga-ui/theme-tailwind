@@ -16,7 +16,7 @@ import pkg from "./package.json" with { type: "json" };
  * @returns file banner string
  */
 function generate(version: string): string {
-    return `/*! Oruga Tailwind Theme v${version} | MIT License | github.com/oruga-ui/theme-bootstrap */`;
+    return `/*! Oruga Tailwind Theme v${version} | MIT License | github.com/oruga-ui/theme-tailwind */`;
 }
 
 // https://vitejs.dev/config/
@@ -77,7 +77,6 @@ export default defineConfig(({ mode }) => {
                 preprocessorOptions: {
                     includePaths: ["node_modules"],
                     scss: {
-                        // this can be removed with bootstrap 5.4 (https://github.com/twbs/bootstrap/issues/40962)
                         silenceDeprecations: [
                             "color-functions",
                             "global-builtin",
