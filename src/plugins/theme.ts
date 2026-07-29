@@ -163,7 +163,6 @@ const tailwindConfig: OrugaConfig = {
         headerClass:
             "datepicker-header flex justify-center pb-4 border-b border-gray-200",
         footerClass: "datepicker-footer pt-4 border-t border-gray-200",
-        // boxClass: "dropdown-item m-4",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
@@ -853,8 +852,6 @@ const tailwindConfig: OrugaConfig = {
             "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
         contentBackdropClass: "has-backdrop",
         bodyClass: "timepicker-body flex justify-center items-center",
-        // boxClass:
-        // "dropdown-item px-4 py-2 cursor-pointer flex justify-center items-center [&_select]:appearance-none font-medium",
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer flex",
         sizeClass: "is-",
