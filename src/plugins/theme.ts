@@ -9,6 +9,7 @@ const tailwindConfig: OrugaConfig = {
                 "button",
                 "inline-flex",
                 "items-center",
+                "justify-center",
                 "relative",
                 "cursor-pointer",
                 "text-gray-500",
