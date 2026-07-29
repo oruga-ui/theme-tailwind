@@ -62,7 +62,6 @@ const tailwindConfig: OrugaConfig = {
             if (position == "right") return "[&_.breadcrumb]:justify-end";
             return "[&_.breadcrumb]:justify-start";
         },
-        // positionClass: "",
         itemClass: "breadcrumb-item cursor-pointer [&_.icon]:mx-1.5",
         activeClass: "is-active text-blue-500",
         disabledClass:
@@ -163,7 +162,6 @@ const tailwindConfig: OrugaConfig = {
         headerClass:
             "datepicker-header flex justify-center pb-4 border-b border-gray-200",
         footerClass: "datepicker-footer pt-4 border-t border-gray-200",
-        // boxClass: "dropdown-item m-4",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
@@ -184,7 +182,6 @@ const tailwindConfig: OrugaConfig = {
             "is-unselectable opacity-50 cursor-not-allowed",
         tableCellTodayClass: "is-today bg-blue-100 text-blue-500",
         tableCellSelectedClass: "is-selected bg-blue-700 text-white",
-        //
         tableCellWithinHoveredClass:
             "is-within-hovered bg-gray-100 rounded-none",
         tableCellFirstHoveredClass:
@@ -233,7 +230,6 @@ const tailwindConfig: OrugaConfig = {
         mobileClass: undefined,
         teleportClass: "is-teleported",
         fullscreenClass: "is-full-screen",
-        // backdropClass: "modal-background", @WIP in Oruga's 0.14.pre
         contentClass: "modal-content h-full flex flex-col rounded-lg",
         contentPositionClass: (position: string) => {
             if (position === "left") return "[&_.modal-card-body]:text-left";
@@ -282,7 +278,6 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        // menuPositionClass: "position-",
         itemTag: "a",
         itemClass:
             "dropdown-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
@@ -853,8 +848,6 @@ const tailwindConfig: OrugaConfig = {
             "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
         contentBackdropClass: "has-backdrop",
         bodyClass: "timepicker-body flex justify-center items-center",
-        // boxClass:
-        // "dropdown-item px-4 py-2 cursor-pointer flex justify-center items-center [&_select]:appearance-none font-medium",
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer flex",
         sizeClass: "is-",
