@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:list";
-@use "../utils/all" as utils;
 @use "../utils/variables" as vars;
+
+/* @docs */
+/* @docs */
 
 .tag {
     background-color: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
