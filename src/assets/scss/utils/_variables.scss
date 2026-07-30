@@ -1,7 +1,10 @@
 /********************************************
 *   Variable overrides and theme variables
 *********************************************/
-@use "sass:map";
+
+$animation-speed-fast: 150ms !default;
+$animation-speed: 250ms !default;
+$animation-speed-slow: 500ms !default;
 
 $primary: var(--color-blue-700) !default;
 $primary-invert: var(--color-blue-50) !default;
@@ -43,15 +46,3 @@ $theme-colors: (
         $danger-invert,
     ),
 ) !default;
-
-$speed-slow: 150ms !default;
-$speed-slower: 250ms !default;
-
-// oruga defines an extra secondary color
-$secondary: #6c757d !default;
-
-// alternative to focus-shadow-size
-$active-shadow-size: 0 0 0.5em !default;
-
-// make the custom colors extandable by providing a new variable to override
-$custom-colors: () !default;
