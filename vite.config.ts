@@ -81,10 +81,6 @@ export default defineConfig(({ mode }) => {
                 },
             },
             css: {
-                preprocessorOptions: {
-                    includePaths: ["node_modules"],
-                    scss: {},
-                },
                 postcss: {
                     plugins: [tailwindPostcss(), autoprefixer()],
                 },
