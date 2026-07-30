@@ -9,7 +9,7 @@ import { RouterLink, RouterView } from "vue-router";
             <RouterLink to="/" class="theme-label">
                 <img
                     class="image__oruga"
-                    src="../../public/oruga-tailwind.png"
+                    src="../../oruga-tailwind.png"
                     alt="Logo Oruga Theme Tailwind" />
                 <b style="color: black">Oruga Tailwind Theme</b>
             </RouterLink>

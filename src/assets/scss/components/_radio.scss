@@ -34,7 +34,7 @@
         border-radius: 9999px;
         width: 1.06rem;
         height: 1.06rem;
-        transition: all vars.$speed-slow var(--ease-in);
+        transition: all vars.$animation-speed-fast var(--ease-in);
     }
 
     .check:checked {

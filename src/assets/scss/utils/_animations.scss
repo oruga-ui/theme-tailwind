@@ -112,7 +112,7 @@
 // Fade
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity var.$speed-slow var(--ease-in);
+    transition: opacity var.$animation-speed-fast var(--ease-in);
 }
 
 .fade-enter,
@@ -124,11 +124,11 @@
 // Zoom In
 .zoom-in-enter-active,
 .zoom-in-leave-active {
-    transition: opacity var.$speed-slow var(--ease-in);
+    transition: opacity var.$animation-speed-fast var(--ease-in);
 
     .animation-content,
     .animation-content {
-        transition: transform var.$speed-slow var(--ease-in);
+        transition: transform var.$animation-speed-fast var(--ease-in);
     }
 }
 
@@ -146,11 +146,11 @@
 // Zoom Out
 .zoom-out-enter-active,
 .zoom-out-leave-active {
-    transition: opacity var.$speed-slow var(--ease-in);
+    transition: opacity var.$animation-speed-fast var(--ease-in);
 
     .animation-content,
     .animation-content {
-        transition: transform var.$speed-slow var(--ease-in);
+        transition: transform var.$animation-speed-fast var(--ease-in);
     }
 }
 
@@ -170,7 +170,7 @@
 .slide-next-leave-active,
 .slide-prev-enter-active,
 .slide-prev-leave-active {
-    transition: transform var.$speed-slower
+    transition: transform var.$animation-speed
         cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
@@ -194,7 +194,7 @@
 .slide-down-leave-active,
 .slide-up-enter-active,
 .slide-up-leave-active {
-    transition: transform var.$speed-slower
+    transition: transform var.$animation-speed
         cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
@@ -215,11 +215,11 @@
 }
 
 .slide-enter-active {
-    transition: var.$speed-slow var(--ease-in);
+    transition: var.$animation-speed-fast var(--ease-in);
 }
 
 .slide-leave-active {
-    transition: var.$speed-slow var(--ease-in);
+    transition: var.$animation-speed-fast var(--ease-in);
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
