@@ -4,6 +4,8 @@ import dts from "vite-plugin-dts";
 import banner from "vite-plugin-banner";
 import { viteStaticCopy as copy } from "vite-plugin-static-copy";
 import tailwindcss from "@tailwindcss/vite";
+import tailwindpostcss from "@tailwindcss/postcss";
+import autoprefixer from "autoprefixer";
 
 import { fileURLToPath } from "url";
 import { resolve } from "path";
@@ -76,13 +78,10 @@ export default defineConfig(({ mode }) => {
             css: {
                 preprocessorOptions: {
                     includePaths: ["node_modules"],
-                    scss: {
-                        silenceDeprecations: [
-                            "color-functions",
-                            "global-builtin",
-                            "import",
-                        ],
-                    },
+                    scss: {},
+                },
+                postcss: {
+                    plugins: [tailwindpostcss(), autoprefixer()],
                 },
             },
         };
