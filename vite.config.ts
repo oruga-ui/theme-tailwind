@@ -3,7 +3,9 @@ import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import banner from "vite-plugin-banner";
 import { viteStaticCopy as copy } from "vite-plugin-static-copy";
-import tailwindcss from "@tailwindcss/vite";
+import tailwind from "@tailwindcss/vite";
+import tailwindPostcss from "@tailwindcss/postcss";
+import autoprefixer from "autoprefixer";
 
 import { fileURLToPath } from "url";
 import { resolve } from "path";
@@ -24,10 +26,15 @@ export default defineConfig(({ mode }) => {
     if (mode === "development") {
         return {
             root: __dirname,
-            plugins: [vue(), tailwindcss()],
+            plugins: [vue(), tailwind()],
             resolve: {
                 alias: {
                     "@": fileURLToPath(new URL("./src", import.meta.url)),
+                },
+            },
+            css: {
+                postcss: {
+                    plugins: [tailwindPostcss(), autoprefixer()],
                 },
             },
         };
@@ -74,15 +81,8 @@ export default defineConfig(({ mode }) => {
                 },
             },
             css: {
-                preprocessorOptions: {
-                    includePaths: ["node_modules"],
-                    scss: {
-                        silenceDeprecations: [
-                            "color-functions",
-                            "global-builtin",
-                            "import",
-                        ],
-                    },
+                postcss: {
+                    plugins: [tailwindPostcss(), autoprefixer()],
                 },
             },
         };
