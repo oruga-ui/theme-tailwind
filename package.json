@@ -53,7 +53,7 @@
     "@oruga-ui/oruga-next": "^0.14.0"
   },
   "dependencies": {
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
