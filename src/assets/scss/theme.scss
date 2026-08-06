@@ -1,6 +1,12 @@
-@forward "utils/all";
-@forward "tailwindcss";
+/******************
+*   Theme Styles
+*******************/
 
+// import globals, helpers and functions
+@forward "utils/animations";
+@forward "utils/utility";
+
+// import theme components
 @forward "./components/autocomplete";
 @forward "./components/breadcrumb";
 @forward "./components/button";
