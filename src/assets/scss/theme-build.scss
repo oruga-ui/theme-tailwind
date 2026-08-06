@@ -1,2 +1,12 @@
-@forward "utils/all";
+/**********************
+*   Theme Full Build
+***********************/
+
+// import custom theme variables and maps
+@forward "./utils/variables";
+
+// import tailwind styles
 @forward "tailwindcss";
+
+// import theme styles
+@forward "theme";
