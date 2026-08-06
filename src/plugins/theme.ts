@@ -490,8 +490,6 @@ const tailwindConfig: OrugaConfig = {
     },
     popover: {
         rootClass: "popover",
-        triggerClass:
-            "popover-trigger cursor-pointer inline-flex items-center justify-center relative",
         contentClass:
             "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto",
         contentModalClass:
