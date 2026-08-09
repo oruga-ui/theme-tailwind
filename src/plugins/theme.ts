@@ -158,7 +158,8 @@ const tailwindConfig: OrugaConfig = {
         triggerClass: "datepicker-trigger",
         contentClass:
             "datepicker-overlay w-[400px] p-4 rounded-lg shadow-xs border border-gray-200",
-        contentBackdropClass: "has-backdrop ",
+        contentBackdropClass:
+            "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
 
         headerClass:
             "datepicker-header flex justify-center pb-4 border-b border-gray-200",
@@ -225,8 +226,20 @@ const tailwindConfig: OrugaConfig = {
             "timepicker-wrapper [&_.dropdown]:w-full [&_.dropdown-menu]:!shadow-sm [&_.dropdown-menu]:!w-full",
     },
     dialog: {
-        rootClass:
-            "dialog modal is-active absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-lg border-gray-200 shadow-sm",
+        rootClass: [
+            "dialog",
+            "modal",
+            "absolute",
+            "top-[50%]",
+            "left-[50%]",
+            "-translate-x-1/2",
+            "-translate-y-1/2",
+            "rounded-lg",
+            "border-gray-200",
+            "shadow-sm",
+            "backdrop:bg-black/80",
+            "backdrop:backdrop-blur-sm",
+        ].join(" "),
         activeClass: "is-active",
         mobileClass: undefined,
         teleportClass: "is-teleported",
@@ -285,7 +298,8 @@ const tailwindConfig: OrugaConfig = {
         itemSelectedClass: "is-active text-white",
         itemFocusedClass: "is-focused bg-gray-100",
         itemDisabledClass: "is-disabled opacity-50 cursor-not-allowed",
-        contentModalClass: "is-mobile-modal",
+        contentModalClass:
+            "is-mobile-modal backdrop:bg-black/80 backdrop:backdrop-blur-sm",
         teleportClass: "teleported",
     },
     field: {
@@ -494,7 +508,8 @@ const tailwindConfig: OrugaConfig = {
             "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto",
         contentModalClass:
             "popover-modal top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 fixed",
-        contentBackdropClass: "popover-backdrop",
+        contentBackdropClass:
+            "popover-backdrop backdrop:bg-black/30 backdrop:backdrop-blur-sm",
         headerClass: "popover-header font-bold text-gray-700 mb-2 text-lg",
         bodyClass: "popover-body",
         closeClass:
@@ -845,7 +860,8 @@ const tailwindConfig: OrugaConfig = {
         rootClass: "timepicker w-auto",
         contentClass:
             "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
-        contentBackdropClass: "has-backdrop",
+        contentBackdropClass:
+            "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
         bodyClass: "timepicker-body flex justify-center items-center",
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer flex",

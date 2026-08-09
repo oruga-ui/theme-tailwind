@@ -90,10 +90,6 @@
             white-space: normal;
             overflow-y: auto;
             z-index: 1055;
-
-            &::backdrop {
-                @apply bg-black/80 backdrop-blur-sm;
-            }
         }
     }
 }
