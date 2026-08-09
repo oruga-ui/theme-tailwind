@@ -6,6 +6,8 @@
 @forward "utils/animations";
 @forward "utils/utility";
 
+
+
 // import theme components
 @forward "./components/autocomplete";
 @forward "./components/breadcrumb";
@@ -41,3 +43,6 @@
 @forward "./components/tooltip";
 @forward "./components/tree";
 @forward "./components/upload";
+
+// import tailwind styles
+@forward "tailwindcss";
