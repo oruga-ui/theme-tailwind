@@ -1,12 +1,2 @@
 /* @docs */
 /* @docs */
-
-.popover {
-    .popover-content {
-        &.popover-backdrop {
-            &::backdrop {
-                @apply bg-black/30 backdrop-blur-sm;
-            }
-        }
-    }
-}
