@@ -25,7 +25,6 @@ function generate(version: string): string {
 export default defineConfig(({ mode }) => {
     if (mode === "development") {
         return {
-            root: __dirname,
             plugins: [vue(), tailwind()],
             resolve: {
                 alias: {
@@ -68,7 +67,7 @@ export default defineConfig(({ mode }) => {
                 emptyOutDir: true,
                 copyPublicDir: false,
                 lib: {
-                    entry: resolve(__dirname, "src/build.ts"),
+                    entry: resolve(import.meta.dirname, "src/build.ts"),
                     name: "OrugaThemeTailwind",
                     fileName: "theme",
                     cssFileName: "theme",

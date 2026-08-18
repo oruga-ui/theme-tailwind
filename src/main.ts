@@ -10,7 +10,7 @@ import Examples from "@oruga-ui/examples";
 import "@oruga-ui/examples/index.css";
 
 // add theme
-import "./assets/scss/theme.scss";
+import "./assets/scss/theme-build.scss";
 
 // add theme config
 import { config as tailwindConfig } from "./plugins/theme";
