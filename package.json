@@ -1,6 +1,6 @@
 {
   "name": "@oruga-ui/theme-tailwind",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tailwind theme for Oruga UI",
   "license": "MIT",
   "type": "module",
@@ -50,15 +50,15 @@
     "update": "ncu -u"
   },
   "peerDependencies": {
-    "@oruga-ui/oruga-next": "^0.14.0"
+    "@oruga-ui/oruga-next": "^0.14.1"
   },
   "dependencies": {
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@oruga-ui/examples": "^0.14.0",
-    "@oruga-ui/oruga-next": "^0.14.0",
+    "@oruga-ui/examples": "^0.14.1",
+    "@oruga-ui/oruga-next": "^0.14.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/vite": "^4.3.3",
     "@tsconfig/node24": "^24.0.4",
