@@ -13,11 +13,13 @@ const tailwindConfig: OrugaConfig = {
                 "relative",
                 "cursor-pointer",
                 "text-gray-500",
+                "dark:text-white",
                 "border",
                 "border-gray-200",
                 "rounded-lg",
                 "shadow-xs",
                 "hover:bg-gray-200",
+                "dark:hover:bg-gray-600",
                 "focus:outline-offset-2",
                 "focus:outline-2",
                 "focus:outline-gray-500",
@@ -137,7 +139,7 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         labelClass:
-            "control-label select-none font-medium text-heading ml-2 mr-4",
+            "control-label select-none font-medium text-heading text-gray-700 dark:text-white ml-2 mr-4",
         variantClass: "is-",
         sizeClass: (_: string, props): string => {
             if (props.size == "small")
