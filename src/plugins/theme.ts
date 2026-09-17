@@ -48,7 +48,7 @@ const tailwindConfig: OrugaConfig = {
     },
 
     breadcrumb: {
-        rootClass: "breadcrumb-wrapper font-medium text-gray-700",
+        rootClass: "breadcrumb-wrapper font-medium dark:text-white text-gray-700",
         listClass: "breadcrumb flex",
         variantClass: "is-",
         sizeClass: (size: string): string => {
