@@ -13,11 +13,13 @@ const tailwindConfig: OrugaConfig = {
                 "relative",
                 "cursor-pointer",
                 "text-gray-500",
+                "dark:text-white",
                 "border",
                 "border-gray-200",
                 "rounded-lg",
                 "shadow-xs",
                 "hover:bg-gray-200",
+                "dark:hover:bg-gray-600",
                 "focus:outline-offset-2",
                 "focus:outline-2",
                 "focus:outline-gray-500",
@@ -48,7 +50,7 @@ const tailwindConfig: OrugaConfig = {
     },
 
     breadcrumb: {
-        rootClass: "breadcrumb-wrapper font-medium text-gray-700",
+        rootClass: "breadcrumb-wrapper font-medium dark:text-white text-gray-700",
         listClass: "breadcrumb flex",
         variantClass: "is-",
         sizeClass: (size: string): string => {
@@ -137,7 +139,7 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         labelClass:
-            "control-label select-none font-medium text-heading ml-2 mr-4",
+            "control-label select-none font-medium text-heading text-gray-700 dark:text-white ml-2 mr-4",
         variantClass: "is-",
         sizeClass: (_: string, props): string => {
             if (props.size == "small")
@@ -157,17 +159,17 @@ const tailwindConfig: OrugaConfig = {
         rootClass: "datepicker",
         triggerClass: "datepicker-trigger",
         contentClass:
-            "datepicker-overlay w-[400px] p-4 rounded-lg shadow-xs border border-gray-200",
+            "datepicker-overlay bg:white dark:bg-gray-800 w-[400px] p-4 rounded-lg shadow-xs border border-gray-200 dark:border-gray-600",
         contentBackdropClass:
             "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
 
         headerClass:
-            "datepicker-header flex justify-center pb-4 border-b border-gray-200",
-        footerClass: "datepicker-footer pt-4 border-t border-gray-200",
+            "datepicker-header flex justify-center pb-4 border-b border-gray-200 dark:border-gray-600",
+        footerClass: "datepicker-footer pt-4 border-t border-gray-200 dark:border-gray-600",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
+            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
@@ -178,17 +180,17 @@ const tailwindConfig: OrugaConfig = {
         },
         tableRowClass: "datepicker-row",
         tableCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
+            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         tableCellTodayClass: "is-today bg-blue-100 text-blue-500",
         tableCellSelectedClass: "is-selected bg-blue-700 text-white",
         tableCellWithinHoveredClass:
-            "is-within-hovered bg-gray-100 rounded-none",
+            "is-within-hovered bg-gray-100 dark:bg-gray-600 rounded-none",
         tableCellFirstHoveredClass:
-            "is-first-hovered bg-gray-100 rounded-r-none",
-        tableCellLastHoveredClass: "is-last-hovered bg-gray-100 rounded-l-none",
+            "is-first-hovered bg-gray-100 dark:bg-gray-600 rounded-r-none",
+        tableCellLastHoveredClass: "is-last-hovered bg-gray-100 dark:bg-gray-600 rounded-l-none",
         tableCellFirstSelectedClass: "is-first-selected rounded-r-none",
         tableCellLastSelectedClass: "is-last-selected rounded-l-none",
         tableCellWithinSelectedClass: "is-within-selected rounded-none",
@@ -203,11 +205,11 @@ const tailwindConfig: OrugaConfig = {
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
-        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
+        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
         monthCellFirstHoveredClass:
-            "is-first-hovered bg-gray-100 rounded-r-none",
+            "is-first-hovered bg-gray-100 dark:bg-gray-600 rounded-r-none",
         monthCellFirstSelectedClass: "is-first-selected rounded-r-none",
-        monthCellLastHoveredClass: "is-last-hovered bg-gray-100 rounded-l-none",
+        monthCellLastHoveredClass: "is-last-hovered bg-gray-100 dark:bg-gray-600 rounded-l-none",
         monthCellLastSelectedClass: "is-last-selected rounded-l-none",
         monthCellSelectableClass: "is-selectable",
         monthCellSelectedClass: "is-selected bg-blue-700 text-white ",
@@ -215,7 +217,7 @@ const tailwindConfig: OrugaConfig = {
         monthCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         monthCellWithinHoveredClass:
-            "is-within-hovered bg-gray-100 rounded-none",
+            "is-within-hovered bg-gray-100 dark:bg-gray-600 rounded-none",
         monthCellWithinSelectedClass: "is-within-selected rounded-none",
         monthClass: "datepicker-table",
         monthTableClass: "datepicker-months",
@@ -281,20 +283,24 @@ const tailwindConfig: OrugaConfig = {
                 "absolute",
                 "z-10",
                 "bg-white",
+                "dark:bg-gray-800",
                 "divide-y",
                 "divide-gray-100",
+                "dark:divide-gray-800",
                 "rounded-lg",
                 "shadow-lg",
                 "min-w-48",
                 "p-2",
                 "text-gray-600",
+                'dark:text-white',
                 "border border-gray-100",
+                "dark:border-gray-800",
             ];
             return classes.join(" ");
         },
         itemTag: "a",
         itemClass:
-            "dropdown-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
+            "dropdown-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 dark:hover:text-gray-600 cursor-pointer",
         itemSelectedClass: "is-active text-white",
         itemFocusedClass: "is-focused bg-gray-100",
         itemDisabledClass: "is-disabled opacity-50 cursor-not-allowed",
@@ -337,6 +343,7 @@ const tailwindConfig: OrugaConfig = {
                 "inline-block",
                 "relative",
                 "[&_.icon]:text-gray-500",
+                "dark:[&_.icon]:text-gray-400",
             ];
             if (isTrueish(props.icon)) classes.push("has-icons-left");
             return classes.join(" ");
@@ -348,8 +355,12 @@ const tailwindConfig: OrugaConfig = {
                 "shadow-xs",
                 "focus:ring-2",
                 "w-full",
-                "!bg-gray-50",
+                "bg-gray-50",
+                "dark:bg-gray-700",
+                "text-gray-700",
+                "dark:text-gray-300",
                 "border border-gray-200",
+                "dark:border-gray-600",
             ];
 
             if (props.icon) classes.push("icon-left");
@@ -379,12 +390,15 @@ const tailwindConfig: OrugaConfig = {
                 "panel",
                 "z-10",
                 "bg-white",
+                "dark:bg-gray-800",
                 "rounded-lg",
                 "shadow-sm",
                 "min-w-48",
                 "p-2",
                 "text-gray-600",
+                "dark:text-white",
                 "border border-gray-100",
+                "dark:border-gray-800",
                 "overflow-auto",
             ];
             return classes.join(" ");
@@ -392,19 +406,19 @@ const tailwindConfig: OrugaConfig = {
         selectableClass: "selectable",
         multipleClass: "multiple",
         disabledClass: "is-disabled", // @Duplicate element
-        listClass: "panel-list divide-y divide-gray-100 overflow-auto",
+        listClass: "panel-list divide-y divide-gray-100 dark:divide-gray-600 overflow-auto",
         itemClass:
             "list-item panel-block rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
         itemDisabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        itemFocusedClass: "is-focused ",
+        itemFocusedClass: "is-focused dark:text-gray-600",
         itemSelectedClass: "is-active",
-        filterClass: "list-item panel-block px-4 py-2 border-b border-gray-200",
+        filterClass: "list-item panel-block px-4 py-2 border-b border-gray-200 dark:border-gray-600",
         emptyClass: "list-item panel-block is-disabled",
         headerClass:
-            "list-item panel-block px-4 py-2 text-gray-500 border-b border-gray-200",
+            "list-item panel-block px-4 py-2 text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-600",
         footerClass:
-            "list-item panel-block px-4 py-2 text-gray-500 border-t border-gray-200 ",
+            "list-item panel-block px-4 py-2 text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-600 ",
     },
     loading: {
         rootClass: (): string => {
@@ -435,11 +449,11 @@ const tailwindConfig: OrugaConfig = {
             "menu text-sm font-medium text-heading [&_button]:text-left [&_button]:w-full [&_button]:rounded [&_button]:p-4",
         listClass: "menu-list",
         itemButtonClass:
-            "menu-item text-left w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1",
+            "menu-item text-left text-gray-700 dark:text-gray-300 w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1",
         itemButtonActiveClass: "active",
         itemButtonDisabledClass:
             "disabled pointer-events-none cursor-not-allowed opacity-50",
-        itemSubmenuClass: "submenu ml-5 pl-1 border-l border-gray-200",
+        itemSubmenuClass: "submenu ml-5 pl-1 border-l border-gray-200 dark:border-gray-600",
     },
     modal: {
         rootClass:
@@ -568,7 +582,11 @@ const tailwindConfig: OrugaConfig = {
                 "focus:ring-2",
                 "w-full",
                 "!bg-gray-50",
+                "dark:!bg-gray-700",
                 "border border-gray-200",
+                "dark:border-gray-600",
+                "text-gray-700",
+                "dark:text-gray-300",
                 "appearance-none",
                 "[-webkit-appearance:none]",
                 "[-moz-appearance:none]",
