@@ -552,7 +552,7 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         labelClass:
-            "control-label select-none font-medium text-heading ml-2 mr-4",
+            "control-label select-none font-medium text-heading text-gray-700 dark:text-gray-300 ml-2 mr-4",
         variantClass: "is-",
         sizeClass: (_: string, props): string => {
             if (props.size == "small")
