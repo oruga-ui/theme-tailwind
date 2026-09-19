@@ -438,6 +438,7 @@ const tailwindConfig: OrugaConfig = {
                 "overflow-hidden",
                 "[&_.loading-overlay]:z-40",
                 "[&_span]:z-50",
+                "text-gray-700 dark:text-gray-300",
             ];
             return classes.join(" ");
         },
