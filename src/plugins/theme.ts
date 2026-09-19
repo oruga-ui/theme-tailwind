@@ -16,6 +16,7 @@ const tailwindConfig: OrugaConfig = {
                 "dark:text-gray-300",
                 "border",
                 "border-gray-200",
+                "dark:border-gray-600",
                 "rounded-lg",
                 "shadow-xs",
                 "hover:bg-gray-200",
@@ -615,7 +616,7 @@ const tailwindConfig: OrugaConfig = {
         rootClass: "sidebar absolute",
         overlayClass:
             "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
-        contentClass: "sidebar-content shadow-sm bg-white !w-auto !h-auto z-41",
+        contentClass: "sidebar-content shadow-sm bg-white dark:bg-gray-800  text-gray-700 dark:text-gray-300 !w-auto !h-auto z-41",
         activeClass: "is-active",
         positionClass: (_: string, props): string => {
             if (props.position == "top") return "w-full top-0 right-0 left-0";
