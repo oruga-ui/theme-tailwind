@@ -444,7 +444,7 @@ const tailwindConfig: OrugaConfig = {
         },
         fullPageClass: "is-full-page fixed",
         overlayClass:
-            "loading-overlay absolute top-0 right-0 bottom-0 left-0 bg-white/10 backdrop-blur-sm ",
+            "loading-overlay absolute top-0 right-0 bottom-0 left-0 bg-white/10 dark:bg-gray-800/10 backdrop-blur-sm ",
         iconClass: "icon",
         scrollClipClass: "is-clipped",
     },
@@ -464,9 +464,9 @@ const tailwindConfig: OrugaConfig = {
             "modal flex flex-col justify-center items-center w-full h-full relative top-0 left-0",
         activeClass: "is-active",
         overlayClass:
-            "modal-background w-full h-full bg-black/80 backdrop-blur-sm",
+            "modal-background w-full h-full bg-black/80 dark:bg-black/80 backdrop-blur-sm",
         contentClass:
-            "modal-content bg-white w-auto absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 border border-gray-200 rounded-lg shadow-sm",
+            "modal-content bg-white dark:bg-gray-800 w-auto absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm",
         closeClass:
             "modal-close is-large absolute top-4 right-4 cursor-pointer z-50 ",
         fullScreenClass: "is-full-screen",
@@ -523,15 +523,15 @@ const tailwindConfig: OrugaConfig = {
     popover: {
         rootClass: "popover",
         contentClass:
-            "popover-content absolute z-50 bg-white border border-gray-200 rounded-lg shadow-sm py-4 px-8 w-auto",
+            "popover-content absolute z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm py-4 px-8 w-auto",
         contentModalClass:
             "popover-modal top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 fixed",
         contentBackdropClass:
             "popover-backdrop backdrop:bg-black/30 backdrop:backdrop-blur-sm",
-        headerClass: "popover-header font-bold text-gray-700 mb-2 text-lg",
-        bodyClass: "popover-body",
+        headerClass: "popover-header font-bold text-gray-700 dark:text-gray-300 mb-2 text-lg",
+        bodyClass: "popover-body dark:text-gray-300 text-gray-700",
         closeClass:
-            "btn-close absolute top-2 right-2 cursor-pointer text-gray-500 hover:text-gray-700 transition-colors duration-200 ease-in-out ",
+            "btn-close absolute top-2 right-2 cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 ease-in-out ",
         scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
