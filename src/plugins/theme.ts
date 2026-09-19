@@ -232,6 +232,8 @@ const tailwindConfig: OrugaConfig = {
             "dialog",
             "modal",
             "absolute",
+            "bg-white",
+            "dark:bg-gray-800",
             "top-[50%]",
             "left-[50%]",
             "-translate-x-1/2",
@@ -254,15 +256,15 @@ const tailwindConfig: OrugaConfig = {
             else if (position === "right")
                 return "[&_.modal-card-body]:text-right";
         },
-        headerClass: "modal-card-head p-4 border-b border-gray-200",
-        titleClass: "modal-card-title text-xl font-bold text-gray-700",
+        headerClass: "modal-card-head p-4 border-b border-gray-200 dark:border-gray-600",
+        titleClass: "modal-card-title text-xl font-bold text-gray-700 dark:text-gray-300",
         closeClass:
             "modal-close is-large absolute top-4 right-4 cursor-pointer",
         closeIconSize: "medium",
-        subtitleClass: "modal-card-subtitle text-sm text-gray-500",
-        bodyClass: "modal-card-body flex-1 overflow-y-auto p-4",
+        subtitleClass: "modal-card-subtitle text-sm text-gray-500 dark:text-gray-400",
+        bodyClass: "modal-card-body flex-1 overflow-y-auto p-4 text-gray-700 dark:text-gray-300",
         figureClass: "image",
-        footerClass: "modal-card-foot flex p-4 border-t border-gray-200",
+        footerClass: "modal-card-foot flex p-4 border-t border-gray-200 dark:border-gray-600",
         footerPositionClass: (position: string) => {
             if (position === "left") return "justify-start";
             if (position === "center") return "justify-center";
