@@ -159,17 +159,17 @@ const tailwindConfig: OrugaConfig = {
         rootClass: "datepicker",
         triggerClass: "datepicker-trigger",
         contentClass:
-            "datepicker-overlay w-[400px] p-4 rounded-lg shadow-xs border border-gray-200",
+            "datepicker-overlay bg:white dark:bg-gray-800 w-[400px] p-4 rounded-lg shadow-xs border border-gray-200 dark:border-gray-600",
         contentBackdropClass:
             "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
 
         headerClass:
-            "datepicker-header flex justify-center pb-4 border-b border-gray-200",
-        footerClass: "datepicker-footer pt-4 border-t border-gray-200",
+            "datepicker-header flex justify-center pb-4 border-b border-gray-200 dark:border-gray-600",
+        footerClass: "datepicker-footer pt-4 border-t border-gray-200 dark:border-gray-600",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
+            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
@@ -180,17 +180,17 @@ const tailwindConfig: OrugaConfig = {
         },
         tableRowClass: "datepicker-row",
         tableCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded relative hover:bg-gray-100 rounded",
+            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         tableCellTodayClass: "is-today bg-blue-100 text-blue-500",
         tableCellSelectedClass: "is-selected bg-blue-700 text-white",
         tableCellWithinHoveredClass:
-            "is-within-hovered bg-gray-100 rounded-none",
+            "is-within-hovered bg-gray-100 dark:bg-gray-600 rounded-none",
         tableCellFirstHoveredClass:
-            "is-first-hovered bg-gray-100 rounded-r-none",
-        tableCellLastHoveredClass: "is-last-hovered bg-gray-100 rounded-l-none",
+            "is-first-hovered bg-gray-100 dark:bg-gray-600 rounded-r-none",
+        tableCellLastHoveredClass: "is-last-hovered bg-gray-100 dark:bg-gray-600 rounded-l-none",
         tableCellFirstSelectedClass: "is-first-selected rounded-r-none",
         tableCellLastSelectedClass: "is-last-selected rounded-l-none",
         tableCellWithinSelectedClass: "is-within-selected rounded-none",
@@ -205,11 +205,11 @@ const tailwindConfig: OrugaConfig = {
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
-        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded",
+        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
         monthCellFirstHoveredClass:
-            "is-first-hovered bg-gray-100 rounded-r-none",
+            "is-first-hovered bg-gray-100 dark:bg-gray-600 rounded-r-none",
         monthCellFirstSelectedClass: "is-first-selected rounded-r-none",
-        monthCellLastHoveredClass: "is-last-hovered bg-gray-100 rounded-l-none",
+        monthCellLastHoveredClass: "is-last-hovered bg-gray-100 dark:bg-gray-600 rounded-l-none",
         monthCellLastSelectedClass: "is-last-selected rounded-l-none",
         monthCellSelectableClass: "is-selectable",
         monthCellSelectedClass: "is-selected bg-blue-700 text-white ",
@@ -217,7 +217,7 @@ const tailwindConfig: OrugaConfig = {
         monthCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
         monthCellWithinHoveredClass:
-            "is-within-hovered bg-gray-100 rounded-none",
+            "is-within-hovered bg-gray-100 dark:bg-gray-600 rounded-none",
         monthCellWithinSelectedClass: "is-within-selected rounded-none",
         monthClass: "datepicker-table",
         monthTableClass: "datepicker-months",
