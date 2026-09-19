@@ -10,3 +10,7 @@
 
 // import theme styles
 @forward "theme";
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
