@@ -616,7 +616,7 @@ const tailwindConfig: OrugaConfig = {
     sidebar: {
         rootClass: "sidebar absolute",
         overlayClass:
-            "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 backdrop-blur-sm",
+            "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 dark:bg-black/80 backdrop-blur-sm",
         contentClass: "sidebar-content shadow-sm bg-white dark:bg-gray-800  text-gray-700 dark:text-gray-300 !w-auto !h-auto z-41",
         activeClass: "is-active",
         positionClass: (_: string, props): string => {
@@ -635,7 +635,7 @@ const tailwindConfig: OrugaConfig = {
     },
     skeleton: {
         rootClass: "skeleton flex",
-        itemClass: "skeleton-item bg-gray-200 rounded w-full h-4",
+        itemClass: "skeleton-item bg-gray-200 dark:bg-gray-600 rounded w-full h-4",
         roundedClass: "rounded-full",
         animatedClass: "animate-pulse",
         sizeClass: (position: string): string => {
