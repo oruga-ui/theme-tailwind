@@ -343,6 +343,7 @@ const tailwindConfig: OrugaConfig = {
                 "inline-block",
                 "relative",
                 "[&_.icon]:text-gray-500",
+                "dark:[&_.icon]:text-gray-400",
             ];
             if (isTrueish(props.icon)) classes.push("has-icons-left");
             return classes.join(" ");
@@ -354,8 +355,12 @@ const tailwindConfig: OrugaConfig = {
                 "shadow-xs",
                 "focus:ring-2",
                 "w-full",
-                "!bg-gray-50",
+                "bg-gray-50",
+                "dark:bg-gray-700",
+                "text-gray-700",
+                "dark:text-gray-300",
                 "border border-gray-200",
+                "dark:border-gray-600",
             ];
 
             if (props.icon) classes.push("icon-left");
