@@ -13,7 +13,7 @@ const tailwindConfig: OrugaConfig = {
                 "relative",
                 "cursor-pointer",
                 "text-gray-500",
-                "dark:text-white",
+                "dark:text-gray-300",
                 "border",
                 "border-gray-200",
                 "rounded-lg",
@@ -50,7 +50,7 @@ const tailwindConfig: OrugaConfig = {
     },
 
     breadcrumb: {
-        rootClass: "breadcrumb-wrapper font-medium dark:text-white text-gray-700",
+        rootClass: "breadcrumb-wrapper font-medium dark:text-gray-300 text-gray-700",
         listClass: "breadcrumb flex",
         variantClass: "is-",
         sizeClass: (size: string): string => {
@@ -139,7 +139,7 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         labelClass:
-            "control-label select-none font-medium text-heading text-gray-700 dark:text-white ml-2 mr-4",
+            "control-label select-none font-medium text-heading text-gray-700 dark:text-gray-300 ml-2 mr-4",
         variantClass: "is-",
         sizeClass: (_: string, props): string => {
             if (props.size == "small")
@@ -169,7 +169,7 @@ const tailwindConfig: OrugaConfig = {
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
         tableHeadCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
+            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-gray-300 hover:dark:text-gray-600",
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
@@ -180,7 +180,7 @@ const tailwindConfig: OrugaConfig = {
         },
         tableRowClass: "datepicker-row",
         tableCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
+            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-gray-300 hover:dark:text-gray-600",
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
@@ -205,7 +205,7 @@ const tailwindConfig: OrugaConfig = {
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
-        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-white hover:dark:text-gray-600",
+        monthCellClass: "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-gray-300 hover:dark:text-gray-600",
         monthCellFirstHoveredClass:
             "is-first-hovered bg-gray-100 dark:bg-gray-600 rounded-r-none",
         monthCellFirstSelectedClass: "is-first-selected rounded-r-none",
@@ -292,7 +292,7 @@ const tailwindConfig: OrugaConfig = {
                 "min-w-48",
                 "p-2",
                 "text-gray-600",
-                'dark:text-white',
+                'dark:text-gray-300',
                 "border border-gray-100",
                 "dark:border-gray-800",
             ];
@@ -396,7 +396,7 @@ const tailwindConfig: OrugaConfig = {
                 "min-w-48",
                 "p-2",
                 "text-gray-600",
-                "dark:text-white",
+                "dark:text-gray-300",
                 "border border-gray-100",
                 "dark:border-gray-800",
                 "overflow-auto",
@@ -727,6 +727,7 @@ const tailwindConfig: OrugaConfig = {
                 "cursor-pointer",
                 "h-auto",
                 "bg-gray-200",
+                "dark:bg-gray-600",
                 "text-inherit",
                 "rounded-md",
                 "[.check]:before:rounded-md",
@@ -745,7 +746,7 @@ const tailwindConfig: OrugaConfig = {
         },
         roundedClass: "[&_.check]:rounded-full [&_.check:before]:rounded-full",
         labelClass:
-            "control-label select-none text-sm font-medium text-heading ml-2 mr-4",
+            "control-label select-none text-sm font-medium text-gray-700 dark:text-gray-300 ml-2 mr-4",
         sizeClass: "is-",
         variantClass: "is-",
         passiveVariantClass: "is-",
