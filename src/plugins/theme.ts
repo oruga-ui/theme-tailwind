@@ -390,12 +390,15 @@ const tailwindConfig: OrugaConfig = {
                 "panel",
                 "z-10",
                 "bg-white",
+                "dark:bg-gray-800",
                 "rounded-lg",
                 "shadow-sm",
                 "min-w-48",
                 "p-2",
                 "text-gray-600",
+                "dark:text-white",
                 "border border-gray-100",
+                "dark:border-gray-800",
                 "overflow-auto",
             ];
             return classes.join(" ");
@@ -403,19 +406,19 @@ const tailwindConfig: OrugaConfig = {
         selectableClass: "selectable",
         multipleClass: "multiple",
         disabledClass: "is-disabled", // @Duplicate element
-        listClass: "panel-list divide-y divide-gray-100 overflow-auto",
+        listClass: "panel-list divide-y divide-gray-100 dark:divide-gray-600 overflow-auto",
         itemClass:
             "list-item panel-block rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
         itemDisabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        itemFocusedClass: "is-focused ",
+        itemFocusedClass: "is-focused dark:text-gray-600",
         itemSelectedClass: "is-active",
-        filterClass: "list-item panel-block px-4 py-2 border-b border-gray-200",
+        filterClass: "list-item panel-block px-4 py-2 border-b border-gray-200 dark:border-gray-600",
         emptyClass: "list-item panel-block is-disabled",
         headerClass:
-            "list-item panel-block px-4 py-2 text-gray-500 border-b border-gray-200",
+            "list-item panel-block px-4 py-2 text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-600",
         footerClass:
-            "list-item panel-block px-4 py-2 text-gray-500 border-t border-gray-200 ",
+            "list-item panel-block px-4 py-2 text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-600 ",
     },
     loading: {
         rootClass: (): string => {
