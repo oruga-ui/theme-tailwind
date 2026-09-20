@@ -4,8 +4,6 @@
 
 .slider {
     .slider-track {
-        // background-color: var(--color-gray-100);
-
         .slider-fill {
             background-color: list.nth(
                 map.get(vars.$theme-colors, "primary"),
@@ -25,8 +23,6 @@
 
         .slider-tick {
             height: inherit;
-            // background-color: var(--color-gray-200);
-
             .slider-tick-label {
                 font-size: var(--text-xs);
             }
