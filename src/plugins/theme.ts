@@ -678,7 +678,7 @@ const tailwindConfig: OrugaConfig = {
             "slider-tick-label absolute top-1/2 left-1/2 pt-2 transform -translate-x-1/2 text-gray-700 dark:text-gray-300",
         tickHiddenClass: "is-tick-hidden",
         tickClass:
-            "slider-tick bg-gray-200 dark:bg-gray-600 absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
+            "slider-tick bg-gray-200 absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
     },
     steps: {
         rootClass: "steps-wrapper",
