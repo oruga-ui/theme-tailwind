@@ -785,7 +785,7 @@ const tailwindConfig: OrugaConfig = {
         hoverableClass: "[&>tbody>tr:hover]:bg-gray-100 dark:[&>tbody>tr:hover]:bg-gray-600",
         emptyClass: "text-center py-8 text-gray-500 dark:text-gray-400",
         footerClass: "footer bg-gray-50 dark:bg-gray-700 py-3 border-t",
-        paginationWrapperClass: "py-3 border-t",
+        paginationWrapperClass: "py-3 text-gray-700 dark:text-gray-300",
         scrollableClass: "overflow-scroll",
         stickyHeaderClass:
             "[&_thead]:sticky-header [&_thead]:sticky [&_thead]:top-0 [&_thead]:z-99",
