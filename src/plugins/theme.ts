@@ -882,10 +882,10 @@ const tailwindConfig: OrugaConfig = {
     timepicker: {
         rootClass: "timepicker w-auto",
         contentClass:
-            "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200",
+            "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-600",
         contentBackdropClass:
             "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
-        bodyClass: "timepicker-body flex justify-center items-center",
+        bodyClass: "timepicker-body flex justify-center items-center text-gray-700 dark:text-gray-300",
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer flex",
         sizeClass: "is-",
