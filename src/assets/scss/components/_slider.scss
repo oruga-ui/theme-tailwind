@@ -4,7 +4,7 @@
 
 .slider {
     .slider-track {
-        background-color: var(--color-gray-100);
+        // background-color: var(--color-gray-100);
 
         .slider-fill {
             background-color: list.nth(
@@ -25,7 +25,7 @@
 
         .slider-tick {
             height: inherit;
-            background-color: var(--color-gray-200);
+            // background-color: var(--color-gray-200);
 
             .slider-tick-label {
                 font-size: var(--text-xs);

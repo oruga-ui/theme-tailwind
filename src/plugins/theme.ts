@@ -655,7 +655,7 @@ const tailwindConfig: OrugaConfig = {
         rootClass: "slider",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        trackClass: "slider-track relative h-2 w-full rounded",
+        trackClass: "slider-track relative bg-gray-100 dark:bg-gray-600 h-2 w-full rounded",
         fillClass: "slider-fill absolute rounded",
         thumbWrapperClass:
             "slider-thumb-wrapper inline-flex flex-col items-center absolute top-1/2 cursor-grab transform -translate-x-1/2 -translate-y-1/2",
@@ -675,10 +675,10 @@ const tailwindConfig: OrugaConfig = {
         thumbClass:
             "slider-thumb bg-white cursor-grab w-5 h-5 border border-gray-200 rounded",
         tickLabelClass:
-            "slider-tick-label absolute top-1/2 left-1/2 pt-2 transform -translate-x-1/2",
+            "slider-tick-label absolute top-1/2 left-1/2 pt-2 transform -translate-x-1/2 text-gray-700 dark:text-gray-300",
         tickHiddenClass: "is-tick-hidden",
         tickClass:
-            "slider-tick absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
+            "slider-tick bg-gray-200 dark:bg-gray-600 absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
     },
     steps: {
         rootClass: "steps-wrapper",
