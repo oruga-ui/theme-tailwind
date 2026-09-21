@@ -911,6 +911,7 @@ const tailwindConfig: OrugaConfig = {
                 "whitespace-nowrap",
                 "font-normal",
                 "bg-black",
+                "dark:bg-gray-700",
                 "text-white",
                 "rounded-sm",
                 "px-3",
@@ -921,6 +922,7 @@ const tailwindConfig: OrugaConfig = {
                 "before:content-['']",
                 "before:pointer-events-none",
                 "before:z-[38]",
+                // "before:dark:border-gray-700",
             ];
             return classes.join(" ");
         },
@@ -933,20 +935,20 @@ const tailwindConfig: OrugaConfig = {
     },
     tree: {
         rootClass: "tree menu",
-        listClass: "menu-list divide-y divide-gray-100 overflow-auto",
+        listClass: "menu-list divide-y divide-gray-100 dark:divide-gray-600 overflow-auto",
         disabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        emptyClass: "is-empty text-gray-500 text-center py-8",
+        emptyClass: "is-empty text-gray-500 dark:text-gray-400 text-center py-8",
         itemClass:
-            "tree-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
+            "tree-item rounded-lg block px-4 py-2 font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer",
         itemLabelClass:
             "menu-item text-left w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1 ",
-        itemIconClass: "tree-icon mr-2 text-gray-500",
-        itemToggleIconClass: "tree-toggle-icon mr-2 text-gray-500",
+        itemIconClass: "tree-icon mr-2 text-gray-500 dark:text-gray-400",
+        itemToggleIconClass: "tree-toggle-icon mr-2 text-gray-500 dark:text-gray-400",
         itemSelectedClass: "is-active bg-blue-500 text-white",
         itemDisabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
-        subtreeClass: "submenu ml-5 pl-1 border-l border-gray-200",
+        subtreeClass: "submenu ml-5 pl-1 border-l border-gray-200 dark:border-gray-600",
     },
     upload: {
         rootClass: (): string => {
