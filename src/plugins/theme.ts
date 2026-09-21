@@ -967,7 +967,7 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         dragzoneClass:
-            "upload-draggable w-full bg-transparent cursor-pointer p-12 border border-gray-500 border-dashed rounded-lg",
+            "upload-draggable w-full bg-transparent cursor-pointer p-12 border border-gray-500 dark:border-gray-100 text-gray-500 dark:text-gray-400 border-dashed rounded-lg",
         variantClass: "is-",
         expandedClass: "w-full",
         disabledClass:
