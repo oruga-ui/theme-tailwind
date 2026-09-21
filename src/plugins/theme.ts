@@ -820,13 +820,13 @@ const tailwindConfig: OrugaConfig = {
         listClass: "tabs flex font-medium flex-wrap",
         typeClass: (type: string): string => {
             if (type == "toggle")
-                return "toggle text-gray-800 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200";
+                return "toggle text-gray-800 dark:text-gray-300 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200 [&_.tab-link]:dark:border-gray-600";
             else if (type == "boxed")
-                return "boxed [&_.tab-link]:rounded-t-lg text-gray-800 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
+                return "boxed [&_.tab-link]:rounded-t-lg text-gray-800 dark:text-gray-300 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200 [&_.tabs]:dark:border-gray-600";
             else if (type == "pills")
-                return "pills [&_.tab-link]:rounded-lg text-gray-800";
+                return "pills [&_.tab-link]:rounded-lg text-gray-800 dark:text-gray-300";
             else
-                return "default text-gray-800 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200";
+                return "default text-gray-800 dark:text-gray-300 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200 [&_.tabs]:dark:border-gray-600";
         },
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
