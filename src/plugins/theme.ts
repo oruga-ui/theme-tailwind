@@ -700,7 +700,7 @@ const tailwindConfig: OrugaConfig = {
                 return "[&_.step-marker]:w-17 [&_.step-marker]:h-17 [&_.step-title]:text-lg";
             return "";
         },
-        stepClass: "step relative flex-1 flex items-center text-gray-700",
+        stepClass: "step relative flex-1 flex items-center text-gray-700 dark:text-gray-300",
         stepVariantClass: "is-",
         stepActiveClass: "is-active",
         stepPreviousClass: "is-previous",
@@ -714,7 +714,7 @@ const tailwindConfig: OrugaConfig = {
         },
         stepClickableClass: "is-clickable cursor-pointer",
         markerClass:
-            "step-marker m-2 flex justify-center items-center w-10 h-10 rounded-4xl",
+            "step-marker m-2 flex justify-center items-center w-10 h-10 rounded-4xl bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 before:content-[''] before:dark:bg-gray-600",
         contentClass: "step-content p-4",
         transitioningClass: "is-transitioning",
         stepPanelClass: "step-item",
