@@ -859,18 +859,21 @@ const tailwindConfig: OrugaConfig = {
         closeClass: "delete is-small ml-2 cursor-pointer",
     },
     taginput: {
-        rootClass: "taginput relative control shadow-xs ",
+        rootClass: "taginput relative control shadow-xs text-gray-700 dark:text-gray-300",
         containerClass: (): string => {
             const classes = [
                 "taginput-container",
                 "focus-within:ring-2",
                 "cursor-text",
                 "bg-gray-50",
+                "dark:bg-gray-700",
                 "border border-gray-200",
-                "rounded",
+                "dark:border-gray-600",
+                "rounded-lg",
                 "flex",
                 "items-center",
                 "justify-start",
+                "flex-wrap",
                 "h-auto",
                 "[&_.input]:focus:outline-none",
                 "[&_.input]:border-none [&_.input]:shadow-none",
