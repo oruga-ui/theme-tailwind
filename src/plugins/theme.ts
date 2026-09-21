@@ -845,7 +845,7 @@ const tailwindConfig: OrugaConfig = {
     },
     tag: {
         rootClass:
-            "tag inline-flex items-center justify-center px-2 py-1 rounded-full text-xs font-bold",
+            "tag bg-gray-100 text-gray-800 inline-flex items-center justify-center px-2 py-1 rounded-full text-xs font-bold",
         variantClass: "is-",
         sizeClass: (size: string): string => {
             if (size == "small") return "!text-xs";
