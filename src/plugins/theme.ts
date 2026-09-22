@@ -461,7 +461,7 @@ const tailwindConfig: OrugaConfig = {
         listClass: "menu-list",
         itemButtonClass:
             "menu-item text-left text-gray-700 dark:text-gray-300 w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1",
-        itemButtonActiveClass: "active",
+        itemButtonActiveClass: "active bg-blue-700 text-white",
         itemButtonDisabledClass:
             "disabled pointer-events-none cursor-not-allowed opacity-50",
         itemSubmenuClass: "submenu ml-5 pl-1 border-l border-gray-200 dark:border-gray-600",
