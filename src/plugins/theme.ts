@@ -24,6 +24,7 @@ const tailwindConfig: OrugaConfig = {
                 "focus:outline-offset-2",
                 "focus:outline-2",
                 "focus:outline-gray-500",
+                // "h-1"
             ];
             return classes.join(" ");
         },
@@ -185,7 +186,7 @@ const tailwindConfig: OrugaConfig = {
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
-        tableCellTodayClass: "is-today bg-blue-100 text-blue-500",
+        tableCellTodayClass: "is-today bg-blue-100 text-blue-500 dark:text-gray-400",
         tableCellSelectedClass: "is-selected bg-blue-700 text-white",
         tableCellWithinHoveredClass:
             "is-within-hovered bg-gray-100 dark:bg-gray-600 rounded-none",
@@ -320,7 +321,7 @@ const tailwindConfig: OrugaConfig = {
         bodyClass: "field-body",
         addonsClass: "has-addons flex justify-start",
         groupedClass:
-            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0 flex-wrap",
+            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0",
         nowrapClass: "flex-nowrap",
         horizontalClass: "is-horizontal flex",
         horizontalLabelClass:
