@@ -24,11 +24,16 @@ const tailwindConfig: OrugaConfig = {
                 "focus:outline-offset-2",
                 "focus:outline-2",
                 "focus:outline-gray-500",
-                // "h-1"
+                "h-11"
             ];
             return classes.join(" ");
         },
-        sizeClass: "is-",
+        sizeClass: (size: string): string => {
+            if (size == "small") return "is-small !h-2";
+            else if (size == "medium") return "is-medium !h-12";
+            else if (size == "large") return "is-large !h-16";
+            return "";
+        },
         variantClass: "is-",
         roundedClass: "!rounded-3xl",
         expandedClass: "w-full",
@@ -365,6 +370,7 @@ const tailwindConfig: OrugaConfig = {
                 "dark:text-gray-300",
                 "border border-gray-200",
                 "dark:border-gray-600",
+                'h-11'
             ];
 
             if (props.icon) classes.push("icon-left");
@@ -372,9 +378,9 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         sizeClass: (_: string, props): string => {
-            if (props.size == "small") return "input-small";
-            else if (props.size == "medium") return "input-medium";
-            else if (props.size == "large") return "input-large";
+            if (props.size == "small") return "input-small [&_.input]:!h-2";
+            else if (props.size == "medium") return "input-medium [&_.input]:!h-12";
+            else if (props.size == "large") return "input-large [&_.input]:!h-16";
             return "input-medium";
         },
         variantClass: "border-",
@@ -596,7 +602,7 @@ const tailwindConfig: OrugaConfig = {
                 "[-webkit-appearance:none]",
                 "[-moz-appearance:none]",
             ];
-            if (isTrueish(props.size)) classes.push(`input-${props.size}`);
+            // if (isTrueish(props.size)) classes.push(`input-${props.size}`);
             if (isTrueish(props.rounded)) classes.push("!rounded-3xl");
             if (isTrueish(props.multiple)) classes.push("is-multiple");
             if (isTrueish(props.disabled))
@@ -604,6 +610,12 @@ const tailwindConfig: OrugaConfig = {
                     "is-disabled pointer-events-none cursor-not-allowed opacity-50",
                 );
             return classes.join(" ");
+        },
+        sizeClass: (_: string, props): string => {
+            if (props.size == "small") return "input-small [&_.select]:!h-2";
+            else if (props.size == "medium") return "input-medium [&_.select]:!h-12";
+            else if (props.size == "large") return "input-large [&_.select]:!h-16";
+            return "input-medium";
         },
         variantClass: "border-",
         expandedClass: "w-full",
