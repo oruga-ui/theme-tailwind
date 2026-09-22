@@ -5,25 +5,3 @@
 /* @docs */
 /* @docs */
 
-.menu {
-    button {
-        &:hover {
-            background-color: list.nth(
-                map.get(vars.$theme-colors, "secondary"),
-                2
-            );
-        }
-    }
-
-    .submenu {
-        .menu-item {
-            &.active {
-                background-color: list.nth(
-                    map.get(vars.$theme-colors, "primary"),
-                    1
-                );
-                color: white;
-            }
-        }
-    }
-}

@@ -10,3 +10,10 @@
 
 // import theme styles
 @forward "theme";
+
+
+
+// @custom-variant dark (&:where(.dark, .dark *));
+html {
+    background: #111821;
+}

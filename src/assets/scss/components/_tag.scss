@@ -6,9 +6,6 @@
 /* @docs */
 
 .tag {
-    background-color: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
-    color: black;
-
     @each $name, $pair in vars.$theme-colors {
         $variant: list.nth($pair, 1);
         $variant-invert: list.nth($pair, 2);
