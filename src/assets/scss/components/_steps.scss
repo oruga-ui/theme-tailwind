@@ -33,6 +33,7 @@
                 );
                 color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
             }
+
             .step-marker:not(:first-child)::before {
                 content: " ";
                 background-color: list.nth(
@@ -40,11 +41,12 @@
                     2
                 );
             }
+
             .step-title {
                 color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
             }
         }
-        
+
         @each $name, $pair in vars.$theme-colors {
             $variant: list.nth($pair, 1);
             $variant-invert: list.nth($pair, 2);
