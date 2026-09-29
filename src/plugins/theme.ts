@@ -923,7 +923,7 @@ const tailwindConfig: OrugaConfig = {
                 "w-auto",
                 "whitespace-nowrap",
                 "font-normal",
-                "bg-black",
+                "bg-gray-700",
                 "dark:bg-gray-700",
                 "text-white",
                 "rounded-sm",
@@ -935,7 +935,6 @@ const tailwindConfig: OrugaConfig = {
                 "before:content-['']",
                 "before:pointer-events-none",
                 "before:z-[38]",
-                // "before:dark:border-gray-700",
             ];
             return classes.join(" ");
         },
