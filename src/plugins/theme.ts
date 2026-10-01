@@ -313,7 +313,15 @@ const tailwindConfig: OrugaConfig = {
     datetimepicker: {
         datepickerWrapperClass: "datepicker-wrapper",
         timepickerWrapperClass:
-            "timepicker-wrapper [&_.dropdown]:w-full [&_.dropdown-menu]:!shadow-sm [&_.dropdown-menu]:!w-full",
+            (): string => {
+            const classes = [
+                "timepicker-wrapper",
+                "[&_.dropdown]:w-full",
+                "[&_.dropdown-menu]:!shadow-sm",
+                "[&_.dropdown-menu]:!w-full",
+            ];
+            return classes.join(" ");
+        },
     },
     dialog: {
         rootClass: [
@@ -394,8 +402,19 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         itemTag: "a",
-        itemClass:
-            "dropdown-item rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 dark:hover:text-gray-600 cursor-pointer",
+        itemClass: (): string => {
+            const classes = [
+                "dropdown-item",
+                "rounded-lg",
+                "block",
+                "py-2",
+                "font-medium",
+                "hover:bg-gray-100",
+                "dark:hover:text-gray-600",
+                "cursor-pointer",
+            ];
+            return classes.join(" ");
+        },
         itemSelectedClass: "is-active text-white",
         itemFocusedClass: "is-focused bg-gray-100",
         itemDisabledClass: "is-disabled opacity-50 cursor-not-allowed",
@@ -411,8 +430,18 @@ const tailwindConfig: OrugaConfig = {
         messageVariantClass: "is-",
         bodyClass: "field-body",
         addonsClass: "has-addons flex justify-start",
-        groupedClass:
-            "is-grouped flex gap-3 justify-start [&_input]:m-0 [&_select]:m-0 [&_button]:m-0",
+        groupedClass: (): string => {
+            const classes = [
+                "is-grouped",
+                "flex",
+                "gap-3",
+                "justify-start",
+                "[&_input]:m-0",
+                "[&_select]:m-0",
+                "[&_button]:m-0",
+            ];
+            return classes.join(" ");
+        },
         nowrapClass: "flex-nowrap",
         horizontalClass: "is-horizontal flex",
         horizontalLabelClass:
@@ -506,19 +535,65 @@ const tailwindConfig: OrugaConfig = {
         disabledClass: "is-disabled",
         listClass:
             "panel-list divide-y divide-gray-100 dark:divide-gray-600 overflow-auto",
-        itemClass:
-            "list-item panel-block rounded-lg block px-4 py-2 font-medium hover:bg-gray-100 cursor-pointer",
+        itemClass: (): string => {
+            const classes = [
+                "list-item",
+                "panel-block",
+                "rounded-lg",
+                "block",
+                "px-4",
+                "py-2",
+                "font-medium",
+                "hover:bg-gray-100",
+                "cursor-pointer"
+            ];
+            return classes.join(" ");
+        },
         itemDisabledClass:
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
         itemFocusedClass: "is-focused dark:text-gray-600",
         itemSelectedClass: "is-active",
-        filterClass:
-            "list-item panel-block px-4 py-2 border-b border-gray-200 dark:border-gray-600",
+        filterClass: (): string => {
+            const classes = [
+                "list-item",
+                "panel-block",
+                "px-4",
+                "py-2",
+                "border-b",
+                "border-gray-200",
+                "dark:border-gray-600"
+            ];
+            return classes.join(" ");
+        },
         emptyClass: "list-item panel-block is-disabled",
-        headerClass:
-            "list-item panel-block px-4 py-2 text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-600",
-        footerClass:
-            "list-item panel-block px-4 py-2 text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-600 ",
+        headerClass: (): string => {
+            const classes = [
+                "list-item",
+                "panel-block",
+                "px-4",
+                "py-2",
+                "text-gray-500",
+                "dark:text-gray-400",
+                "border-b",
+                "border-gray-200",
+                "dark:border-gray-600"
+            ];
+            return classes.join(" ");
+        },
+        footerClass: (): string => {
+            const classes = [
+                "list-item",
+                "panel-block",
+                "px-4",
+                "py-2",
+                "text-gray-500",
+                "dark:text-gray-400",
+                "border-t",
+                "border-gray-200",
+                "dark:border-gray-600"
+            ];
+            return classes.join(" ");
+        },
     },
     loading: {
         rootClass: (): string => {
@@ -540,17 +615,51 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         fullPageClass: "is-full-page fixed",
-        overlayClass:
-            "loading-overlay absolute top-0 right-0 bottom-0 left-0 bg-white/10 dark:bg-gray-800/10 backdrop-blur-sm ",
+        overlayClass: (): string => {
+            const classes = [
+                "loading-overlay",
+                "absolute",
+                "top-0",
+                "right-0",
+                "bottom-0",
+                "left-0",
+                "bg-white/10",
+                "dark:bg-gray-800/10",
+                "backdrop-blur-sm"
+            ];
+            return classes.join(" ");
+        },
         iconClass: "icon",
         scrollClipClass: "is-clipped",
     },
     menu: {
-        rootClass:
-            "menu text-sm font-medium text-heading [&_button]:text-left [&_button]:w-full [&_button]:rounded [&_button]:p-4",
+        rootClass: (): string => {
+            const classes = [
+                "menu",
+                "text-sm",
+                "font-medium",
+                "text-heading",
+                "[&_button]:text-left",
+                "[&_button]:w-full",
+                "[&_button]:rounded",
+                "[&_button]:p-4"
+            ];
+            return classes.join(" ");
+        },
         listClass: "menu-list",
-        itemButtonClass:
-            "menu-item text-left text-gray-700 dark:text-gray-300 w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1",
+        itemButtonClass: (): string => {
+            const classes = [
+                "menu-item",
+                "text-left",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "w-full",
+                "rounded",
+                "[&_.icon]:mr-2",
+                "[&_.icon]:ml-1"
+            ];
+            return classes.join(" ");
+        },
         itemButtonActiveClass: "active bg-blue-700 text-white",
         itemButtonDisabledClass:
             "disabled pointer-events-none cursor-not-allowed opacity-50",
@@ -558,30 +667,100 @@ const tailwindConfig: OrugaConfig = {
             "submenu ml-5 pl-1 border-l border-gray-200 dark:border-gray-600",
     },
     modal: {
-        rootClass:
-            "modal flex flex-col justify-center items-center w-full h-full relative top-0 left-0",
+        rootClass: (): string => {
+            const classes = [
+                "modal",
+                "flex",
+                "flex-col",
+                "justify-center",
+                "items-center",
+                "w-full",
+                "h-full",
+                "relative",
+                "top-0",
+                "left-0"
+            ];
+            return classes.join(" ");
+        },
         activeClass: "is-active",
         overlayClass:
             "modal-background w-full h-full bg-black/80 dark:bg-black/80 backdrop-blur-sm",
-        contentClass:
-            "modal-content bg-white dark:bg-gray-800 w-auto absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm",
+        contentClass: (): string => {
+            const classes = [
+                "modal-content",
+                "bg-white",
+                "dark:bg-gray-800",
+                "w-auto",
+                "absolute",
+                "top-[50%]",
+                "left-[50%]",
+                "-translate-x-1/2",
+                "-translate-y-1/2",
+                "border",
+                "border-gray-200",
+                "dark:border-gray-600",
+                "rounded-lg",
+                "shadow-sm"
+            ];
+            return classes.join(" ");
+        },
         closeClass:
             "modal-close is-large absolute top-4 right-4 cursor-pointer z-50 ",
         fullScreenClass: "is-full-screen",
         scrollClipClass: "is-clipped overflow-auto",
     },
     notification: {
-        rootClass:
-            "notification alert relative flex items-center px-4 py-3 my-3 rounded-lg space-x-2 duration-100 ease-in",
+        rootClass: (): string => {
+            const classes = [
+                "notification",
+                "alert",
+                "relative",
+                "flex",
+                "items-center",
+                "px-4",
+                "py-3",
+                "my-3",
+                "rounded-lg",
+                "space-x-2",
+                "duration-100",
+                "ease-in"
+            ];
+            return classes.join(" ");
+        },
         variantClass: "is-",
-        contentClass:
-            "notifictation-wrapper flex items-center max-w-[95%] text-left [&_.icon]:h-full [&_.icon]:mr-2",
+        contentClass: (): string => {
+            const classes = [
+                "notifictation-wrapper",
+                "flex",
+                "items-center",
+                "max-w-[95%]",
+                "text-left",
+                "[&_icon]:h-full",
+                "[&_icon]:mr-2"
+            ];
+            return classes.join(" ");
+        },
         bodyClass: "notifictation-content",
         positionClass: "position-",
         iconClass: "media mr-3 ",
         closeClass: "close",
-        noticeClass:
-            "notifictations fixed top-0 right-0 bottom-0 left-0 overflow-hidden flex items-center pointer-events-none p-8 z-40",
+        noticeClass: (): string => {
+            const classes = [
+                "notifictations",
+                "fixed",
+                "top-0",
+                "right-0",
+                "bottom-0",
+                "left-0",
+                "overflow-hidden",
+                "flex",
+                "items-center",
+                "pointer-events-none",
+                "p-8",
+                "z-40"
+            ];
+            return classes.join(" ");
+        },
         noticePositionClass: "position-",
     },
     pagination: {
@@ -607,8 +786,22 @@ const tailwindConfig: OrugaConfig = {
                 return "[&_.pagination-list]:justify-center";
             return "[&_.pagination-list]:justify-start";
         },
-        listClass:
-            "pagination-list text-center flex justify-start items-center flex-wrap grow shrink list-none m-0 p-0",
+        listClass: (): string => {
+            const classes = [
+                "pagination-list",
+                "text-center",
+                "flex",
+                "justify-start",
+                "items-center",
+                "flex-wrap",
+                "grow",
+                "shrink",
+                "list-none",
+                "m-0",
+                "p-0"
+            ];
+            return classes.join(" ");
+        },
         mobileClass: "is-mobile flex-wrap",
         buttonClass: "pagination-link mr-2",
         buttonCurrentClass: "is-current pointer-events-none cursor-not-allowed",
@@ -620,8 +813,24 @@ const tailwindConfig: OrugaConfig = {
     },
     popover: {
         rootClass: "popover",
-        contentClass:
-            "popover-content absolute z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm py-4 px-8 w-auto",
+        contentClass: (): string => {
+            const classes = [
+                "popover-content",
+                "absolute",
+                "z-50",
+                "bg-white",
+                "dark:bg-gray-800",
+                "border",
+                "border-gray-200",
+                "dark:border-gray-600",
+                "rounded-lg",
+                "shadow-sm",
+                "py-4",
+                "px-8",
+                "w-auto"
+            ];
+            return classes.join(" ");
+        },
         contentModalClass:
             "popover-modal top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 fixed",
         contentBackdropClass:
@@ -629,8 +838,23 @@ const tailwindConfig: OrugaConfig = {
         headerClass:
             "popover-header font-bold text-gray-700 dark:text-gray-300 mb-2 text-lg",
         bodyClass: "popover-body dark:text-gray-300 text-gray-700",
-        closeClass:
-            "btn-close absolute top-2 right-2 cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 ease-in-out ",
+        closeClass: (): string => {
+            const classes = [
+                "btn-close",
+                "absolute",
+                "top-2",
+                "right-2",
+                "cursor-pointer",
+                "text-gray-500",
+                "dark:text-gray-400",
+                "hover:text-gray-700",
+                "dark:hover:text-gray-300",
+                "transition-colors",
+                "duration-200",
+                "ease-in-out"
+            ];
+            return classes.join(" ");
+        },
         scrollClipClass: "is-clipped overflow-auto",
     },
     radio: {
@@ -654,8 +878,19 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        labelClass:
-            "control-label select-none font-medium text-heading text-gray-700 dark:text-gray-300 ml-2 mr-4",
+        labelClass: (): string => {
+            const classes = [
+                "control-label",
+                "select-none",
+                "font-medium",
+                "text-heading",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "ml-2",
+                "mr-4"
+            ];
+            return classes.join(" ");
+        },
         variantClass: "is-",
         sizeClass: (_: string, props): string => {
             if (props.size == "small")
@@ -722,10 +957,35 @@ const tailwindConfig: OrugaConfig = {
     },
     sidebar: {
         rootClass: "sidebar absolute",
-        overlayClass:
-            "sidebar-background relative top-0 left-0 w-full h-full z-40 bg-black/80 dark:bg-black/80 backdrop-blur-sm",
-        contentClass:
-            "sidebar-content shadow-sm bg-white dark:bg-gray-800  text-gray-700 dark:text-gray-300 !w-auto !h-auto z-41",
+        overlayClass: (): string => {
+            const classes = [
+                "sidebar-background",
+                "relative",
+                "top-0",
+                "left-0",
+                "w-full",
+                "h-full",
+                "z-40",
+                "bg-black/80",
+                "dark:bg-black/80",
+                "backdrop-blur-sm",
+            ];
+            return classes.join(" ");
+        },
+        contentClass: (): string => {
+            const classes = [
+                "sidebar-content",
+                "shadow-sm",
+                "bg-white",
+                "dark:bg-gray-800",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "!w-auto",
+                "!h-auto",
+                "z-41",
+            ];
+            return classes.join(" ");
+        },
         activeClass: "is-active",
         positionClass: (_: string, props): string => {
             if (props.position == "top") return "w-full top-0 right-0 left-0";
@@ -767,8 +1027,21 @@ const tailwindConfig: OrugaConfig = {
         trackClass:
             "slider-track relative bg-gray-100 dark:bg-gray-600 h-2 w-full rounded",
         fillClass: "slider-fill absolute rounded",
-        thumbWrapperClass:
-            "slider-thumb-wrapper inline-flex flex-col items-center absolute top-1/2 cursor-grab transform -translate-x-1/2 -translate-y-1/2",
+        thumbWrapperClass: (): string => {
+            const classes = [
+                "slider-thumb-wrapper",
+                "inline-flex",
+                "flex-col",
+                "items-center",
+                "absolute",
+                "top-1/2",
+                "cursor-grab",
+                "transform",
+                "-translate-x-1/2",
+                "-translate-y-1/2",
+            ];
+            return classes.join(" ");
+        },
         thumbWrapperDraggingClass:
             "is-dragging [&_.slider-thumb]:cursor-grabbing",
         thumbRoundedClass: "rounded-full",
@@ -784,17 +1057,49 @@ const tailwindConfig: OrugaConfig = {
         },
         thumbClass:
             "slider-thumb bg-white cursor-grab w-5 h-5 border border-gray-200 rounded",
-        tickLabelClass:
-            "slider-tick-label absolute top-1/2 left-1/2 pt-2 transform -translate-x-1/2 text-gray-700 dark:text-gray-300",
+        tickLabelClass: (): string => {
+            const classes = [
+                "slider-tick-label",
+                "absolute",
+                "top-1/2",
+                "left-1/2",
+                "pt-2",
+                "transform",
+                "-translate-x-1/2",
+                "text-gray-700",
+                "dark:text-gray-300",
+            ];
+            return classes.join(" ");
+        },
         tickHiddenClass: "is-tick-hidden",
-        tickClass:
-            "slider-tick bg-gray-200 absolute top-0 w-0.5 transform -translate-x-1/2 rounded-full",
+        tickClass: (): string => {
+            const classes = [
+                "slider-tick",
+                "bg-gray-200",
+                "absolute",
+                "top-0",
+                "w-0.5",
+                "transform",
+                "-translate-x-1/2",
+                "rounded-full",
+            ];
+            return classes.join(" ");
+        },
     },
     steps: {
         rootClass: "steps-wrapper",
         listClass: "steps flex flex-wrap font-medium",
-        verticalClass:
-            "is-vertical flex flex-wrap [&_.steps]:flex-col [&_.step-content]:grow [&_.step-navigation]:basis-full",
+        verticalClass: (): string => {
+            const classes = [
+                "is-vertical",
+                "flex",
+                "flex-wrap",
+                "[&_.steps]:flex-col",
+                "[&_.step-content]:grow",
+                "[&_.step-navigation]:basis-full",
+            ];
+            return classes.join(" ");
+        },
         animatedClass: "is-animated",
         positionClass: (position: string): string => {
             if (position == "left") return "is-left";
@@ -824,8 +1129,25 @@ const tailwindConfig: OrugaConfig = {
             return "";
         },
         stepClickableClass: "is-clickable cursor-pointer",
-        markerClass:
-            "step-marker m-2 flex justify-center items-center w-10 h-10 rounded-4xl bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 before:content-[''] before:dark:bg-gray-600",
+        markerClass: (): string => {
+            const classes = [
+                "step-marker",
+                "m-2",
+                "flex",
+                "justify-center",
+                "items-center",
+                "w-10",
+                "h-10",
+                "rounded-4xl",
+                "bg-gray-200",
+                "dark:bg-gray-600",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "before:content-['']",
+                "before:dark:bg-gray-600"
+            ];
+            return classes.join(" ");
+        },
         contentClass: "step-content p-4",
         transitioningClass: "is-transitioning",
         stepPanelClass: "step-item",
@@ -860,8 +1182,19 @@ const tailwindConfig: OrugaConfig = {
             return "";
         },
         roundedClass: "[&_.check]:rounded-full [&_.check:before]:rounded-full",
-        labelClass:
-            "control-label select-none text-sm font-medium text-gray-700 dark:text-gray-300 ml-2 mr-4",
+        labelClass: (): string => {
+            const classes = [
+                "control-label",
+                "select-none",
+                "text-sm",
+                "font-medium",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "ml-2",
+                "mr-4"
+            ];
+            return classes.join(" ");
+        },
         sizeClass: "is-",
         variantClass: "is-",
         passiveVariantClass: "is-",
@@ -934,13 +1267,38 @@ const tailwindConfig: OrugaConfig = {
         listClass: "tabs flex font-medium flex-wrap",
         typeClass: (type: string): string => {
             if (type == "toggle")
-                return "toggle text-gray-800 dark:text-gray-300 [&_.tab-link]:border-default [&_.tab-link]:border [&_.tab-link]:border-gray-200 [&_.tab-link]:dark:border-gray-600";
+                return [
+                    "toggle",
+                    "text-gray-800",
+                    "dark:text-gray-300",
+                    "[&_tab-link]:border-default",
+                    "[&_tab-link]:border",
+                    "[&_tab-link]:border-gray-200",
+                    "[&_tab-link]:dark:border-gray-600"
+                ].join(" ");
             else if (type == "boxed")
-                return "boxed [&_.tab-link]:rounded-t-lg text-gray-800 dark:text-gray-300 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200 [&_.tabs]:dark:border-gray-600";
+                return [
+                    "boxed",
+                    "[&_.tab-link]:rounded-t-lg",
+                    "text-gray-800",
+                    "dark:text-gray-300",
+                    "[&_tabs]:border-default",
+                    "[&_tabs]:border-b",
+                    "[&_tabs]:border-gray-200",
+                    "[&_tabs]:dark:border-gray-600"
+                ].join(" ");
             else if (type == "pills")
                 return "pills [&_.tab-link]:rounded-lg text-gray-800 dark:text-gray-300";
             else
-                return "default text-gray-800 dark:text-gray-300 [&_.tabs]:border-default [&_.tabs]:border-b [&_.tabs]:border-gray-200 [&_.tabs]:dark:border-gray-600";
+                return [
+                    "default",
+                    "text-gray-800",
+                    "dark:text-gray-300",
+                    "[&_tabs]:border-default",
+                    "[&_tabs]:border-b",
+                    "[&_tabs]:border-gray-200",
+                    "[&_tabs]:dark:border-gray-600"
+                ].join(" ");
         },
         sizeClass: (size: string): string => {
             if (size == "small") return "text-sm";
@@ -958,8 +1316,22 @@ const tailwindConfig: OrugaConfig = {
         transitioningClass: "is-transitioning",
     },
     tag: {
-        rootClass:
-            "tag bg-gray-100 text-gray-800 inline-flex items-center justify-center px-2 py-1 rounded-full text-xs font-bold",
+        rootClass: (): string => {
+            const classes = [
+                "tag",
+                "bg-gray-100",
+                "text-gray-800",
+                "inline-flex",
+                "items-center",
+                "justify-center",
+                "px-2",
+                "py-1",
+                "rounded-full",
+                "text-xs",
+                "font-bold"
+            ];
+            return classes.join(" ");
+        },
         variantClass: "is-",
         sizeClass: (size: string): string => {
             if (size == "small") return "!text-xs";
@@ -996,14 +1368,37 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        itemClass: "tag m-1 px-1 rounded bg-gray-100 inline-flex",
+        itemClass: (): string => {
+            const classes = [
+                "tag",
+                "m-1",
+                "px-1",
+                "rounded",
+                "bg-gray-100",
+                "inline-flex"
+            ];
+            return classes.join(" ");
+        },
         variantClass: "is-",
         expandedClass: "w-full",
     },
     timepicker: {
         rootClass: "timepicker w-auto",
-        contentClass:
-            "timepicker-overlay w-auto p-4 rounded-lg shadow-xs border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-600",
+        contentClass: (): string => {
+            const classes = [
+                "timepicker-overlay",
+                "w-auto",
+                "p-4",
+                "rounded-lg",
+                "shadow-xs",
+                "border",
+                "border-gray-200",
+                "bg-white",
+                "dark:bg-gray-800",
+                "dark:border-gray-600"
+            ];
+            return classes.join(" ");
+        },
         contentBackdropClass:
             "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
         bodyClass:
@@ -1056,8 +1451,22 @@ const tailwindConfig: OrugaConfig = {
             "is-disabled pointer-events-none cursor-not-allowed opacity-50",
         emptyClass:
             "is-empty text-gray-500 dark:text-gray-400 text-center py-8",
-        itemClass:
-            "tree-item rounded-lg block px-4 py-2 font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer",
+        itemClass: (): string => {
+            const classes = [
+                "tree-item",
+                "rounded-lg",
+                "block",
+                "px-4",
+                "py-2",
+                "font-medium",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "hover:bg-gray-100",
+                "dark:hover:bg-gray-600",
+                "cursor-pointer"
+            ];
+            return classes.join(" ");
+        },
         itemLabelClass:
             "menu-item text-left w-full rounded [&_.icon]:mr-2 [&_.icon]:ml-1 ",
         itemIconClass: "tree-icon mr-2 text-gray-500 dark:text-gray-400",
@@ -1085,8 +1494,23 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        dragzoneClass:
-            "upload-draggable w-full bg-transparent cursor-pointer p-12 border border-gray-500 dark:border-gray-100 text-gray-500 dark:text-gray-400 border-dashed rounded-lg",
+        dragzoneClass: (): string => {
+            const classes = [
+                "upload-draggable",
+                "w-full",
+                "bg-transparent",
+                "cursor-pointer",
+                "p-12",
+                "border",
+                "border-gray-500",
+                "dark:border-gray-100",
+                "text-gray-500",
+                "dark:text-gray-400",
+                "border-dashed",
+                "rounded-lg"
+            ];
+            return classes.join(" ");
+        },
         variantClass: "is-",
         expandedClass: "w-full",
         disabledClass:
