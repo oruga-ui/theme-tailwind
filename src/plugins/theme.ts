@@ -112,8 +112,20 @@ const tailwindConfig: OrugaConfig = {
             if (props.indicatorPosition == "top") return "top-0";
             return "bottom-0";
         },
-        indicatorItemClass:
-            "indicator-style block outline-none transition duration-200 ease-in-out border border-white hover:bg-white",
+        indicatorItemClass:(): string => {
+            const classes = [
+                "indicator-style",
+                "block",
+                "outline-none",
+                "transition",
+                "duration-200",
+                "ease-in-out",
+                "border",
+                "border-white",
+                "hover:bg-white",
+            ];
+            return classes.join(" ");
+        },
         indicatorItemActiveClass: "is-active bg-white",
         indicatorItemStyleClass: "is-",
         itemClass:
@@ -146,8 +158,19 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        labelClass:
-            "control-label select-none font-medium text-heading text-gray-700 dark:text-gray-300 ml-2 mr-4",
+        labelClass:(): string => {
+            const classes = [
+                "control-label",
+                "select-none",
+                "font-medium",
+                "text-heading",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "ml-2",
+                "mr-4",
+            ];
+            return classes.join(" ");
+        },
         variantClass: "is-",
         sizeClass: (_: string, props): string => {
             if (props.size == "small")
@@ -167,7 +190,20 @@ const tailwindConfig: OrugaConfig = {
         rootClass: "datepicker",
         triggerClass: "datepicker-trigger",
         contentClass:
-            "datepicker-overlay bg:white dark:bg-gray-800 w-[400px] p-4 rounded-lg shadow-xs border border-gray-200 dark:border-gray-600",
+        (): string => {
+            const classes = [
+                "datepicker-overlay",
+                "dark:bg-gray-800",
+                "w-[400px]",
+                "p-4",
+                "rounded-lg",
+                "shadow-xs",
+                "border",
+                "border-gray-200",
+                "dark:border-gray-600",
+            ];
+            return classes.join(" ");
+        },
         contentBackdropClass:
             "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
 
