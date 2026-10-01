@@ -206,15 +206,34 @@ const tailwindConfig: OrugaConfig = {
         },
         contentBackdropClass:
             "has-backdrop backdrop:bg-black/80 backdrop:backdrop-blur-sm",
-
-        headerClass:
-            "datepicker-header flex justify-center pb-4 border-b border-gray-200 dark:border-gray-600",
+        headerClass: (): string => {
+            const classes = [
+                "datepicker-header",
+                "flex",
+                "justify-center",
+                "pb-4",
+                "border-b",
+                "border-gray-200",
+                "dark:border-gray-600",
+            ];
+            return classes.join(" ");
+        },
         footerClass:
             "datepicker-footer pt-4 border-t border-gray-200 dark:border-gray-600",
         tableClass: "datepicker-table py-4",
         tableHeadClass: "datepicker-header",
-        tableHeadCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-gray-300 hover:dark:text-gray-600",
+        tableHeadCellClass: (): string => {
+            const classes = [
+                "datepicker-cell",
+                "relative",
+                "hover:bg-gray-100",
+                "rounded",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "hover:dark:text-gray-600",
+            ];
+            return classes.join(" ");
+        },
         prevButtonClass: "pagination-previous",
         nextButtonClass: "pagination-next",
         listsClass: "pagination-list flex [&_.select-component]:mr-2",
@@ -224,8 +243,18 @@ const tailwindConfig: OrugaConfig = {
             return classes.join(" ");
         },
         tableRowClass: "datepicker-row",
-        tableCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-gray-300 hover:dark:text-gray-600",
+        tableCellClass: (): string => {
+            const classes = [
+                "datepicker-cell",
+                "relative",
+                "hover:bg-gray-100",
+                "rounded",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "hover:dark:text-gray-600",
+            ];
+            return classes.join(" ");
+        },
         tableCellSelectableClass: "is-selectable",
         tableCellUnselectableClass:
             "is-unselectable opacity-50 cursor-not-allowed",
@@ -252,8 +281,18 @@ const tailwindConfig: OrugaConfig = {
         tableEventsClass:
             "events absolute buttom-0.5 left-0 flex justify-center w-full",
         tableEventClass: "event",
-        monthCellClass:
-            "datepicker-cell relative hover:bg-gray-100 rounded text-gray-700 dark:text-gray-300 hover:dark:text-gray-600",
+        monthCellClass: (): string => {
+            const classes = [
+                "datepicker-cell",
+                "relative",
+                "hover:bg-gray-100",
+                "rounded",
+                "text-gray-700",
+                "dark:text-gray-300",
+                "hover:dark:text-gray-600",
+            ];
+            return classes.join(" ");
+        },
         monthCellFirstHoveredClass:
             "is-first-hovered bg-gray-100 dark:bg-gray-600 rounded-r-none",
         monthCellFirstSelectedClass: "is-first-selected rounded-r-none",
