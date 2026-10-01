@@ -112,7 +112,7 @@ const tailwindConfig: OrugaConfig = {
             if (props.indicatorPosition == "top") return "top-0";
             return "bottom-0";
         },
-        indicatorItemClass:(): string => {
+        indicatorItemClass: (): string => {
             const classes = [
                 "indicator-style",
                 "block",
@@ -158,7 +158,7 @@ const tailwindConfig: OrugaConfig = {
             ];
             return classes.join(" ");
         },
-        labelClass:(): string => {
+        labelClass: (): string => {
             const classes = [
                 "control-label",
                 "select-none",
@@ -189,8 +189,7 @@ const tailwindConfig: OrugaConfig = {
     datepicker: {
         rootClass: "datepicker",
         triggerClass: "datepicker-trigger",
-        contentClass:
-        (): string => {
+        contentClass: (): string => {
             const classes = [
                 "datepicker-overlay",
                 "dark:bg-gray-800",
@@ -312,8 +311,7 @@ const tailwindConfig: OrugaConfig = {
     },
     datetimepicker: {
         datepickerWrapperClass: "datepicker-wrapper",
-        timepickerWrapperClass:
-            (): string => {
+        timepickerWrapperClass: (): string => {
             const classes = [
                 "timepicker-wrapper",
                 "[&_.dropdown]:w-full",
@@ -407,6 +405,7 @@ const tailwindConfig: OrugaConfig = {
                 "dropdown-item",
                 "rounded-lg",
                 "block",
+                "px-4",
                 "py-2",
                 "font-medium",
                 "hover:bg-gray-100",
@@ -545,7 +544,7 @@ const tailwindConfig: OrugaConfig = {
                 "py-2",
                 "font-medium",
                 "hover:bg-gray-100",
-                "cursor-pointer"
+                "cursor-pointer",
             ];
             return classes.join(" ");
         },
@@ -561,7 +560,7 @@ const tailwindConfig: OrugaConfig = {
                 "py-2",
                 "border-b",
                 "border-gray-200",
-                "dark:border-gray-600"
+                "dark:border-gray-600",
             ];
             return classes.join(" ");
         },
@@ -576,7 +575,7 @@ const tailwindConfig: OrugaConfig = {
                 "dark:text-gray-400",
                 "border-b",
                 "border-gray-200",
-                "dark:border-gray-600"
+                "dark:border-gray-600",
             ];
             return classes.join(" ");
         },
@@ -590,7 +589,7 @@ const tailwindConfig: OrugaConfig = {
                 "dark:text-gray-400",
                 "border-t",
                 "border-gray-200",
-                "dark:border-gray-600"
+                "dark:border-gray-600",
             ];
             return classes.join(" ");
         },
@@ -625,7 +624,7 @@ const tailwindConfig: OrugaConfig = {
                 "left-0",
                 "bg-white/10",
                 "dark:bg-gray-800/10",
-                "backdrop-blur-sm"
+                "backdrop-blur-sm",
             ];
             return classes.join(" ");
         },
@@ -642,7 +641,7 @@ const tailwindConfig: OrugaConfig = {
                 "[&_button]:text-left",
                 "[&_button]:w-full",
                 "[&_button]:rounded",
-                "[&_button]:p-4"
+                "[&_button]:p-4",
             ];
             return classes.join(" ");
         },
@@ -656,7 +655,7 @@ const tailwindConfig: OrugaConfig = {
                 "w-full",
                 "rounded",
                 "[&_.icon]:mr-2",
-                "[&_.icon]:ml-1"
+                "[&_.icon]:ml-1",
             ];
             return classes.join(" ");
         },
@@ -678,7 +677,7 @@ const tailwindConfig: OrugaConfig = {
                 "h-full",
                 "relative",
                 "top-0",
-                "left-0"
+                "left-0",
             ];
             return classes.join(" ");
         },
@@ -700,7 +699,7 @@ const tailwindConfig: OrugaConfig = {
                 "border-gray-200",
                 "dark:border-gray-600",
                 "rounded-lg",
-                "shadow-sm"
+                "shadow-sm",
             ];
             return classes.join(" ");
         },
@@ -723,7 +722,7 @@ const tailwindConfig: OrugaConfig = {
                 "rounded-lg",
                 "space-x-2",
                 "duration-100",
-                "ease-in"
+                "ease-in",
             ];
             return classes.join(" ");
         },
@@ -736,7 +735,7 @@ const tailwindConfig: OrugaConfig = {
                 "max-w-[95%]",
                 "text-left",
                 "[&_icon]:h-full",
-                "[&_icon]:mr-2"
+                "[&_icon]:mr-2",
             ];
             return classes.join(" ");
         },
@@ -757,7 +756,7 @@ const tailwindConfig: OrugaConfig = {
                 "items-center",
                 "pointer-events-none",
                 "p-8",
-                "z-40"
+                "z-40",
             ];
             return classes.join(" ");
         },
@@ -798,7 +797,7 @@ const tailwindConfig: OrugaConfig = {
                 "shrink",
                 "list-none",
                 "m-0",
-                "p-0"
+                "p-0",
             ];
             return classes.join(" ");
         },
@@ -827,7 +826,7 @@ const tailwindConfig: OrugaConfig = {
                 "shadow-sm",
                 "py-4",
                 "px-8",
-                "w-auto"
+                "w-auto",
             ];
             return classes.join(" ");
         },
@@ -851,7 +850,7 @@ const tailwindConfig: OrugaConfig = {
                 "dark:hover:text-gray-300",
                 "transition-colors",
                 "duration-200",
-                "ease-in-out"
+                "ease-in-out",
             ];
             return classes.join(" ");
         },
@@ -887,7 +886,7 @@ const tailwindConfig: OrugaConfig = {
                 "text-gray-700",
                 "dark:text-gray-300",
                 "ml-2",
-                "mr-4"
+                "mr-4",
             ];
             return classes.join(" ");
         },
@@ -1144,7 +1143,7 @@ const tailwindConfig: OrugaConfig = {
                 "text-gray-700",
                 "dark:text-gray-300",
                 "before:content-['']",
-                "before:dark:bg-gray-600"
+                "before:dark:bg-gray-600",
             ];
             return classes.join(" ");
         },
@@ -1191,7 +1190,7 @@ const tailwindConfig: OrugaConfig = {
                 "text-gray-700",
                 "dark:text-gray-300",
                 "ml-2",
-                "mr-4"
+                "mr-4",
             ];
             return classes.join(" ");
         },
@@ -1274,7 +1273,7 @@ const tailwindConfig: OrugaConfig = {
                     "[&_tab-link]:border-default",
                     "[&_tab-link]:border",
                     "[&_tab-link]:border-gray-200",
-                    "[&_tab-link]:dark:border-gray-600"
+                    "[&_tab-link]:dark:border-gray-600",
                 ].join(" ");
             else if (type == "boxed")
                 return [
@@ -1285,7 +1284,7 @@ const tailwindConfig: OrugaConfig = {
                     "[&_tabs]:border-default",
                     "[&_tabs]:border-b",
                     "[&_tabs]:border-gray-200",
-                    "[&_tabs]:dark:border-gray-600"
+                    "[&_tabs]:dark:border-gray-600",
                 ].join(" ");
             else if (type == "pills")
                 return "pills [&_.tab-link]:rounded-lg text-gray-800 dark:text-gray-300";
@@ -1297,7 +1296,7 @@ const tailwindConfig: OrugaConfig = {
                     "[&_tabs]:border-default",
                     "[&_tabs]:border-b",
                     "[&_tabs]:border-gray-200",
-                    "[&_tabs]:dark:border-gray-600"
+                    "[&_tabs]:dark:border-gray-600",
                 ].join(" ");
         },
         sizeClass: (size: string): string => {
@@ -1328,7 +1327,7 @@ const tailwindConfig: OrugaConfig = {
                 "py-1",
                 "rounded-full",
                 "text-xs",
-                "font-bold"
+                "font-bold",
             ];
             return classes.join(" ");
         },
@@ -1375,7 +1374,7 @@ const tailwindConfig: OrugaConfig = {
                 "px-1",
                 "rounded",
                 "bg-gray-100",
-                "inline-flex"
+                "inline-flex",
             ];
             return classes.join(" ");
         },
@@ -1395,7 +1394,7 @@ const tailwindConfig: OrugaConfig = {
                 "border-gray-200",
                 "bg-white",
                 "dark:bg-gray-800",
-                "dark:border-gray-600"
+                "dark:border-gray-600",
             ];
             return classes.join(" ");
         },
@@ -1463,7 +1462,7 @@ const tailwindConfig: OrugaConfig = {
                 "dark:text-gray-300",
                 "hover:bg-gray-100",
                 "dark:hover:bg-gray-600",
-                "cursor-pointer"
+                "cursor-pointer",
             ];
             return classes.join(" ");
         },
@@ -1507,7 +1506,7 @@ const tailwindConfig: OrugaConfig = {
                 "text-gray-500",
                 "dark:text-gray-400",
                 "border-dashed",
-                "rounded-lg"
+                "rounded-lg",
             ];
             return classes.join(" ");
         },
