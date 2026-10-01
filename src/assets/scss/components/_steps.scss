@@ -12,13 +12,6 @@
     }
 
     .steps {
-        .step-marker {
-            background-color: list.nth(
-                map.get(vars.$theme-colors, "secondary"),
-                2
-            );
-        }
-
         .step-marker:not(:first-child)::before {
             content: " ";
             display: block;
@@ -29,7 +22,6 @@
             left: -50%;
             bottom: 0;
             z-index: -1;
-            background: list.nth(map.get(vars.$theme-colors, "secondary"), 2);
         }
 
         .is-previous,
@@ -40,6 +32,14 @@
                     2
                 );
                 color: list.nth(map.get(vars.$theme-colors, "primary"), 1);
+            }
+
+            .step-marker:not(:first-child)::before {
+                content: " ";
+                background-color: list.nth(
+                    map.get(vars.$theme-colors, "primary"),
+                    2
+                );
             }
 
             .step-title {
