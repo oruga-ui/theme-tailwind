@@ -428,7 +428,7 @@ const tailwindConfig: OrugaConfig = {
         },
         selectableClass: "selectable",
         multipleClass: "multiple",
-        disabledClass: "is-disabled", // @Duplicate element
+        disabledClass: "is-disabled",
         listClass:
             "panel-list divide-y divide-gray-100 dark:divide-gray-600 overflow-auto",
         itemClass:
@@ -807,8 +807,6 @@ const tailwindConfig: OrugaConfig = {
                 "[&_tr]:border-t",
                 "[&_tr]:border-gray-200",
                 "[&_tr]:dark:border-gray-600",
-                // "[&_td]:bg-white dark:[&_td]:bg-gray-800",
-                // "[&_td]:text-gray-700 dark:[&_td]:text-gray-300",
                 "[&_td]:px-3",
                 "[&_td]:py-2",
                 "[&_th]:px-3",
