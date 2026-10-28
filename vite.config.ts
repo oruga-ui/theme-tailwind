@@ -6,6 +6,10 @@ import { viteStaticCopy as copy } from "vite-plugin-static-copy";
 import tailwind from "@tailwindcss/vite";
 import tailwindPostcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
+import postcss, {
+    type Rule as PostCssRule,
+    type Plugin as PostCssPlugin,
+} from "postcss";
 
 import { fileURLToPath } from "url";
 import { resolve } from "path";
@@ -87,9 +91,67 @@ export default defineConfig(({ mode }) => {
             },
             css: {
                 postcss: {
-                    plugins: [tailwindPostcss(), autoprefixer()],
+                    plugins: [
+                        tailwindPostcss(),
+                        autoprefixer(),
+                        postcssShadowDomFixer(),
+                    ],
                 },
             },
         };
     }
 });
+
+// Custom PostCSS plugin for Web Components & Tailwind
+const postcssShadowDomFixer = (): PostCssPlugin => {
+    return {
+        postcssPlugin: "postcss-shadow-dom-fixer",
+        // 1. Copy the universal defaults onto :is(:host, :root), without the @supports gate
+        Once(root): void {
+            const prefix = ":is(:host, :root) ";
+
+            root.walkAtRules("layer", (layer) => {
+                if (layer.params.trim() !== "properties") return;
+
+                // Skip if the copy was already added
+                let alreadyAdded = false;
+                layer.walkRules((rule) => {
+                    if (rule.selector.startsWith(prefix)) alreadyAdded = true;
+                });
+                if (alreadyAdded) return;
+
+                // Collect first, then append, so the walk doesn't visit the new rules
+                const copies: PostCssRule[] = [];
+                layer.walkRules((rule) => {
+                    if (!rule.selectors.includes("*")) return;
+
+                    const copy = postcss.rule({
+                        selector: rule.selectors
+                            .map((s) => `${prefix}${s}`)
+                            .join(", "),
+                    });
+                    rule.each((node) => {
+                        copy.append(node.clone());
+                    });
+                    copies.push(copy);
+                });
+
+                copies.forEach((copy) => layer.append(copy));
+            });
+        },
+
+        // 2. Extend :root selectors to :root, :host (skip rules already handled)
+        Rule(rule): void {
+            if (
+                rule.selector &&
+                rule.selector.includes(":root") &&
+                !rule.selector.includes(":host")
+            ) {
+                rule.selector = rule.selector.replace(/:root/g, ":root, :host");
+            }
+        },
+    };
+};
+
+// Marks the function as a PostCSS plugin creator
+postcssShadowDomFixer.postcss = true as const;
