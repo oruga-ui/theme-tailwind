@@ -1111,7 +1111,7 @@ const tailwindConfig: OrugaConfig = {
             else if (size == "medium")
                 return "[&_.step-marker]:w-12 [&_.step-marker]:h-12 [&_.step-title]:text-base";
             else if (size == "large")
-                return "[&_.step-marker]:w-17 [&_.step-marker]:h-17 [&_.step-title]:text-lg";
+                return "[&_.step-marker]:w-15 [&_.step-marker]:h-15 [&_.step-title]:text-lg";
             return "";
         },
         stepClass:
