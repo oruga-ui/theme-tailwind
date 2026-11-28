@@ -1404,7 +1404,7 @@ const tailwindConfig: OrugaConfig = {
         bodyClass:
             "timepicker-body flex justify-center items-center text-gray-700 dark:text-gray-300",
         separatorClass: "is-colon control",
-        footerClass: "timepicker-footer flex ",
+        footerClass: "timepicker-footer flex",
         sizeClass: "is-",
         selectAttrs: {
             rootClass:
