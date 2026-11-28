@@ -411,7 +411,7 @@ const tailwindConfig: OrugaConfig = {
                 "hover:bg-gray-100",
                 "dark:hover:text-gray-600",
                 "cursor-pointer",
-                "flex items-center"
+                "flex items-center",
             ];
             return classes.join(" ");
         },
