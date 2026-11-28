@@ -411,6 +411,7 @@ const tailwindConfig: OrugaConfig = {
                 "hover:bg-gray-100",
                 "dark:hover:text-gray-600",
                 "cursor-pointer",
+                "flex items-center"
             ];
             return classes.join(" ");
         },
@@ -448,7 +449,7 @@ const tailwindConfig: OrugaConfig = {
         horizontalBodyClass: "field-body basis-0 flex-grow-5",
     },
     icon: {
-        rootClass: "icon inline-flex justify-center items-center",
+        rootClass: "icon inline-flex justify-center items-center px-1",
         variantClass: "text-",
         sizeClass: (position: string): string => {
             if (position == "small") return "text-sm";
