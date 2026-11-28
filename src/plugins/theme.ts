@@ -1395,8 +1395,7 @@ const tailwindConfig: OrugaConfig = {
                 "bg-white",
                 "dark:bg-gray-800",
                 "dark:border-gray-600",
-                'text-2xl'
-                // "flex"
+                "text-2xl",
             ];
             return classes.join(" ");
         },
